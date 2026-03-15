@@ -110,6 +110,11 @@
             .services__grid, .projects__grid { grid-template-columns:1fr; }
             .hero h1 { font-size:2rem; }
             .nav__links { display:none; }
+            .hero__btns { justify-content:center; }
+        }
+        @media(max-width:480px) {
+            .hero__btns { flex-direction: column; width: 100%; }
+            .hero__btns .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
