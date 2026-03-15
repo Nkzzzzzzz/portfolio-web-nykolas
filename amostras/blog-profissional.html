@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechInsight — Blog Profissional | Amostra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',sans-serif; color:#333; line-height:1.7; overflow-x:hidden; background:#ffffff; }
+        a { text-decoration:none; color:inherit; }
+        ul { list-style:none; }
+        img { max-width:100%; display:block; }
+        .container { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+
+        .back-banner { background:#111; color:#fff; text-align:center; padding:.6rem; font-size:.85rem; position:sticky; top:0; z-index:9999; }
+        .back-banner a { color:#818cf8; font-weight:600; text-decoration:underline; }
+
+        :root {
+            --ink: #1e1b4b;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-bg: #eef2ff;
+            --bg: #ffffff;
+            --gray: #f8fafc;
+        }
+
+        /* NAV */
+        .nav-bar { background:#fff; border-bottom:1px solid #eee; }
+        .nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+        .nav__logo { font-size:1.3rem; font-weight:800; color:var(--ink); }
+        .nav__logo span { color:var(--accent); }
+        .nav__links { display:flex; gap:1.5rem; align-items:center; }
+        .nav__links a { font-size:.9rem; font-weight:500; color:#666; transition:color .2s; }
+        .nav__links a:hover { color:var(--accent); }
+        .nav-cta { background:var(--accent); color:#fff !important; padding:.5rem 1.2rem; border-radius:8px; }
+        .nav-cta:hover { background:#4f46e5; }
+
+        /* HERO */
+        .hero { padding:5rem 0 4rem; background:linear-gradient(180deg, var(--accent-bg) 0%, #fff 100%); }
+        .hero__grid { display:grid; grid-template-columns:1.2fr 1fr; gap:3rem; align-items:center; }
+        .hero__tag { display:inline-block; background:var(--accent); color:#fff; font-size:.7rem; font-weight:700; padding:.3rem .8rem; border-radius:16px; text-transform:uppercase; letter-spacing:.5px; margin-bottom:1rem; }
+        .hero h1 { font-size:2.75rem; font-weight:900; line-height:1.15; color:var(--ink); margin-bottom:1rem; }
+        .hero h1 span { color:var(--accent); }
+        .hero p { font-size:1.1rem; color:#666; margin-bottom:2rem; }
+        .hero__search { display:flex; gap:.5rem; max-width:450px; }
+        .hero__search input { flex:1; padding:.8rem 1rem; border:2px solid #e2e8f0; border-radius:8px; font-size:.95rem; outline:none; transition:border .2s; }
+        .hero__search input:focus { border-color:var(--accent); }
+        .hero__search button { padding:.8rem 1.5rem; background:var(--accent); color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer; transition:background .2s; }
+        .hero__search button:hover { background:#4f46e5; }
+        .hero__featured { border-radius:16px; overflow:hidden; box-shadow:0 15px 50px rgba(0,0,0,.1); }
+        .hero__featured img { width:100%; height:350px; object-fit:cover; }
+
+        /* CATEGORIES */
+        .categories { padding:3rem 0; background:#fff; }
+        .categories__list { display:flex; justify-content:center; gap:.75rem; flex-wrap:wrap; }
+        .cat-tag { padding:.5rem 1.25rem; border-radius:20px; font-size:.85rem; font-weight:500; border:1px solid #e2e8f0; color:#555; transition:all .2s; cursor:pointer; }
+        .cat-tag:hover, .cat-tag--active { background:var(--accent); color:#fff; border-color:var(--accent); }
+
+        /* ARTICLES */
+        .articles { padding:4rem 0; background:var(--gray); }
+        .section-title { font-size:2rem; font-weight:800; color:var(--ink); margin-bottom:.5rem; }
+        .section-sub { color:#888; margin-bottom:2.5rem; }
+        .articles__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .article-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.04); transition:all .3s; border:1px solid transparent; }
+        .article-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,.08); border-color:var(--accent-light); }
+        .article-card img { width:100%; height:200px; object-fit:cover; }
+        .article-card__body { padding:1.25rem 1.5rem; }
+        .article-card__cat { display:inline-block; padding:.2rem .6rem; border-radius:12px; background:var(--accent-bg); color:var(--accent); font-size:.7rem; font-weight:600; margin-bottom:.5rem; text-transform:uppercase; }
+        .article-card__title { font-size:1.05rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; line-height:1.4; }
+        .article-card__excerpt { font-size:.85rem; color:#888; margin-bottom:.75rem; }
+        .article-card__meta { display:flex; justify-content:space-between; font-size:.75rem; color:#aaa; }
+
+        /* NEWSLETTER */
+        .newsletter { padding:5rem 0; background:linear-gradient(135deg, var(--ink) 0%, #312e81 100%); color:#fff; text-align:center; }
+        .newsletter h2 { font-size:2.25rem; font-weight:800; margin-bottom:.75rem; }
+        .newsletter p { font-size:1.05rem; color:rgba(255,255,255,.7); max-width:500px; margin:0 auto 2rem; }
+        .newsletter__form { display:flex; gap:.5rem; max-width:450px; margin:0 auto; }
+        .newsletter__form input { flex:1; padding:.85rem 1rem; border:none; border-radius:8px; font-size:.95rem; outline:none; }
+        .newsletter__form button { padding:.85rem 1.5rem; background:var(--accent); color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer; transition:background .2s; white-space:nowrap; }
+        .newsletter__form button:hover { background:#4f46e5; }
+        .newsletter__note { font-size:.8rem; color:rgba(255,255,255,.5); margin-top:1rem; }
+
+        /* POPULAR SIDEBAR SECTION */
+        .popular { padding:4rem 0; background:#fff; }
+        .popular__grid { display:grid; grid-template-columns:2fr 1fr; gap:3rem; }
+        .popular__articles { display:flex; flex-direction:column; gap:1.5rem; }
+        .popular-article { display:grid; grid-template-columns:200px 1fr; gap:1.25rem; align-items:center; background:var(--gray); border-radius:12px; overflow:hidden; transition:all .3s; }
+        .popular-article:hover { box-shadow:0 4px 20px rgba(0,0,0,.08); }
+        .popular-article img { width:100%; height:130px; object-fit:cover; }
+        .popular-article__info { padding:.75rem 1rem .75rem 0; }
+        .popular-article__cat { display:inline-block; padding:.15rem .5rem; border-radius:10px; background:var(--accent-bg); color:var(--accent); font-size:.65rem; font-weight:600; text-transform:uppercase; margin-bottom:.3rem; }
+        .popular-article__title { font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:.3rem; line-height:1.4; }
+        .popular-article__meta { font-size:.75rem; color:#aaa; }
+        .sidebar { display:flex; flex-direction:column; gap:1.5rem; }
+        .sidebar__widget { background:var(--gray); border-radius:12px; padding:1.5rem; }
+        .sidebar__widget h3 { font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:1rem; padding-bottom:.5rem; border-bottom:2px solid var(--accent); display:inline-block; }
+        .sidebar__tags { display:flex; flex-wrap:wrap; gap:.5rem; }
+        .sidebar__tags span { padding:.35rem .75rem; border-radius:8px; background:#fff; border:1px solid #e2e8f0; font-size:.8rem; color:#555; cursor:pointer; transition:all .2s; }
+        .sidebar__tags span:hover { border-color:var(--accent); color:var(--accent); }
+        .sidebar__about p { font-size:.85rem; color:#666; margin-bottom:.75rem; }
+
+        .footer { background:var(--ink); color:#999; text-align:center; padding:2rem; font-size:.85rem; }
+
+        @media(max-width:768px){
+            .hero__grid { grid-template-columns:1fr; }
+            .articles__grid { grid-template-columns:1fr; }
+            .popular__grid { grid-template-columns:1fr; }
+            .popular-article { grid-template-columns:1fr; }
+            .hero h1 { font-size:2rem; }
+            .hero__search { flex-direction:column; }
+            .newsletter__form { flex-direction:column; }
+            .nav__links { display:none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-banner">
+        ⬅ Esta é uma amostra de projeto. <a href="../index.html#portfolio">Voltar ao portfólio</a>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav__logo">Tech<span>Insight</span></a>
+                <div class="nav__links">
+                    <a href="#">Início</a>
+                    <a href="#artigos">Artigos</a>
+                    <a href="#">Categorias</a>
+                    <a href="#newsletter" class="nav-cta">Newsletter</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__grid">
+                <div>
+                    <span class="hero__tag">📰 Blog de Tecnologia</span>
+                    <h1>Notícias, tutoriais e <span>insights</span> sobre tecnologia</h1>
+                    <p>Fique por dentro das últimas tendências do mundo tech com artigos escritos por especialistas.</p>
+                    <div class="hero__search">
+                        <input type="text" placeholder="Pesquisar artigos...">
+                        <button>Buscar</button>
+                    </div>
+                </div>
+                <div class="hero__featured">
+                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=500&h=350&fit=crop" alt="Artigo em destaque">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="categories__list">
+                <span class="cat-tag cat-tag--active">Todos</span>
+                <span class="cat-tag">Desenvolvimento</span>
+                <span class="cat-tag">Design</span>
+                <span class="cat-tag">Marketing Digital</span>
+                <span class="cat-tag">Inteligência Artificial</span>
+                <span class="cat-tag">Carreira</span>
+                <span class="cat-tag">Produtividade</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="articles" id="artigos">
+        <div class="container">
+            <h2 class="section-title">Últimos Artigos</h2>
+            <p class="section-sub">Conteúdo atualizado toda semana</p>
+            <div class="articles__grid">
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="Artigo">
+                    <div class="article-card__body">
+                        <span class="article-card__cat">Desenvolvimento</span>
+                        <h3 class="article-card__title">10 Dicas de JavaScript que Todo Dev Deveria Saber</h3>
+                        <p class="article-card__excerpt">Melhore seu código com essas técnicas essenciais que vão turbinar sua produtividade.</p>
+                        <div class="article-card__meta">
+                            <span>14 Mar 2026</span>
+                            <span>5 min de leitura</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=200&fit=crop" alt="Artigo">
+                    <div class="article-card__body">
+                        <span class="article-card__cat">Design</span>
+                        <h3 class="article-card__title">Tendências de UI/UX Design para 2026</h3>
+                        <p class="article-card__excerpt">Glassmorphism, micro-interações e as tendências que estão dominando o design digital.</p>
+                        <div class="article-card__meta">
+                            <span>12 Mar 2026</span>
+                            <span>7 min de leitura</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" alt="Artigo">
+                    <div class="article-card__body">
+                        <span class="article-card__cat">IA</span>
+                        <h3 class="article-card__title">Como a Inteligência Artificial Está Mudando o Desenvolvimento Web</h3>
+                        <p class="article-card__excerpt">De copilots a geradores de código: o impacto real da IA no dia a dia dos devs.</p>
+                        <div class="article-card__meta">
+                            <span>10 Mar 2026</span>
+                            <span>8 min de leitura</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="Artigo">
+                    <div class="article-card__body">
+                        <span class="article-card__cat">Marketing</span>
+                        <h3 class="article-card__title">SEO em 2026: O Guia Definitivo para Ranquear no Google</h3>
+                        <p class="article-card__excerpt">Tudo que você precisa saber para posicionar seu site nas primeiras páginas.</p>
+                        <div class="article-card__meta">
+                            <span>8 Mar 2026</span>
+                            <span>10 min de leitura</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="Artigo">
+                    <div class="article-card__body">
+                        <span class="article-card__cat">Carreira</span>
+                        <h3 class="article-card__title">Como Montar um Portfólio de Desenvolvedor Que Impressiona</h3>
+                        <p class="article-card__excerpt">Dicas práticas para criar um portfólio que destaca suas habilidades.</p>
+                        <div class="article-card__meta">
+                            <span>5 Mar 2026</span>
+                            <span>6 min de leitura</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=400&h=200&fit=crop" alt="Artigo">
+                    <div class="article-card__body">
+                        <span class="article-card__cat">Produtividade</span>
+                        <h3 class="article-card__title">5 Ferramentas Essenciais para Desenvolvedores em 2026</h3>
+                        <p class="article-card__excerpt">Ferramentas que vão agilizar seu workflow e melhorar sua produtividade.</p>
+                        <div class="article-card__meta">
+                            <span>3 Mar 2026</span>
+                            <span>4 min de leitura</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <h2>📬 Receba os melhores artigos no seu e-mail</h2>
+            <p>Junte-se a mais de 3.000 devs que recebem nosso conteúdo semanal gratuitamente.</p>
+            <div class="newsletter__form">
+                <input type="email" placeholder="Seu melhor e-mail">
+                <button>Inscrever-se</button>
+            </div>
+            <p class="newsletter__note">Sem spam. Cancele quando quiser.</p>
+        </div>
+    </section>
+
+    <!-- Popular + Sidebar -->
+    <section class="popular">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom:2rem;">Mais Populares</h2>
+            <div class="popular__grid">
+                <div class="popular__articles">
+                    <div class="popular-article">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200&h=130&fit=crop" alt="Artigo popular">
+                        <div class="popular-article__info">
+                            <span class="popular-article__cat">Desenvolvimento</span>
+                            <h3 class="popular-article__title">React vs Vue vs Angular: Qual Escolher em 2026?</h3>
+                            <div class="popular-article__meta">28 Fev 2026 • 12 min</div>
+                        </div>
+                    </div>
+                    <div class="popular-article">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=130&fit=crop" alt="Artigo popular">
+                        <div class="popular-article__info">
+                            <span class="popular-article__cat">Carreira</span>
+                            <h3 class="popular-article__title">Freelancer vs CLT: Prós e Contras para Desenvolvedores</h3>
+                            <div class="popular-article__meta">25 Fev 2026 • 9 min</div>
+                        </div>
+                    </div>
+                    <div class="popular-article">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=130&fit=crop" alt="Artigo popular">
+                        <div class="popular-article__info">
+                            <span class="popular-article__cat">Marketing</span>
+                            <h3 class="popular-article__title">Como Conseguir Seus Primeiros Clientes como Freelancer</h3>
+                            <div class="popular-article__meta">22 Fev 2026 • 8 min</div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="sidebar__widget sidebar__about">
+                        <h3>Sobre o Blog</h3>
+                        <p>O TechInsight é um blog dedicado a compartilhar conhecimento sobre tecnologia, desenvolvimento web e carreira para profissionais de TI.</p>
+                        <p>Artigos novos toda semana!</p>
+                    </div>
+                    <div class="sidebar__widget">
+                        <h3>Tags Populares</h3>
+                        <div class="sidebar__tags">
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                            <span>React</span>
+                            <span>HTML</span>
+                            <span>SEO</span>
+                            <span>UX</span>
+                            <span>Freelance</span>
+                            <span>Python</span>
+                            <span>AI</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Amostra desenvolvida por <strong style="color:#818cf8">Nykolas Volkmann</strong> — <a href="../index.html" style="color:#818cf8">Voltar ao portfólio</a></p>
+    </footer>
+
+</body>
+</html>

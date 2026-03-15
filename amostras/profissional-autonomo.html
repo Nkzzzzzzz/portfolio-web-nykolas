@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Costa — Personal Trainer | Amostra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',sans-serif; color:#333; line-height:1.7; overflow-x:hidden; background:#faf9f6; }
+        a { text-decoration:none; color:inherit; }
+        ul { list-style:none; }
+        img { max-width:100%; display:block; }
+        .container { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+
+        .back-banner { background:#111; color:#fff; text-align:center; padding:.6rem; font-size:.85rem; position:sticky; top:0; z-index:9999; }
+        .back-banner a { color:#f59e0b; font-weight:600; text-decoration:underline; }
+
+        :root {
+            --warm: #b45309;
+            --warm-light: #f59e0b;
+            --warm-bg: #fef3c7;
+            --dark: #1c1917;
+            --sand: #faf9f6;
+        }
+
+        /* NAV */
+        .nav-bar { background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+        .nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+        .nav__logo { font-size:1.25rem; font-weight:800; color:var(--dark); }
+        .nav__logo span { color:var(--warm-light); }
+        .nav__links { display:flex; gap:1.5rem; align-items:center; }
+        .nav__links a { font-size:.9rem; font-weight:500; color:#555; transition:color .2s; }
+        .nav__links a:hover { color:var(--warm); }
+        .nav-cta { background:var(--warm-light); color:#fff !important; padding:.6rem 1.4rem; border-radius:8px; font-weight:600; }
+        .nav-cta:hover { background:var(--warm); }
+
+        /* HERO */
+        .hero { background:linear-gradient(135deg, var(--dark) 0%, #292524 100%); color:#fff; padding:6rem 0 5rem; }
+        .hero__grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+        .hero__tag { display:inline-block; background:rgba(245,158,11,.15); border:1px solid rgba(245,158,11,.25); color:var(--warm-light); font-size:.75rem; font-weight:600; padding:.35rem 1rem; border-radius:20px; margin-bottom:1.25rem; text-transform:uppercase; letter-spacing:.5px; }
+        .hero h1 { font-size:2.75rem; font-weight:900; line-height:1.1; margin-bottom:1.25rem; }
+        .hero h1 span { color:var(--warm-light); }
+        .hero p { font-size:1.1rem; color:rgba(255,255,255,.7); margin-bottom:2rem; max-width:480px; }
+        .hero__btns { display:flex; gap:1rem; flex-wrap:wrap; }
+        .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.75rem; border-radius:8px; font-weight:600; font-size:.95rem; transition:all .3s; cursor:pointer; border:none; }
+        .btn--warm { background:var(--warm-light); color:#fff; }
+        .btn--warm:hover { background:var(--warm); transform:translateY(-2px); }
+        .btn--whatsapp { background:#25d366; color:#fff; }
+        .btn--whatsapp:hover { background:#1da851; transform:translateY(-2px); }
+        .hero__image { border-radius:16px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.4); }
+        .hero__image img { width:100%; height:420px; object-fit:cover; }
+
+        /* SPECIALTIES */
+        .specialties { padding:5rem 0; background:#fff; }
+        .section-title { text-align:center; font-size:2.25rem; font-weight:800; margin-bottom:.5rem; color:var(--dark); }
+        .section-sub { text-align:center; color:#888; margin-bottom:3rem; }
+        .specialties__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .spec-card { background:var(--sand); border-radius:16px; padding:2rem; text-align:center; transition:all .3s; border:2px solid transparent; }
+        .spec-card:hover { transform:translateY(-4px); border-color:var(--warm-light); box-shadow:0 8px 30px rgba(180,83,9,.1); }
+        .spec-card__icon { font-size:2.5rem; margin-bottom:1rem; }
+        .spec-card h3 { font-size:1.1rem; margin-bottom:.4rem; color:var(--dark); }
+        .spec-card p { font-size:.9rem; color:#666; }
+
+        /* RESULTS */
+        .results { padding:5rem 0; background:var(--sand); }
+        .results__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .result-card { border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 4px 20px rgba(0,0,0,.05); transition:all .3s; }
+        .result-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,.1); }
+        .result-card img { width:100%; height:250px; object-fit:cover; }
+        .result-card__info { padding:1.25rem; text-align:center; }
+        .result-card__info h3 { font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:.2rem; }
+        .result-card__info p { font-size:.85rem; color:var(--warm); font-weight:600; }
+
+        /* PLANS */
+        .plans { padding:5rem 0; background:#fff; }
+        .plans__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .plan-card { border-radius:16px; border:2px solid #eee; padding:2.5rem 2rem; text-align:center; transition:all .3s; position:relative; }
+        .plan-card--featured { border-color:var(--warm-light); background:linear-gradient(180deg, rgba(245,158,11,.05), transparent); }
+        .plan-card--featured::before { content:'Mais Popular'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--warm-light); color:#fff; font-size:.7rem; font-weight:700; padding:.3rem 1rem; border-radius:12px; text-transform:uppercase; }
+        .plan-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,.08); }
+        .plan-card__name { font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:.5rem; }
+        .plan-card__price { font-size:2.25rem; font-weight:900; color:var(--warm); margin-bottom:.25rem; }
+        .plan-card__period { font-size:.85rem; color:#999; margin-bottom:1.5rem; }
+        .plan-card ul { text-align:left; margin-bottom:2rem; }
+        .plan-card li { padding:.35rem 0; font-size:.9rem; color:#555; display:flex; align-items:center; gap:.5rem; }
+        .plan-card li::before { content:'✓'; color:var(--warm-light); font-weight:700; }
+        .btn--full { width:100%; justify-content:center; }
+
+        /* TESTIMONIALS */
+        .testimonials { padding:5rem 0; background:var(--sand); }
+        .testimonials__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .test-card { background:#fff; border-radius:16px; padding:2rem; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+        .test-card .stars { color:var(--warm-light); font-size:.9rem; margin-bottom:.5rem; }
+        .test-card p { font-size:.95rem; color:#555; font-style:italic; margin-bottom:1rem; }
+        .test-card__name { font-weight:600; font-size:.9rem; color:var(--dark); }
+        .test-card__info { font-size:.8rem; color:#999; }
+
+        /* CTA */
+        .cta { padding:5rem 0; background:linear-gradient(135deg, var(--dark), #292524); color:#fff; text-align:center; }
+        .cta h2 { font-size:2.25rem; font-weight:800; margin-bottom:1rem; }
+        .cta p { font-size:1.1rem; color:rgba(255,255,255,.7); max-width:550px; margin:0 auto 2rem; }
+        .btn--white { background:#fff; color:var(--dark); }
+        .btn--white:hover { background:#f5f5f5; transform:translateY(-2px); }
+
+        .footer { background:var(--dark); color:#777; text-align:center; padding:2rem; font-size:.85rem; }
+
+        @media(max-width:768px){
+            .hero__grid { grid-template-columns:1fr; }
+            .specialties__grid, .results__grid, .plans__grid, .testimonials__grid { grid-template-columns:1fr; }
+            .hero h1 { font-size:2rem; }
+            .nav__links { display:none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-banner">
+        ⬅ Esta é uma amostra de projeto. <a href="../index.html#portfolio">Voltar ao portfólio</a>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav__logo">Rafael<span>Fit</span></a>
+                <div class="nav__links">
+                    <a href="#especialidades">Especialidades</a>
+                    <a href="#resultados">Resultados</a>
+                    <a href="#planos">Planos</a>
+                    <a href="#contato" class="nav-cta">Agendar Aula</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__grid">
+                <div>
+                    <span class="hero__tag">💪 Personal Trainer Certificado</span>
+                    <h1>Transforme seu <span>corpo</span> e sua <span>saúde</span> com treino personalizado</h1>
+                    <p>Treinos 100% adaptados ao seu objetivo, nível de condicionamento e rotina. Resultados reais em semanas.</p>
+                    <div class="hero__btns">
+                        <a href="#" class="btn btn--whatsapp">📱 Agendar Aula Experimental</a>
+                        <a href="#planos" class="btn btn--warm">Ver Planos</a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=420&fit=crop" alt="Personal Trainer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties -->
+    <section class="specialties" id="especialidades">
+        <div class="container">
+            <h2 class="section-title">Especialidades</h2>
+            <p class="section-sub">Atendimento personalizado para cada objetivo</p>
+            <div class="specialties__grid">
+                <div class="spec-card">
+                    <div class="spec-card__icon">🏋️</div>
+                    <h3>Musculação</h3>
+                    <p>Ganho de massa muscular com técnicas avançadas e periodização.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-card__icon">🔥</div>
+                    <h3>Emagrecimento</h3>
+                    <p>Perda de gordura com treino eficiente e acompanhamento nutricional.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-card__icon">🧘</div>
+                    <h3>Qualidade de Vida</h3>
+                    <p>Exercícios para saúde, postura e bem-estar no dia a dia.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-card__icon">🏃</div>
+                    <h3>Condicionamento</h3>
+                    <p>Melhore seu fôlego e performance em atividades físicas.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-card__icon">🤸</div>
+                    <h3>Funcional</h3>
+                    <p>Treinos dinâmicos para mobilidade, força e flexibilidade.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-card__icon">👴</div>
+                    <h3>Terceira Idade</h3>
+                    <p>Treinos seguros e adaptados para idosos com supervisão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results" id="resultados">
+        <div class="container">
+            <h2 class="section-title">Resultados dos Alunos</h2>
+            <p class="section-sub">Transformações reais com dedicação e treino correto</p>
+            <div class="results__grid">
+                <div class="result-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop" alt="Resultado">
+                    <div class="result-card__info">
+                        <h3>Marcos — 3 meses</h3>
+                        <p>-15kg | Ganho de massa</p>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=250&fit=crop" alt="Resultado">
+                    <div class="result-card__info">
+                        <h3>Juliana — 4 meses</h3>
+                        <p>-8kg | Definição corporal</p>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=250&fit=crop" alt="Resultado">
+                    <div class="result-card__info">
+                        <h3>Roberto — 6 meses</h3>
+                        <p>Qualidade de vida | +60 anos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans -->
+    <section class="plans" id="planos">
+        <div class="container">
+            <h2 class="section-title">Planos</h2>
+            <p class="section-sub">Escolha o plano ideal para você</p>
+            <div class="plans__grid">
+                <div class="plan-card">
+                    <div class="plan-card__name">Básico</div>
+                    <div class="plan-card__price">R$ 250</div>
+                    <div class="plan-card__period">/mês</div>
+                    <ul>
+                        <li>2x por semana</li>
+                        <li>Avaliação física mensal</li>
+                        <li>Planilha de treino</li>
+                        <li>Suporte por WhatsApp</li>
+                    </ul>
+                    <a href="#contato" class="btn btn--warm btn--full">Começar Agora</a>
+                </div>
+                <div class="plan-card plan-card--featured">
+                    <div class="plan-card__name">Premium</div>
+                    <div class="plan-card__price">R$ 400</div>
+                    <div class="plan-card__period">/mês</div>
+                    <ul>
+                        <li>4x por semana</li>
+                        <li>Avaliação quinzenal</li>
+                        <li>Planilha personalizada</li>
+                        <li>Orientação nutricional</li>
+                        <li>Suporte prioritário</li>
+                    </ul>
+                    <a href="#contato" class="btn btn--warm btn--full">Começar Agora</a>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-card__name">VIP</div>
+                    <div class="plan-card__price">R$ 600</div>
+                    <div class="plan-card__period">/mês</div>
+                    <ul>
+                        <li>Todos os dias</li>
+                        <li>Acompanhamento total</li>
+                        <li>Planilha + dieta</li>
+                        <li>Nutricionista parceiro</li>
+                        <li>Suporte 24h</li>
+                    </ul>
+                    <a href="#contato" class="btn btn--warm btn--full">Começar Agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que dizem os alunos</h2>
+            <p class="section-sub">Depoimentos reais de quem já treina comigo</p>
+            <div class="testimonials__grid">
+                <div class="test-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Em 3 meses perdi 15kg e ganhei disposição. O Rafael é muito profissional e dedicado!"</p>
+                    <div class="test-card__name">Marcos Oliveira</div>
+                    <div class="test-card__info">Aluno há 6 meses</div>
+                </div>
+                <div class="test-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Melhor investimento que fiz na minha saúde. Treinos perfeitos para meu nível!"</p>
+                    <div class="test-card__name">Juliana Santos</div>
+                    <div class="test-card__info">Aluna há 4 meses</div>
+                </div>
+                <div class="test-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Com 65 anos, nunca me senti tão bem. O cuidado e atenção do Rafael são incríveis."</p>
+                    <div class="test-card__name">Roberto Lima</div>
+                    <div class="test-card__info">Aluno há 1 ano</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contato">
+        <div class="container">
+            <h2>Pronto para a sua transformação?</h2>
+            <p>Agende uma aula experimental gratuita e descubra o treino ideal para você.</p>
+            <a href="#" class="btn btn--white">📱 Agendar Aula Grátis</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Amostra desenvolvida por <strong style="color:#f59e0b">Nykolas Volkmann</strong> — <a href="../index.html" style="color:#f59e0b">Voltar ao portfólio</a></p>
+    </footer>
+
+</body>
+</html>

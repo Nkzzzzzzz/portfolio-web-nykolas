@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- ═══════════════════════════
+     META & SEO
+═══════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dra. Marina Lopes — Nutricionista integrativa em São Paulo. Consultas presenciais e online. Agende sua avaliação nutricional.">
+<meta name="keywords" content="nutricionista, nutrição integrativa, emagrecimento saudável, plano alimentar, São Paulo">
+<meta property="og:title" content="Dra. Marina Lopes — Nutricionista Integrativa">
+<meta property="og:description" content="Transforme sua saúde com alimentação que respeita quem você é.">
+<title>Dra. Marina Lopes — Nutricionista Integrativa</title>
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════
+   RESET & DESIGN TOKENS
+═══════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Paleta — areia, oliva, creme, terra */
+  --cream:      #FDFAF4;
+  --warm:       #F5EFE2;
+  --sand:       #EDE4D3;
+  --sand-d:     #D9CCBA;
+  --olive:      #4E6741;
+  --olive-m:    #6A8A5C;
+  --olive-l:    #96B488;
+  --olive-xl:   #C8DABE;
+  --sage:       #E2EDD8;
+  --earth:      #8A6E50;
+  --text:       #1C1E18;
+  --text-mid:   #4A4D40;
+  --muted:      #8A8E7E;
+  --line:       rgba(78,103,65,.14);
+
+  /* Tipografia */
+  --gara:    'Cormorant Garamond', serif;
+  --dm:      'DM Sans', sans-serif;
+
+  /* Espaçamento */
+  --sec-pad:    120px 80px;
+  --sec-pad-sm: 80px 40px;
+  --sec-pad-xs: 56px 20px;
+
+  /* Raios orgânicos */
+  --r-pill:  100px;
+  --r-card:  24px;
+  --r-img:   32px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--dm);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── SELEÇÃO ─── */
+::selection { background: var(--olive-xl); color: var(--olive); }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--olive-l); border-radius: 3px; }
+
+/* ─── BARRA DE PROGRESSO ─── */
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: linear-gradient(90deg, var(--olive), var(--olive-l));
+  z-index: 9999; width: 0%; transition: width .1s;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   UTILITÁRIOS COMUNS
+═══════════════════════════════════════════ */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--dm); font-size: 10px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--olive-m);
+}
+.eyebrow::before {
+  content: ''; display: block;
+  width: 28px; height: 1px;
+  background: var(--olive-m); flex-shrink: 0;
+}
+
+h2.section-title {
+  font-family: var(--gara);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 400; line-height: 1.1;
+  letter-spacing: -.5px;
+}
+h2.section-title em { font-style: italic; color: var(--olive); }
+
+.section-sub {
+  font-size: 15px; font-weight: 300; line-height: 1.9;
+  color: var(--muted); max-width: 50ch;
+}
+
+/* Botões */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px;
+  background: var(--olive); color: var(--cream);
+  font-family: var(--dm); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  text-decoration: none; border-radius: var(--r-pill);
+  transition: all .35s cubic-bezier(.16,1,.3,1);
+  border: 1.5px solid var(--olive);
+}
+.btn-primary:hover {
+  background: var(--olive-m); border-color: var(--olive-m);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(78,103,65,.25);
+}
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px;
+  background: transparent; color: var(--olive);
+  font-family: var(--dm); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  text-decoration: none; border-radius: var(--r-pill);
+  border: 1.5px solid var(--line);
+  transition: all .35s cubic-bezier(.16,1,.3,1);
+}
+.btn-outline:hover {
+  border-color: var(--olive); color: var(--olive-m);
+  transform: translateY(-2px);
+}
+.btn-wpp {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px;
+  background: #25D366; color: #fff;
+  font-family: var(--dm); font-size: 12px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  text-decoration: none; border-radius: var(--r-pill);
+  border: 1.5px solid #25D366;
+  transition: all .35s cubic-bezier(.16,1,.3,1);
+}
+.btn-wpp:hover {
+  background: #1db954; border-color: #1db954;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(37,211,102,.3);
+}
+
+/* Ícone de seta decorativo */
+.arrow-icon {
+  width: 18px; height: 18px; flex-shrink: 0;
+  transition: transform .3s;
+}
+.btn-primary:hover .arrow-icon,
+.btn-outline:hover .arrow-icon { transform: translateX(4px); }
+
+/* Wpp SVG */
+.wpp-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ─── REVEAL ANIMATIONS ─── */
+.reveal {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left {
+  opacity: 0; transform: translateX(-36px);
+  transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1);
+}
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right {
+  opacity: 0; transform: translateX(36px);
+  transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1);
+}
+.reveal-right.visible { opacity: 1; transform: none; }
+
+.d1 { transition-delay: .1s; }
+.d2 { transition-delay: .2s; }
+.d3 { transition-delay: .3s; }
+.d4 { transition-delay: .4s; }
+.d5 { transition-delay: .5s; }
+.d6 { transition-delay: .6s; }
+
+/* ═══════════════════════════════════════════
+   NAVEGAÇÃO
+═══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 28px 80px;
+  transition: all .5s cubic-bezier(.16,1,.3,1);
+}
+nav.scrolled {
+  background: rgba(253,250,244,.96);
+  backdrop-filter: blur(20px) saturate(160%);
+  padding: 16px 80px;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 32px rgba(0,0,0,.04);
+}
+
+.nav-logo {
+  font-family: var(--gara); font-size: 19px; font-weight: 400;
+  color: var(--olive); letter-spacing: .3px; text-decoration: none;
+}
+.nav-logo em { font-style: italic; }
+
+.nav-links {
+  display: flex; gap: 40px; list-style: none;
+}
+.nav-links a {
+  font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color .3s;
+}
+.nav-links a:hover { color: var(--olive); }
+
+.nav-cta {
+  font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+  padding: 10px 26px;
+  background: var(--olive); color: var(--cream);
+  text-decoration: none; border-radius: var(--r-pill);
+  transition: all .3s;
+}
+.nav-cta:hover { background: var(--olive-m); transform: translateY(-1px); }
+
+.nav-ham {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav-ham span {
+  width: 22px; height: 1px; background: var(--olive);
+  display: block; transition: all .3s;
+}
+
+.mob-menu {
+  display: none; position: fixed; inset: 0;
+  background: var(--cream); z-index: 490;
+  flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+}
+.mob-menu.open { display: flex; }
+.mob-menu a {
+  font-family: var(--gara); font-size: clamp(28px,6vw,48px);
+  font-style: italic; color: var(--text); text-decoration: none;
+  transition: color .3s;
+}
+.mob-menu a:hover { color: var(--olive); }
+
+/* ═══════════════════════════════════════════
+   1. HERO
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100svh; /* svh = melhor no mobile (exclui barra do browser) */
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Lado esquerdo — conteúdo */
+.hero-left {
+  background: var(--warm);
+  padding: 160px 80px 100px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+  /* garante que não corta em telas pequenas */
+  min-height: 0;
+}
+
+/* SVG decorativo — anel orgânico de fundo */
+.hero-svg-bg {
+  position: absolute;
+  width: 600px; height: 600px;
+  top: 50%; left: 50%;
+  transform: translate(-30%, -50%);
+  opacity: .06; pointer-events: none;
+}
+
+/* divisória vertical sutil */
+.hero-left::after {
+  content: '';
+  position: absolute; top: 120px; bottom: 80px; right: 0;
+  width: 1px; background: var(--line);
+}
+
+.hero-eyebrow { margin-bottom: 36px; }
+
+h1.hero-h1 {
+  font-family: var(--gara);
+  font-size: clamp(48px, 5.5vw, 88px);
+  font-weight: 300; line-height: 1.05;
+  letter-spacing: -1.5px; margin-bottom: 28px;
+}
+h1.hero-h1 em {
+  font-style: italic; color: var(--olive);
+  display: block;
+}
+
+.hero-desc {
+  font-size: 16px; font-weight: 300; line-height: 1.9;
+  color: var(--muted); max-width: 44ch; margin-bottom: 52px;
+}
+
+.hero-btns {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 68px;
+}
+
+/* card de credencial flutuante */
+.hero-cred {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: var(--r-card); padding: 20px 28px;
+  width: fit-content;
+  box-shadow: 0 8px 40px rgba(0,0,0,.06);
+}
+.hero-cred-line {
+  width: 3px; height: 44px; background: var(--olive);
+  border-radius: 3px; flex-shrink: 0;
+}
+.hero-cred-val {
+  font-family: var(--gara); font-size: 32px; font-weight: 300;
+  font-style: italic; color: var(--olive); line-height: 1;
+}
+.hero-cred-lbl {
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted); margin-top: 4px;
+}
+
+/* Lado direito — imagem */
+.hero-right {
+  position: relative; overflow: hidden;
+  background: var(--sand);
+}
+
+/* placeholder de foto — gradiente orgânico */
+.hero-photo {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, #C8D8B8 0%, #9AB880 50%, var(--olive-m) 100%);
+  display: flex; align-items: flex-end;
+  padding: 48px;
+  position: relative;
+}
+
+/* SVG decorativo — arco no canto */
+.hero-photo-svg {
+  position: absolute; top: 40px; right: 40px;
+  width: 120px; height: 120px; opacity: .3;
+}
+
+.hero-photo-tag {
+  background: rgba(253,250,244,.92);
+  backdrop-filter: blur(12px);
+  border-radius: var(--r-card);
+  padding: 22px 28px;
+  border: 1px solid rgba(255,255,255,.6);
+  width: 100%;
+}
+.hero-photo-name {
+  font-family: var(--gara); font-size: 22px; font-weight: 400;
+  font-style: italic; color: var(--olive); margin-bottom: 4px;
+}
+.hero-photo-sub {
+  font-size: 10px; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* floating badge — topo direito */
+.hero-badge-float {
+  position: absolute; top: 40px; left: 40px;
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: var(--r-card); padding: 16px 22px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.1);
+  animation: floatBob 6s ease-in-out infinite;
+}
+@keyframes floatBob {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.hbf-val {
+  font-family: var(--gara); font-size: 26px; font-weight: 300;
+  font-style: italic; color: var(--olive); line-height: 1;
+}
+.hbf-lbl {
+  font-size: 9px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted); margin-top: 3px;
+}
+
+
+
+/* ════════════════════════════════
+   2. SOBRE
+════════════════════════════════ */
+.sobre {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  max-width: 1400px; margin: 0 auto;
+  padding: var(--sec-pad); gap: 100px; align-items: center;
+}
+
+.sobre-visual { position: relative; padding-bottom: 24px; }
+
+/* Foto com moldura orgânica via clip-path */
+.sobre-photo-wrap {
+  position: relative;
+}
+.sobre-photo {
+  aspect-ratio: 3/4;
+  background: linear-gradient(145deg, var(--sand) 0%, var(--olive-xl) 50%, var(--olive-l) 100%);
+  /* clip-path orgânico assimétrico */
+  clip-path: polygon(0 0, 92% 0, 100% 8%, 100% 100%, 8% 100%, 0 92%);
+  position: relative; overflow: hidden;
+}
+.sobre-photo::after {
+  content: '';
+  position: absolute; inset: 20px;
+  border: 1px solid rgba(255,255,255,.25);
+  clip-path: polygon(0 0, 92% 0, 100% 8%, 100% 100%, 8% 100%, 0 92%);
+}
+
+/* SVG decorativo — linhas botânicas */
+.sobre-svg-deco {
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 140px; height: 140px;
+  opacity: .2;
+}
+
+/* card de credencial sobreposto */
+.sobre-creden {
+  position: absolute;
+  bottom: 40px; left: -32px;
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: 0 var(--r-card) var(--r-card) 0;
+  padding: 20px 28px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.1);
+  border-left: 3px solid var(--olive);
+}
+.sc-val {
+  font-family: var(--gara); font-size: 34px; font-weight: 300;
+  font-style: italic; color: var(--olive); line-height: 1;
+}
+.sc-lbl {
+  font-size: 9px; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted); margin-top: 4px;
+}
+
+.sobre-text { display: flex; flex-direction: column; gap: 24px; }
+.sobre-bio { font-size: 15px; font-weight: 300; line-height: 1.95; color: var(--text-mid); }
+
+/* Lista de formação */
+.formacao-list {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+.formacao-item {
+  display: grid; grid-template-columns: 56px 1fr;
+  gap: 0; align-items: stretch;
+  border-bottom: 1px solid var(--line);
+  transition: background .3s;
+}
+.formacao-item:last-child { border-bottom: none; }
+.formacao-item:hover { background: var(--warm); }
+.fi-year {
+  display: flex; align-items: center; justify-content: center;
+  padding: 18px;
+  font-family: var(--gara); font-size: 13px; font-style: italic;
+  color: var(--olive-l); border-right: 1px solid var(--line);
+  background: var(--warm);
+}
+.fi-content { padding: 18px 24px; }
+.fi-title { font-size: 13px; font-weight: 500; color: var(--text); }
+.fi-inst { font-size: 11px; color: var(--muted); margin-top: 2px; letter-spacing: .3px; }
+
+/* ════════════════════════════════
+   3. PROBLEMAS
+════════════════════════════════ */
+.problemas {
+  background: var(--warm);
+  padding: var(--sec-pad);
+  position: relative; overflow: hidden;
+}
+
+/* SVG de fundo — círculos concêntricos */
+.problemas-svg-bg {
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; opacity: .06;
+  pointer-events: none;
+}
+
+.problemas-inner { max-width: 1240px; margin: 0 auto; }
+.problemas-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: end; margin-bottom: 72px;
+}
+
+/* Grid de problemas */
+.prob-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+}
+.prob-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: 40px 32px;
+  position: relative; overflow: hidden;
+  transition: all .4s cubic-bezier(.16,1,.3,1);
+  cursor: default;
+}
+.prob-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(78,103,65,.1);
+  border-color: var(--olive-l);
+}
+
+/* clip-path decorativo no canto do card */
+.prob-card::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 64px; height: 64px;
+  background: var(--sage);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  transition: background .4s;
+}
+.prob-card:hover::before { background: var(--olive-xl); }
+
+/* número decorativo */
+.prob-num {
+  font-family: var(--gara); font-size: 52px; font-weight: 300;
+  font-style: italic; color: var(--olive-xl);
+  line-height: 1; margin-bottom: 20px;
+  display: block; transition: color .4s;
+}
+.prob-card:hover .prob-num { color: var(--olive-l); }
+.prob-title {
+  font-family: var(--gara); font-size: 20px; font-weight: 400;
+  line-height: 1.2; margin-bottom: 12px;
+}
+.prob-desc { font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--muted); }
+
+/* ════════════════════════════════
+   4. SERVIÇOS
+════════════════════════════════ */
+.servicos {
+  padding: var(--sec-pad);
+  max-width: 1400px; margin: 0 auto;
+  position: relative;
+}
+.servicos-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: end; margin-bottom: 72px;
+}
+.serv-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card); overflow: hidden;
+}
+.serv-card {
+  padding: 56px 48px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative; transition: background .4s;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.serv-card:nth-child(2n) { border-right: none; }
+.serv-card:nth-child(3), .serv-card:nth-child(4) { border-bottom: none; }
+.serv-card:hover { background: var(--warm); }
+
+/* linha lateral colorida ao hover */
+.serv-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--olive);
+  transform: scaleY(0); transform-origin: top;
+  transition: transform .4s cubic-bezier(.16,1,.3,1);
+}
+.serv-card:hover::after { transform: scaleY(1); }
+
+/* ícone SVG do serviço */
+.serv-icon {
+  width: 52px; height: 52px;
+  background: var(--sage);
+  border-radius: 14px 14px 14px 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background .4s, border-radius .4s;
+}
+.serv-card:hover .serv-icon {
+  background: var(--olive-xl);
+  border-radius: 50%;
+}
+.serv-icon svg { width: 24px; height: 24px; stroke: var(--olive); fill: none; stroke-width: 1.5; stroke-linecap: round; }
+.serv-title {
+  font-family: var(--gara); font-size: 24px; font-weight: 400;
+  line-height: 1.2;
+}
+.serv-desc { font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--muted); }
+.serv-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.stag {
+  font-size: 10px; font-weight: 500; letter-spacing: .8px; text-transform: uppercase;
+  padding: 5px 14px; border-radius: var(--r-pill);
+  background: var(--sage); border: 1px solid var(--line); color: var(--olive-m);
+  transition: background .3s;
+}
+.serv-card:hover .stag { background: var(--olive-xl); }
+
+/* ════════════════════════════════
+   5. COMO FUNCIONA
+════════════════════════════════ */
+.como {
+  background: var(--warm);
+  padding: var(--sec-pad);
+  position: relative; overflow: hidden;
+}
+
+/* SVG de onda no topo */
+.como-wave {
+  position: absolute; top: 0; left: 0; right: 0; height: 60px;
+  pointer-events: none;
+}
+
+.como-inner { max-width: 1240px; margin: 0 auto; }
+.como-header { text-align: center; margin-bottom: 80px; }
+.como-header .section-sub { margin: 20px auto 0; }
+.steps {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; position: relative;
+}
+
+/* linha conectora tracejada */
+.steps::before {
+  content: '';
+  position: absolute; top: 60px; left: 12.5%; right: 12.5%; height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--olive-l) 0, var(--olive-l) 8px,
+    transparent 8px, transparent 18px
+  );
+  pointer-events: none;
+}
+
+.step { padding: 0 32px; text-align: center; position: relative; z-index: 1; }
+
+/* container shape orgânico para o ícone */
+.step-icon-wrap {
+  width: 120px; height: 120px; margin: 0 auto 36px;
+  position: relative;
+  transition: transform .5s cubic-bezier(.16,1,.3,1);
+}
+.step:hover .step-icon-wrap { transform: translateY(-8px); }
+
+/* SVG shape orgânico ao redor do ícone */
+.step-icon-wrap svg.step-shape {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.step-icon-wrap .step-content-icon {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.step-content-icon svg {
+  width: 36px; height: 36px;
+  stroke: var(--olive); fill: none; stroke-width: 1.5; stroke-linecap: round;
+}
+
+.step-num {
+  position: absolute; top: -6px; right: -6px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--olive); display: flex; align-items: center; justify-content: center;
+  font-family: var(--gara); font-size: 13px; font-style: italic;
+  color: var(--cream); font-weight: 400; z-index: 2;
+}
+.step-title {
+  font-family: var(--gara); font-size: 20px; font-weight: 400;
+  margin-bottom: 12px;
+}
+.step-desc { font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--muted); }
+.step-time {
+  margin-top: 12px; display: inline-block;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--olive-m);
+}
+
+/* ════════════════════════════════
+   6. DEPOIMENTOS
+════════════════════════════════ */
+.depoimentos {
+  padding: var(--sec-pad); background: var(--olive);
+  position: relative; overflow: hidden;
+}
+
+/* SVG decorativo em forma de folha no fundo */
+.depo-svg-bg {
+  position: absolute; top: -80px; left: -80px;
+  width: 400px; height: 400px; opacity: .06; pointer-events: none;
+}
+.depo-svg-bg2 {
+  position: absolute; bottom: -60px; right: -60px;
+  width: 300px; height: 300px; opacity: .06; pointer-events: none;
+}
+
+.depo-inner { max-width: 1240px; margin: 0 auto; }
+.depo-header {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: end; gap: 40px; margin-bottom: 64px;
+}
+.depo-eyebrow { color: var(--olive-xl); }
+.depo-eyebrow::before { background: var(--olive-xl); }
+.depo-title {
+  font-family: var(--gara);
+  font-size: clamp(36px,4vw,60px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--cream); letter-spacing: -.5px;
+}
+.depo-title em { font-style: italic; color: var(--olive-xl); }
+
+.depo-nav { display: flex; gap: 12px; }
+.depo-btn {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  color: var(--cream); font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .3s;
+}
+.depo-btn:hover { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.4); }
+
+.depo-slider-wrap { overflow: hidden; }
+.depo-track {
+  display: flex; gap: 24px;
+  transition: transform .6s cubic-bezier(.16,1,.3,1);
+}
+.depo-card {
+  flex: 0 0 calc(33.33% - 16px);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.12);
+  /* container shape — bordas assimétricas */
+  border-radius: 32px 8px 32px 8px;
+  padding: 44px 36px;
+  transition: all .4s;
+}
+.depo-card:hover {
+  background: rgba(255,255,255,.13);
+  transform: translateY(-4px);
+}
+.depo-stars {
+  display: flex; gap: 3px; margin-bottom: 20px;
+}
+.depo-stars svg {
+  width: 14px; height: 14px;
+  fill: var(--olive-xl); stroke: none;
+}
+.depo-quote {
+  font-family: var(--gara); font-style: italic;
+  font-size: 17px; font-weight: 300; line-height: 1.8;
+  color: var(--cream); margin-bottom: 32px;
+}
+.depo-divider { height: 1px; background: rgba(255,255,255,.1); margin-bottom: 24px; }
+.depo-who { display: flex; align-items: center; gap: 14px; }
+.depo-av {
+  width: 44px; height: 44px;
+  /* shape orgânico para avatar */
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  background: var(--olive-m); border: 1.5px solid rgba(255,255,255,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--gara); font-size: 18px; font-style: italic;
+  color: var(--cream); flex-shrink: 0;
+}
+.depo-name { font-size: 13px; font-weight: 500; color: var(--cream); }
+.depo-role { font-size: 11px; color: rgba(253,250,244,.5); margin-top: 2px; }
+
+.depo-dots {
+  display: flex; gap: 8px; justify-content: center; margin-top: 48px;
+}
+.ddot {
+  width: 8px; height: 8px; border-radius: var(--r-pill);
+  background: rgba(255,255,255,.2); cursor: pointer; transition: all .3s;
+  border: none;
+}
+.ddot.active { width: 24px; background: var(--olive-xl); }
+
+/* ════════════════════════════════
+   7. CTA FINAL
+════════════════════════════════ */
+.cta-final {
+  padding: 140px 80px;
+  background: var(--warm);
+  position: relative; overflow: hidden;
+}
+
+/* SVG — arco grande decorativo de fundo */
+.cta-svg-bg {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px; height: 600px;
+  opacity: .05; pointer-events: none;
+}
+
+.cta-inner {
+  max-width: 760px; margin: 0 auto;
+  text-align: center; position: relative; z-index: 1;
+}
+.cta-tag { justify-content: center; margin-bottom: 28px; }
+.cta-h {
+  font-family: var(--gara);
+  font-size: clamp(44px,5.5vw,80px);
+  font-weight: 300; line-height: 1.05;
+  letter-spacing: -1.5px; margin-bottom: 24px;
+}
+.cta-h em { font-style: italic; color: var(--olive); display: block; }
+.cta-p {
+  font-size: 16px; font-weight: 300; line-height: 1.9;
+  color: var(--muted); margin: 0 auto 52px; max-width: 46ch;
+}
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+
+/* Trust pills */
+.cta-trust { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.trust-pill {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 400; color: var(--muted);
+  padding: 8px 18px; border-radius: var(--r-pill);
+  background: var(--cream); border: 1px solid var(--line);
+}
+.trust-pill-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--olive); flex-shrink: 0;
+}
+
+/* ════════════════════════════════
+   8. RODAPÉ
+════════════════════════════════ */
+footer {
+  background: var(--text);
+  padding: 80px 80px 40px;
+}
+.foot-grid {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 40px;
+}
+.foot-logo {
+  font-family: var(--gara); font-size: 22px; font-weight: 400;
+  font-style: italic; color: var(--cream); margin-bottom: 16px;
+}
+.foot-desc {
+  font-size: 13px; font-weight: 300; line-height: 1.8;
+  color: rgba(253,250,244,.45); max-width: 32ch; margin-bottom: 28px;
+}
+.foot-socials { display: flex; gap: 10px; }
+.foot-social {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: all .3s;
+}
+.foot-social:hover { background: var(--olive-m); border-color: var(--olive-m); }
+.foot-social svg { width: 16px; height: 16px; stroke: rgba(253,250,244,.6); fill: none; stroke-width: 1.5; stroke-linecap: round; }
+.foot-social:hover svg { stroke: var(--cream); }
+.foot-col-title {
+  font-family: var(--gara); font-size: 14px; font-weight: 400; font-style: italic;
+  color: var(--cream); margin-bottom: 20px; letter-spacing: .3px;
+}
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.foot-links a {
+  font-size: 13px; font-weight: 300; color: rgba(253,250,244,.45);
+  text-decoration: none; transition: color .3s;
+}
+.foot-links a:hover { color: var(--olive-l); }
+.foot-contact-row {
+  display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px;
+}
+.foot-contact-row svg {
+  width: 14px; height: 14px; stroke: var(--olive-l); fill: none;
+  stroke-width: 1.5; stroke-linecap: round; flex-shrink: 0; margin-top: 2px;
+}
+.foot-contact-text {
+  font-size: 13px; font-weight: 300; color: rgba(253,250,244,.45); line-height: 1.6;
+}
+.foot-bottom {
+  max-width: 1240px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.foot-copy { font-size: 11px; color: rgba(253,250,244,.25); letter-spacing: .5px; }
+.foot-crn {
+  font-size: 11px; color: rgba(253,250,244,.25); letter-spacing: .5px;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVO — mobile-first breakpoints
+   320px / 375px / 414px / 768px / 1024px / 1280px+
+═══════════════════════════════════════════ */
+
+/* ── TABLET LARGO / LAPTOP PEQUENO (≤ 1280px) ── */
+@media (max-width: 1280px) {
+  :root { --sec-pad: 100px 60px; }
+  nav, nav.scrolled { padding: 22px 60px; }
+  .hero { padding: 140px 60px 80px; gap: 48px; }
+  .sobre { padding: 100px 60px; gap: 64px; }
+  .servicos { padding: 100px 60px; }
+  .como { padding: 100px 60px; }
+  .depoimentos { padding: 100px 60px; }
+  .cta-final { padding: 120px 60px; }
+  footer { padding: 80px 60px 40px; }
+}
+
+/* ── TABLET (≤ 1100px) ── */
+@media (max-width: 1100px) {
+  :root { --sec-pad: 80px 40px; }
+
+  /* Nav */
+  nav, nav.scrolled { padding: 18px 40px; }
+
+  /* Hero — empilha coluna única */
+  .hero { grid-template-columns: 1fr; padding: 130px 40px 0; gap: 0; }
+  .hero-left { padding: 0 40px 60px; }
+  .hero-left::after { display: none; }
+  .hero-right { min-height: 55vw; max-height: 520px; }
+  .hero-badge-float { top: 20px; left: 20px; }
+  .hero-photo-svg { width: 80px; height: 80px; top: 20px; right: 20px; }
+  .hero-cred { flex-wrap: wrap; gap: 12px; }
+
+  /* Faixa */
+
+  /* Sobre */
+  .sobre { grid-template-columns: 1fr; gap: 80px; padding: 80px 40px; }
+  .sobre-photo { max-width: 420px; }
+  .sobre-creden { left: 0; bottom: -16px;
+    border-radius: 0 var(--r-card) var(--r-card) 0; }
+
+  /* Problemas */
+  .problemas-header { grid-template-columns: 1fr; gap: 20px; }
+  .prob-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Serviços */
+  .servicos-header { grid-template-columns: 1fr; gap: 20px; }
+  .serv-grid { grid-template-columns: 1fr; }
+  .serv-card { border-right: none !important; }
+  .serv-card:nth-child(1),
+  .serv-card:nth-child(2),
+  .serv-card:nth-child(3) { border-bottom: 1px solid var(--line) !important; }
+  .serv-card:nth-child(4) { border-bottom: none !important; }
+
+  /* Como funciona */
+  .steps { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .steps::before { display: none; }
+
+  /* Depoimentos */
+  .depo-header { grid-template-columns: 1fr; gap: 20px; }
+  .depo-card { flex: 0 0 calc(50% - 12px); }
+
+  /* Rodapé */
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  footer { padding: 60px 40px 32px; }
+  .cta-final { padding: 100px 40px; }
+}
+
+/* ── TABLET PEQUENO / MOBILE GRANDE (≤ 768px) ── */
+@media (max-width: 768px) {
+  :root { --sec-pad: 64px 24px; }
+
+  /* Nav */
+  nav, nav.scrolled { padding: 16px 24px; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-ham { display: flex; }
+
+  /* Hero */
+  .hero { padding: 100px 24px 0; }
+  .hero-left { padding: 0 24px 48px; }
+  .hero-right { min-height: 70vw; max-height: 420px; }
+  h1.hero-h1 { font-size: clamp(40px, 8vw, 60px); }
+  .hero-btns { gap: 12px; }
+  .btn-primary, .btn-wpp, .btn-outline {
+    padding: 13px 28px; font-size: 11px;
+  }
+  .hero-cred {
+    padding: 14px 18px; gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hero-cred-val { font-size: 26px; }
+
+  /* Faixa */
+
+  /* Sobre */
+  .sobre { padding: 64px 24px; gap: 60px; }
+  .sobre-photo { max-width: 100%; }
+  .sobre-creden { position: static; margin-top: 16px;
+    border-radius: var(--r-card); border-left: 3px solid var(--olive); }
+  .formacao-list { margin-top: 8px; }
+
+  /* Problemas */
+  .problemas { padding: 64px 24px; }
+  .prob-grid { grid-template-columns: 1fr; gap: 16px; }
+  .prob-card { padding: 32px 24px; }
+  .prob-num { font-size: 40px; }
+
+  /* Serviços */
+  .servicos { padding: 64px 24px; }
+  .serv-card { padding: 36px 28px; grid-template-columns: auto 1fr; gap: 20px; }
+
+  /* Como funciona */
+  .como { padding: 64px 24px; }
+  .steps { grid-template-columns: 1fr; gap: 48px; }
+  .step { padding: 0 16px; }
+  .step-icon-wrap { width: 96px; height: 96px; }
+
+  /* Depoimentos */
+  .depoimentos { padding: 64px 24px; }
+  .depo-card {
+    flex: 0 0 calc(100% - 0px);
+    padding: 32px 24px;
+  }
+  .depo-quote { font-size: 15px; }
+
+  /* CTA */
+  .cta-final { padding: 80px 24px; }
+  .cta-h { font-size: clamp(36px, 8vw, 60px); }
+  .cta-btns { flex-direction: column; align-items: center; gap: 12px; }
+  .cta-btns .btn-primary,
+  .cta-btns .btn-wpp { width: 100%; max-width: 340px; justify-content: center; }
+  .cta-trust { flex-direction: column; align-items: center; gap: 10px; }
+
+  /* Rodapé */
+  .foot-grid { grid-template-columns: 1fr; gap: 36px; }
+  footer { padding: 48px 24px 28px; }
+  .foot-bottom { flex-direction: column; text-align: center; gap: 8px; }
+}
+
+/* ── MOBILE (≤ 480px) ── */
+@media (max-width: 480px) {
+  :root { --sec-pad: 56px 16px; }
+
+  /* Nav */
+  nav, nav.scrolled { padding: 14px 16px; }
+  .nav-logo { font-size: 16px; }
+
+  /* Hero */
+  .hero { padding: 90px 16px 0; }
+  .hero-left { padding: 0 16px 40px; }
+  .hero-right { min-height: 75vw; }
+  h1.hero-h1 { font-size: clamp(36px, 9vw, 52px); letter-spacing: -1px; }
+  .hero-desc { font-size: 14px; }
+  .hero-badge-float { padding: 10px 14px; }
+  .hbf-val { font-size: 20px; }
+  .hbf-lbl { font-size: 8px; }
+  .hero-cred { width: 100%; justify-content: flex-start; }
+  .hero-eyebrow { font-size: 9px; letter-spacing: 2px; }
+
+  /* Faixa */
+
+  /* Sobre */
+  .sobre { padding: 56px 16px; gap: 48px; }
+  .formacao-item { grid-template-columns: 44px 1fr; }
+  .fi-year { font-size: 11px; padding: 14px 10px; }
+  .fi-content { padding: 14px 16px; }
+  .fi-title { font-size: 12px; }
+  .fi-inst { font-size: 10px; }
+
+  /* Problemas */
+  .problemas { padding: 56px 16px; }
+  .prob-card { padding: 28px 20px; }
+
+  /* Serviços */
+  .servicos { padding: 56px 16px; }
+  .serv-card { padding: 28px 20px; gap: 16px; }
+  .serv-title { font-size: 20px; }
+  .serv-icon { width: 44px; height: 44px; border-radius: 12px 12px 12px 4px; }
+  .serv-icon svg { width: 20px; height: 20px; }
+  .stag { font-size: 9px; padding: 4px 10px; }
+
+  /* Como */
+  .como { padding: 56px 16px; }
+  .step { padding: 0 8px; }
+
+  /* Depoimentos */
+  .depoimentos { padding: 56px 16px; }
+  .depo-card { padding: 28px 20px; }
+  .depo-quote { font-size: 14px; }
+  .depo-name { font-size: 12px; }
+
+  /* CTA */
+  .cta-final { padding: 64px 16px; }
+  .trust-pill { font-size: 11px; padding: 7px 14px; }
+
+  /* Rodapé */
+  footer { padding: 40px 16px 24px; }
+  .foot-logo { font-size: 18px; }
+  .foot-desc { font-size: 12px; max-width: 100%; }
+}
+
+/* ── MOBILE PEQUENO (≤ 375px) ── */
+@media (max-width: 375px) {
+  h1.hero-h1 { font-size: 32px; }
+  .hero-cred { flex-direction: column; gap: 6px; }
+  .hero-cred-line:last-child { display: none; }
+  h2.section-title { font-size: 30px; }
+  .prob-num { font-size: 36px; }
+  .btn-primary, .btn-wpp, .btn-outline {
+    padding: 12px 22px; font-size: 10px; letter-spacing: .8px;
+  }
+  .serv-card { grid-template-columns: 1fr; }
+  .serv-icon { margin-bottom: 4px; }
+  .depo-card { padding: 24px 16px; }
+  .cta-h { font-size: 30px; }
+}
+
+/* ── LARGURA MÍNIMA GARANTIDA (evita quebra < 320px) ── */
+@media (max-width: 320px) {
+  body { min-width: 320px; }
+  .hero-btns { flex-direction: column; }
+  .btn-primary, .btn-wpp { width: 100%; justify-content: center; }
+  .hero-badge-float { display: none; }
+}
+
+/* ── TELAS MUITO LARGAS (≥ 1600px) ── */
+@media (min-width: 1600px) {
+  :root { --sec-pad: 140px 100px; }
+  nav, nav.scrolled { padding: 32px 100px; }
+  nav.scrolled { padding: 20px 100px; }
+  .hero { padding: 160px 100px 100px; }
+  .sobre { padding: 140px 100px; }
+  .cta-final { padding: 160px 100px; }
+  footer { padding: 100px 100px 48px; }
+}
+
+/* ── PREFERÊNCIA POR MOVIMENTO REDUZIDO ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .hero-badge-float { animation: none; }
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1; transform: none;
+    transition: none;
+  }
+}
+
+/* ── PRINT ── */
+@media print {
+  nav, .hero-badge-float, #progress-bar,
+  .depo-nav, .depo-dots, .mob-menu { display: none !important; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  body { background: white; color: black; font-size: 12pt; }
+  a { color: inherit; text-decoration: none; }
+  .depoimentos { background: #f5f5f5; }
+  .depo-title, .depo-quote, .depo-name { color: #333; }
+}
+</style>
+</head>
+<body>
+
+<!-- Barra de progresso -->
+<div id="progress-bar" aria-hidden="true"></div>
+
+<!-- ════════════════════════════
+     NAVEGAÇÃO
+════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Menu principal">
+  <a href="#" class="nav-logo" aria-label="Dra. Marina Lopes - Home">
+    Dra. <em>Marina Lopes</em>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#como">Atendimento</a></li>
+    <li><a href="#depoimentos">Pacientes</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Agendar consulta</a>
+  <button class="nav-ham" id="ham-btn" aria-label="Abrir menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mob-menu" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+  <a href="#sobre" onclick="closeMenu()">Sobre</a>
+  <a href="#servicos" onclick="closeMenu()">Serviços</a>
+  <a href="#como" onclick="closeMenu()">Atendimento</a>
+  <a href="#depoimentos" onclick="closeMenu()">Pacientes</a>
+  <a href="#cta" onclick="closeMenu()">Agendar</a>
+</div>
+
+<!-- ════════════════════════════
+     1. HERO
+════════════════════════════ -->
+<section class="hero" id="home" aria-label="Seção principal">
+
+  <!-- LADO ESQUERDO -->
+  <div class="hero-left">
+    <!-- SVG decorativo de fundo — círculos concêntricos orgânicos -->
+    <svg class="hero-svg-bg" aria-hidden="true" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="250" cy="250" r="200" stroke="#4E6741" stroke-width="1"/>
+      <circle cx="250" cy="250" r="160" stroke="#4E6741" stroke-width="1" stroke-dasharray="6 6"/>
+      <circle cx="250" cy="250" r="120" stroke="#4E6741" stroke-width="1"/>
+      <circle cx="250" cy="250" r="80"  stroke="#4E6741" stroke-width="1" stroke-dasharray="4 4"/>
+      <path d="M250 50 Q320 120 250 200 Q180 280 250 350 Q320 420 250 450" stroke="#4E6741" stroke-width="1" fill="none"/>
+    </svg>
+
+    <div class="hero-eyebrow eyebrow reveal">Nutricionista Integrativa · CRN-3 12345</div>
+
+    <h1 class="hero-h1 reveal d1">
+      Transforme sua<br>saúde com uma
+      <em>alimentação que respeita você.</em>
+    </h1>
+
+    <p class="hero-desc reveal d2">
+      Cuido da sua nutrição com ciência, escuta e respeito pela sua história. Sem dietas prontas, sem culpa — com saúde de verdade e resultados duradouros.
+    </p>
+
+    <div class="hero-btns reveal d3">
+      <a href="#cta" class="btn-primary" aria-label="Agendar consulta nutricional">
+        Agendar consulta
+        <svg class="arrow-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/5511999999999" class="btn-wpp" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+        <svg class="wpp-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+        </svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <div class="hero-cred reveal d4">
+      <div class="hero-cred-line"></div>
+      <div>
+        <div class="hero-cred-val">650+</div>
+        <div class="hero-cred-lbl">pacientes atendidas</div>
+      </div>
+      <div class="hero-cred-line" style="opacity:.3"></div>
+      <div>
+        <div class="hero-cred-val">10</div>
+        <div class="hero-cred-lbl">anos de prática</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LADO DIREITO — foto -->
+  <div class="hero-right reveal-right" aria-label="Foto da nutricionista">
+    <!-- badge flutuante -->
+    <div class="hero-badge-float" aria-hidden="true">
+      <div class="hbf-val">97%</div>
+      <div class="hbf-lbl">satisfação</div>
+    </div>
+
+    <!-- SVG decorativo — arco no canto -->
+    <svg class="hero-photo-svg" aria-hidden="true" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 110 Q10 10 110 10" stroke="white" stroke-width="1" fill="none"/>
+      <path d="M20 110 Q20 20 110 20" stroke="white" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+      <path d="M35 110 Q35 35 110 35" stroke="white" stroke-width="1" fill="none"/>
+    </svg>
+
+    <!-- Placeholder de foto — substituir por <img> -->
+    <div class="hero-photo">
+      <div class="hero-photo-tag">
+        <div class="hero-photo-name">Dra. Marina Lopes</div>
+        <div class="hero-photo-sub">Nutricionista integrativa · São Paulo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ════════════════════════════
+     2. SOBRE
+════════════════════════════ -->
+<section class="sobre" id="sobre" aria-label="Sobre a nutricionista">
+  <div class="sobre-visual reveal-left">
+    <div class="sobre-photo-wrap">
+      <!-- Substituir por: <img src="foto-marina.jpg" alt="Dra. Marina Lopes, nutricionista integrativa" style="width:100%;height:100%;object-fit:cover"> -->
+      <div class="sobre-photo" role="img" aria-label="Foto da Dra. Marina Lopes"></div>
+
+      <!-- SVG botânico decorativo -->
+      <svg class="sobre-svg-deco" aria-hidden="true" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M70 10 C70 10 100 40 100 70 C100 100 70 130 70 130 C70 130 40 100 40 70 C40 40 70 10 70 10Z" stroke="#6A8A5C" stroke-width="1" fill="none"/>
+        <path d="M70 30 L70 110" stroke="#6A8A5C" stroke-width="1" fill="none"/>
+        <path d="M70 60 L90 45" stroke="#6A8A5C" stroke-width="1" fill="none"/>
+        <path d="M70 75 L50 60" stroke="#6A8A5C" stroke-width="1" fill="none"/>
+        <path d="M70 90 L88 80" stroke="#6A8A5C" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- credencial sobreposta -->
+    <div class="sobre-creden" aria-label="Formação USP">
+      <div class="sc-val">USP</div>
+      <div class="sc-lbl">graduação · 2013</div>
+    </div>
+  </div>
+
+  <div class="sobre-text">
+    <div class="eyebrow reveal">Sobre mim</div>
+    <h2 class="section-title reveal d1">Uma nutricionista que <em>ouve antes de prescrever</em></h2>
+    <p class="sobre-bio reveal d2">
+      Sou Marina Lopes, nutricionista integrativa formada pela USP com mais de 10 anos de prática clínica em São Paulo. Minha abordagem une nutrição funcional, comportamental e o respeito profundo pela individualidade de cada paciente.
+    </p>
+    <p class="sobre-bio reveal d3">
+      Não acredito em dietas prontas. Acredito em planos alimentares que dialogam com a sua vida, sua rotina, suas emoções e sua história.
+    </p>
+
+    <div class="formacao-list reveal d4" role="list" aria-label="Formação acadêmica">
+      <div class="formacao-item" role="listitem">
+        <div class="fi-year">2013</div>
+        <div class="fi-content">
+          <div class="fi-title">Nutrição — Universidade de São Paulo</div>
+          <div class="fi-inst">Graduação</div>
+        </div>
+      </div>
+      <div class="formacao-item" role="listitem">
+        <div class="fi-year">2015</div>
+        <div class="fi-content">
+          <div class="fi-title">Nutrição Funcional — UNIP</div>
+          <div class="fi-inst">Especialização</div>
+        </div>
+      </div>
+      <div class="formacao-item" role="listitem">
+        <div class="fi-year">2018</div>
+        <div class="fi-content">
+          <div class="fi-title">Comportamento Alimentar — IBNutri</div>
+          <div class="fi-inst">Extensão</div>
+        </div>
+      </div>
+      <div class="formacao-item" role="listitem">
+        <div class="fi-year">—</div>
+        <div class="fi-content">
+          <div class="fi-title">CRN-3 · 12345 · São Paulo</div>
+          <div class="fi-inst">Registro ativo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════
+     3. PROBLEMAS
+════════════════════════════ -->
+<section class="problemas" id="problemas" aria-label="Problemas que resolvo">
+  <!-- SVG de fundo — círculos concêntricos -->
+  <svg class="problemas-svg-bg" aria-hidden="true" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="240" stroke="#4E6741" stroke-width="1.5"/>
+    <circle cx="250" cy="250" r="180" stroke="#4E6741" stroke-width="1.5" stroke-dasharray="8 8"/>
+    <circle cx="250" cy="250" r="120" stroke="#4E6741" stroke-width="1.5"/>
+    <circle cx="250" cy="250" r="60"  stroke="#4E6741" stroke-width="1.5" stroke-dasharray="4 4"/>
+  </svg>
+
+  <div class="problemas-inner">
+    <div class="problemas-header">
+      <div>
+        <div class="eyebrow reveal">Como posso ajudar</div>
+        <h2 class="section-title reveal d1">Você se identifica<br>com algum <em>desses desafios?</em></h2>
+      </div>
+      <p class="section-sub reveal d2">
+        Cada paciente chega com uma história. Esses são os desafios mais comuns que tratamos com cuidado e ciência no consultório.
+      </p>
+    </div>
+    <div class="prob-grid">
+      <article class="prob-card reveal">
+        <span class="prob-num">01</span>
+        <h3 class="prob-title">Emagrecimento saudável</h3>
+        <p class="prob-desc">Perder peso de forma consciente, sem restrições excessivas e com foco no bem-estar, não apenas nos números da balança.</p>
+      </article>
+      <article class="prob-card reveal d1">
+        <span class="prob-num">02</span>
+        <h3 class="prob-title">Melhores hábitos alimentares</h3>
+        <p class="prob-desc">Construir uma relação mais saudável e equilibrada com a comida, sem culpa e com prazer à mesa.</p>
+      </article>
+      <article class="prob-card reveal d2">
+        <span class="prob-num">03</span>
+        <h3 class="prob-title">Mais energia no dia a dia</h3>
+        <p class="prob-desc">Combater o cansaço crônico, a falta de disposição e os picos de glicemia com alimentação estratégica.</p>
+      </article>
+      <article class="prob-card reveal d3">
+        <span class="prob-num">04</span>
+        <h3 class="prob-title">Nutrição para atividade física</h3>
+        <p class="prob-desc">Otimizar o desempenho, a recuperação muscular e a composição corporal para quem pratica esportes.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════
+     4. SERVIÇOS
+════════════════════════════ -->
+<section class="servicos" id="servicos" aria-label="Serviços oferecidos">
+  <div class="servicos-header">
+    <div>
+      <div class="eyebrow reveal">Serviços</div>
+      <h2 class="section-title reveal d1">O que ofereço<br>no <em>consultório</em></h2>
+    </div>
+    <p class="section-sub reveal d2">
+      Cada serviço é desenhado para a sua realidade. Atendimento presencial em São Paulo e online para todo o Brasil.
+    </p>
+  </div>
+  <div class="serv-grid">
+
+    <!-- Serviço 1 -->
+    <article class="serv-card reveal">
+      <div class="serv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+          <path d="M8 12h8M12 8v8"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="serv-title">Acompanhamento Nutricional</h3>
+        <p class="serv-desc">Consultas periódicas para monitorar sua evolução, ajustar estratégias e manter o progresso com suporte contínuo.</p>
+      </div>
+      <div class="serv-tags">
+        <span class="stag">Presencial</span>
+        <span class="stag">Online</span>
+        <span class="stag">Retornos</span>
+      </div>
+    </article>
+
+    <!-- Serviço 2 -->
+    <article class="serv-card reveal d1">
+      <div class="serv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="serv-title">Plano Alimentar Personalizado</h3>
+        <p class="serv-desc">Protocolo alimentar criado do zero, respeitando seus gostos, rotina, restrições e objetivos individuais.</p>
+      </div>
+      <div class="serv-tags">
+        <span class="stag">Individualizado</span>
+        <span class="stag">Flexível</span>
+        <span class="stag">Atualizado</span>
+      </div>
+    </article>
+
+    <!-- Serviço 3 -->
+    <article class="serv-card reveal d2">
+      <div class="serv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="serv-title">Nutrição Esportiva</h3>
+        <p class="serv-desc">Estratégias nutricionais para otimizar performance, composição corporal e recuperação de atletas e praticantes de atividade física.</p>
+      </div>
+      <div class="serv-tags">
+        <span class="stag">Performance</span>
+        <span class="stag">Recuperação</span>
+        <span class="stag">Composição</span>
+      </div>
+    </article>
+
+    <!-- Serviço 4 -->
+    <article class="serv-card reveal d3">
+      <div class="serv-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          <path d="M8 12l3 3 5-5"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="serv-title">Reeducação Alimentar</h3>
+        <p class="serv-desc">Transformação gradual dos hábitos com educação nutricional, desenvolvendo autonomia e uma relação saudável com a comida.</p>
+      </div>
+      <div class="serv-tags">
+        <span class="stag">Comportamental</span>
+        <span class="stag">Sustentável</span>
+        <span class="stag">Educação</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ════════════════════════════
+     5. COMO FUNCIONA
+════════════════════════════ -->
+<section class="como" id="como" aria-label="Como funciona o atendimento">
+  <!-- Onda SVG no topo -->
+  <svg class="como-wave" aria-hidden="true" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C320,60 640,0 960,40 C1120,60 1280,20 1440,40 L1440,0 Z" fill="#FDFAF4"/>
+  </svg>
+
+  <div class="como-inner">
+    <div class="como-header">
+      <div class="eyebrow reveal" style="justify-content:center">Atendimento</div>
+      <h2 class="section-title reveal d1" style="text-align:center">Do primeiro contato<br>ao seu <em>resultado</em></h2>
+      <p class="section-sub reveal d2" style="text-align:center;margin:0 auto">Um processo humano, estruturado e transparente. Você sabe exatamente o que esperar em cada etapa.</p>
+    </div>
+
+    <div class="steps" role="list">
+      <!-- Step 1 -->
+      <div class="step reveal" role="listitem">
+        <div class="step-icon-wrap">
+          <!-- SVG shape orgânico ao redor do ícone -->
+          <svg class="step-shape" aria-hidden="true" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 8 C85 8 112 30 112 60 C112 90 85 112 60 112 C35 112 8 90 8 60 C8 30 35 8 60 8Z"
+              fill="#E2EDD8" stroke="#C8DABE" stroke-width="1"/>
+          </svg>
+          <div class="step-content-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <path d="M16 2v4M8 2v4M3 10h18"/>
+              <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+            </svg>
+          </div>
+          <div class="step-num" aria-label="Etapa 1">1</div>
+        </div>
+        <h3 class="step-title">Agendamento</h3>
+        <p class="step-desc">Entre em contato por WhatsApp ou pelo formulário. Respondemos em até 2 horas.</p>
+        <span class="step-time">até 2h</span>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step reveal d1" role="listitem">
+        <div class="step-icon-wrap">
+          <svg class="step-shape" aria-hidden="true" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 10 C90 10 110 35 110 60 C110 85 88 112 60 112 C32 112 10 88 10 60 C10 32 30 10 60 10Z"
+              fill="#E2EDD8" stroke="#C8DABE" stroke-width="1"/>
+          </svg>
+          <div class="step-content-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="1"/>
+              <path d="M9 12h6M9 16h4"/>
+            </svg>
+          </div>
+          <div class="step-num" aria-label="Etapa 2">2</div>
+        </div>
+        <h3 class="step-title">Avaliação nutricional</h3>
+        <p class="step-desc">Consulta de 60 min com anamnese completa, análise de exames e bioimpedância.</p>
+        <span class="step-time">60 minutos</span>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step reveal d2" role="listitem">
+        <div class="step-icon-wrap">
+          <svg class="step-shape" aria-hidden="true" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M55 8 C84 6 113 32 112 62 C111 92 86 114 58 113 C30 112 7 88 8 60 C9 32 26 10 55 8Z"
+              fill="#E2EDD8" stroke="#C8DABE" stroke-width="1"/>
+          </svg>
+          <div class="step-content-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <div class="step-num" aria-label="Etapa 3">3</div>
+        </div>
+        <h3 class="step-title">Plano personalizado</h3>
+        <p class="step-desc">Protocolo alimentar único, desenvolvido especificamente para seus objetivos e estilo de vida.</p>
+        <span class="step-time">3–5 dias</span>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step reveal d3" role="listitem">
+        <div class="step-icon-wrap">
+          <svg class="step-shape" aria-hidden="true" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M62 8 C92 10 114 34 113 62 C112 90 90 113 62 113 C34 113 8 90 8 62 C8 34 32 6 62 8Z"
+              fill="#E2EDD8" stroke="#C8DABE" stroke-width="1"/>
+          </svg>
+          <div class="step-content-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="step-num" aria-label="Etapa 4">4</div>
+        </div>
+        <h3 class="step-title">Acompanhamento</h3>
+        <p class="step-desc">Retornos periódicos para ajustes, escuta ativa e suporte contínuo ao longo da sua jornada.</p>
+        <span class="step-time">mensal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════
+     6. DEPOIMENTOS
+════════════════════════════ -->
+<section class="depoimentos" id="depoimentos" aria-label="Depoimentos de pacientes">
+  <!-- SVGs decorativos de folha -->
+  <svg class="depo-svg-bg" aria-hidden="true" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M200 20 C200 20 340 80 340 200 C340 320 200 380 200 380 C200 380 60 320 60 200 C60 80 200 20 200 20Z" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M200 60 L200 340" stroke="white" stroke-width="1" fill="none"/>
+    <path d="M200 120 L280 90" stroke="white" stroke-width="1" fill="none"/>
+    <path d="M200 180 L120 150" stroke="white" stroke-width="1" fill="none"/>
+    <path d="M200 240 L275 220" stroke="white" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="depo-svg-bg2" aria-hidden="true" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="140" stroke="white" stroke-width="1"/>
+    <circle cx="150" cy="150" r="100" stroke="white" stroke-width="1" stroke-dasharray="6 6"/>
+    <circle cx="150" cy="150" r="60" stroke="white" stroke-width="1"/>
+  </svg>
+
+  <div class="depo-inner">
+    <div class="depo-header">
+      <div>
+        <div class="eyebrow depo-eyebrow reveal">Resultados</div>
+        <h2 class="depo-title reveal d1">Histórias que<br><em>inspiram</em></h2>
+      </div>
+      <div class="depo-nav" role="group" aria-label="Controles do carrossel">
+        <button class="depo-btn" id="dep-prev" aria-label="Depoimento anterior">←</button>
+        <button class="depo-btn" id="dep-next" aria-label="Próximo depoimento">→</button>
+      </div>
+    </div>
+
+    <div class="depo-slider-wrap" role="region" aria-label="Carrossel de depoimentos" aria-live="polite">
+      <div class="depo-track" id="depo-track">
+
+        <article class="depo-card">
+          <div class="depo-stars" aria-label="5 estrelas">
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+          </div>
+          <blockquote class="depo-quote">"A Marina foi a primeira nutricionista que me fez sentir completamente ouvida. O plano dela encaixou na minha rotina agitada sem nenhuma dificuldade."</blockquote>
+          <div class="depo-divider"></div>
+          <div class="depo-who">
+            <div class="depo-av" aria-hidden="true">G</div>
+            <div><div class="depo-name">Gabriela Santos</div><div class="depo-role">Gerente · 36 anos</div></div>
+          </div>
+        </article>
+
+        <article class="depo-card">
+          <div class="depo-stars" aria-label="5 estrelas">
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+          </div>
+          <blockquote class="depo-quote">"Voltei ao meu peso ideal depois de duas gestações sem precisar fazer nenhuma dieta restritiva. Só aprendi a comer de um jeito diferente."</blockquote>
+          <div class="depo-divider"></div>
+          <div class="depo-who">
+            <div class="depo-av" aria-hidden="true">F</div>
+            <div><div class="depo-name">Fernanda Lima</div><div class="depo-role">Professora · 34 anos</div></div>
+          </div>
+        </article>
+
+        <article class="depo-card">
+          <div class="depo-stars" aria-label="5 estrelas">
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+          </div>
+          <blockquote class="depo-quote">"Minha saúde intestinal melhorou 90% em dois meses. Achei que precisaria de remédio para sempre — era alimentação o que faltava."</blockquote>
+          <div class="depo-divider"></div>
+          <div class="depo-who">
+            <div class="depo-av" aria-hidden="true">L</div>
+            <div><div class="depo-name">Lucas Moreira</div><div class="depo-role">Estudante · 24 anos</div></div>
+          </div>
+        </article>
+
+        <article class="depo-card">
+          <div class="depo-stars" aria-label="5 estrelas">
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+          </div>
+          <blockquote class="depo-quote">"Como atleta, nunca havia tido um acompanhamento tão preciso. O desempenho melhorou e ainda perdi o percentual de gordura que travava há anos."</blockquote>
+          <div class="depo-divider"></div>
+          <div class="depo-who">
+            <div class="depo-av" aria-hidden="true">R</div>
+            <div><div class="depo-name">Rafael Costa</div><div class="depo-role">Atleta · 29 anos</div></div>
+          </div>
+        </article>
+
+        <article class="depo-card">
+          <div class="depo-stars" aria-label="5 estrelas">
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+            <svg viewBox="0 0 16 16"><path d="M8 1l1.88 3.81 4.2.61-3.04 2.96.72 4.18L8 10.51l-3.76 1.98.72-4.18L1.92 5.42l4.2-.61z"/></svg>
+          </div>
+          <blockquote class="depo-quote">"Minha relação com a comida mudou completamente. Paro de comer quando estou satisfeita, sem ansiedade, sem culpa. Resultado de meses de trabalho com ela."</blockquote>
+          <div class="depo-divider"></div>
+          <div class="depo-who">
+            <div class="depo-av" aria-hidden="true">C</div>
+            <div><div class="depo-name">Camila Torres</div><div class="depo-role">Designer · 31 anos</div></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+    <div class="depo-dots" id="depo-dots" role="tablist" aria-label="Paginação do carrossel"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════
+     7. CTA FINAL
+════════════════════════════ -->
+<section class="cta-final" id="cta" aria-label="Chamada para agendamento">
+  <!-- SVG de fundo — forma orgânica grande -->
+  <svg class="cta-svg-bg" aria-hidden="true" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M450 30 C620 30 870 150 870 300 C870 450 620 570 450 570 C280 570 30 450 30 300 C30 150 280 30 450 30Z" stroke="#4E6741" stroke-width="1.5" fill="none"/>
+    <path d="M450 80 C600 80 820 180 820 300 C820 420 600 520 450 520 C300 520 80 420 80 300 C80 180 300 80 450 80Z" stroke="#4E6741" stroke-width="1" stroke-dasharray="8 8" fill="none"/>
+    <path d="M450 130 C580 130 770 210 770 300 C770 390 580 470 450 470 C320 470 130 390 130 300 C130 210 320 130 450 130Z" stroke="#4E6741" stroke-width=".5" fill="none"/>
+  </svg>
+
+  <div class="cta-inner">
+    <div class="eyebrow cta-tag reveal">Agende sua consulta</div>
+    <h2 class="cta-h reveal d1">
+      Pronta para cuidar<br>
+      <em>da sua saúde de verdade?</em>
+    </h2>
+    <p class="cta-p reveal d2">
+      Dê o primeiro passo. Agende uma avaliação nutricional e comece uma relação mais saudável e consciente com a alimentação.
+    </p>
+    <div class="cta-btns reveal d3">
+      <a href="#" class="btn-primary">
+        Agendar consulta
+        <svg class="arrow-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/5511999999999" class="btn-wpp" target="_blank" rel="noopener">
+        <svg class="wpp-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+        </svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="cta-trust reveal d4">
+      <div class="trust-pill"><div class="trust-pill-dot"></div>Orçamento sem compromisso</div>
+      <div class="trust-pill"><div class="trust-pill-dot"></div>Atendimento online e presencial</div>
+      <div class="trust-pill"><div class="trust-pill-dot"></div>Resposta em até 2 horas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════
+     8. RODAPÉ
+════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="foot-grid">
+    <!-- Coluna 1 — marca -->
+    <div>
+      <div class="foot-logo">Dra. Marina Lopes</div>
+      <p class="foot-desc">Nutricionista integrativa em São Paulo. Consultas presenciais e online para todo o Brasil.</p>
+      <div class="foot-socials">
+        <!-- Instagram -->
+        <a href="#" class="foot-social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="#" class="foot-social" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4c0-1.1.9-2 2-2s2 .9 2 2v4M11 10v7"/></svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5511999999999" class="foot-social" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" stroke="rgba(253,250,244,.6)" stroke-width="1.5" stroke-linecap="round"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" stroke="rgba(253,250,244,.6)" stroke-width="1.5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Coluna 2 — Links -->
+    <div>
+      <div class="foot-col-title">Navegação</div>
+      <ul class="foot-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#problemas">Como ajudo</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#como">Atendimento</a></li>
+        <li><a href="#depoimentos">Pacientes</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3 — Serviços -->
+    <div>
+      <div class="foot-col-title">Serviços</div>
+      <ul class="foot-links">
+        <li><a href="#servicos">Acompanhamento Nutricional</a></li>
+        <li><a href="#servicos">Plano Alimentar</a></li>
+        <li><a href="#servicos">Nutrição Esportiva</a></li>
+        <li><a href="#servicos">Reeducação Alimentar</a></li>
+        <li><a href="#cta">Consulta Online</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 4 — Contato -->
+    <div>
+      <div class="foot-col-title">Contato</div>
+      <div class="foot-contact-row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span class="foot-contact-text">Av. Paulista, 1234 · Sala 56<br>Bela Vista, São Paulo — SP</span>
+      </div>
+      <div class="foot-contact-row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="foot-contact-text">(11) 99999-9999<br>WhatsApp disponível</span>
+      </div>
+      <div class="foot-contact-row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span class="foot-contact-text">Seg–Sex: 8h às 19h<br>Sáb: 8h às 13h</span>
+      </div>
+      <div class="foot-contact-row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="foot-contact-text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="60030f0e1401140f200d0112090e010e151412094e030f0d4e0212">[email&#160;protected]</a></span>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2025 Dra. Marina Lopes. Todos os direitos reservados.</span>
+    <span class="foot-crn">CRN-3 · 12345 · São Paulo</span>
+  </div>
+</footer>
+
+<!-- ════════════════════════════
+     JAVASCRIPT
+════════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── Barra de progresso ── */
+const progBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  progBar.style.width = (window.scrollY / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
+
+/* ── Nav sticky ── */
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Reveal on scroll ── */
+const revObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+  .forEach(el => revObs.observe(el));
+
+/* ── Mobile menu ── */
+function toggleMenu() {
+  const mob = document.getElementById('mob-menu');
+  mob.classList.toggle('open');
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── Carrossel de Depoimentos ── */
+(function initSlider() {
+  const track  = document.getElementById('depo-track');
+  const dotsEl = document.getElementById('depo-dots');
+  const cards  = document.querySelectorAll('.depo-card');
+  let cur = 0;
+  let isAnimating = false;
+
+  function getVisible() {
+    const w = window.innerWidth;
+    if (w <= 768)  return 1;
+    if (w <= 1100) return 2;
+    return 3;
+  }
+
+  function getCardWidth() {
+    if (!cards[0]) return 0;
+    const gap = 24;
+    const vis = getVisible();
+    const wrapW = track.parentElement.offsetWidth;
+    return (wrapW - gap * (vis - 1)) / vis;
+  }
+
+  function setCardWidths() {
+    const w = getCardWidth() + 'px';
+    cards.forEach(c => { c.style.flex = `0 0 ${w}`; c.style.width = w; });
+  }
+
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    const vis   = getVisible();
+    const total = Math.max(1, cards.length - vis + 1);
+    for (let i = 0; i < total; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'ddot' + (i === cur ? ' active' : '');
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-label', `Slide ${i + 1}`);
+      btn.setAttribute('aria-selected', i === cur ? 'true' : 'false');
+      btn.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(btn);
+    }
+  }
+
+  function goTo(idx) {
+    if (isAnimating) return;
+    const vis  = getVisible();
+    const max  = Math.max(0, cards.length - vis);
+    cur = Math.max(0, Math.min(idx, max));
+    const cw   = getCardWidth();
+    const gap  = 24;
+    track.style.transform = `translateX(-${cur * (cw + gap)}px)`;
+    document.querySelectorAll('.ddot').forEach((d, i) => {
+      const active = i === cur;
+      d.classList.toggle('active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    isAnimating = true;
+    setTimeout(() => { isAnimating = false; }, 650);
+  }
+
+  document.getElementById('dep-prev')
+    .addEventListener('click', () => goTo(cur - 1));
+  document.getElementById('dep-next')
+    .addEventListener('click', () => goTo(cur + 1));
+
+  // Swipe touch (iOS safe)
+  let startX = 0, startY = 0, isDragging = false;
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isDragging = false;
+  }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - startX);
+    const dy = Math.abs(e.touches[0].clientY - startY);
+    if (dx > dy && dx > 8) isDragging = true;
+  }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(cur + (diff > 0 ? 1 : -1));
+    isDragging = false;
+  }, { passive: true });
+
+  // Init
+  setCardWidths();
+  buildDots();
+
+  // Resize — debounced
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      setCardWidths();
+      buildDots();
+      goTo(0);
+    }, 150);
+  }, { passive: true });
+
+  // Autoplay
+  let autoplay = setInterval(() => {
+    const vis = getVisible();
+    const max = Math.max(0, cards.length - vis);
+    goTo(cur >= max ? 0 : cur + 1);
+  }, 5500);
+
+  // Pausar no hover / touch
+  [track].forEach(el => {
+    el.addEventListener('mouseenter', () => clearInterval(autoplay));
+    el.addEventListener('mouseleave', () => {
+      clearInterval(autoplay);
+      autoplay = setInterval(() => {
+        const vis = getVisible();
+        const max = Math.max(0, cards.length - vis);
+        goTo(cur >= max ? 0 : cur + 1);
+      }, 5500);
+    });
+  });
+})();
+
+/* ── Parallax suave no hero ── */
+(function initParallax() {
+  const heroLeft = document.querySelector('.hero-left');
+  if (!heroLeft || window.innerWidth < 1100) return;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    document.querySelector('.hero-svg-bg').style.transform =
+      `translate(-30%, calc(-50% + ${y * .04}px))`;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

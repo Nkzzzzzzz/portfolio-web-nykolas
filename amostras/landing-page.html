@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Mariana Silva — Nutricionista | Amostra de Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ---- Reset ---- */
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',sans-serif; color:#333; line-height:1.7; overflow-x:hidden; }
+        a { text-decoration:none; color:inherit; }
+        ul { list-style:none; }
+        img { max-width:100%; display:block; }
+        .container { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+
+        /* ---- Back to Portfolio Banner ---- */
+        .back-banner { background:#111; color:#fff; text-align:center; padding:.6rem; font-size:.85rem; position:sticky; top:0; z-index:9999; }
+        .back-banner a { color:#6ee7b7; font-weight:600; text-decoration:underline; }
+
+        /* ---- Colors ---- */
+        :root {
+            --green: #6dab7a;
+            --green-light: #e8f5e9;
+            --green-dark: #3e7c4a;
+            --bg: #fafcfa;
+        }
+
+        /* ---- NAV ---- */
+        .nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+        .nav__logo { font-size:1.25rem; font-weight:700; color:var(--green-dark); }
+        .nav__links { display:flex; gap:1.5rem; }
+        .nav__links a { font-size:.9rem; font-weight:500; color:#555; transition:color .2s; }
+        .nav__links a:hover { color:var(--green); }
+        .nav-cta { background:var(--green); color:#fff !important; padding:.5rem 1.2rem; border-radius:8px; }
+        .nav-cta:hover { background:var(--green-dark); }
+
+        /* ---- HERO ---- */
+        .hero { background: linear-gradient(135deg, var(--green-light) 0%, #fff 100%); padding:5rem 0 4rem; }
+        .hero__grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+        .hero__tag { display:inline-block; background:var(--green); color:#fff; font-size:.75rem; font-weight:600; padding:.3rem .8rem; border-radius:20px; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.5px; }
+        .hero h1 { font-size:2.75rem; font-weight:800; line-height:1.15; color:#1a1a1a; margin-bottom:1rem; }
+        .hero h1 span { color:var(--green); }
+        .hero p { font-size:1.1rem; color:#555; margin-bottom:2rem; max-width:480px; }
+        .hero__btns { display:flex; gap:1rem; flex-wrap:wrap; }
+        .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.75rem; border-radius:8px; font-weight:600; font-size:.95rem; transition:all .3s; cursor:pointer; border:none; }
+        .btn--green { background:var(--green); color:#fff; }
+        .btn--green:hover { background:var(--green-dark); transform:translateY(-2px); }
+        .btn--whatsapp { background:#25d366; color:#fff; }
+        .btn--whatsapp:hover { background:#1da851; transform:translateY(-2px); }
+        .hero__image { border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.1); }
+        .hero__image img { width:100%; height:400px; object-fit:cover; }
+
+        /* ---- FEATURES ---- */
+        .features { padding:5rem 0; background:#fff; }
+        .section-title { text-align:center; font-size:2rem; font-weight:800; margin-bottom:.5rem; }
+        .section-sub { text-align:center; color:#777; font-size:1rem; margin-bottom:3rem; }
+        .features__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .feature-card { background:var(--green-light); border-radius:16px; padding:2rem; text-align:center; transition:transform .3s,box-shadow .3s; }
+        .feature-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(109,171,122,.15); }
+        .feature-card__icon { width:56px; height:56px; border-radius:14px; background:var(--green); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 1rem; }
+        .feature-card h3 { font-size:1.1rem; margin-bottom:.4rem; }
+        .feature-card p { font-size:.9rem; color:#666; }
+
+        /* ---- ABOUT ---- */
+        .about { padding:5rem 0; background:var(--bg); }
+        .about__grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+        .about__image { border-radius:16px; overflow:hidden; }
+        .about__image img { width:100%; height:380px; object-fit:cover; }
+        .about h2 { font-size:2rem; font-weight:800; margin-bottom:1rem; }
+        .about p { color:#555; margin-bottom:1rem; font-size:1rem; }
+        .about ul { margin:1rem 0 1.5rem; }
+        .about li { padding:.4rem 0; font-size:.95rem; color:#555; display:flex; align-items:center; gap:.5rem; }
+        .about li::before { content:'✓'; color:var(--green); font-weight:700; }
+
+        /* ---- TESTIMONIALS ---- */
+        .testimonials { padding:5rem 0; background:#fff; }
+        .testimonials__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .testimonial-card { background:var(--green-light); border-radius:16px; padding:2rem; }
+        .testimonial-card p { font-size:.95rem; color:#555; font-style:italic; margin-bottom:1rem; line-height:1.7; }
+        .testimonial-card__author { display:flex; align-items:center; gap:.75rem; }
+        .testimonial-card__avatar { width:44px; height:44px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:1rem; }
+        .testimonial-card__name { font-weight:600; font-size:.9rem; }
+        .testimonial-card__role { font-size:.8rem; color:#888; }
+
+        /* ---- CTA ---- */
+        .cta { padding:5rem 0; background:linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); color:#fff; text-align:center; }
+        .cta h2 { font-size:2.25rem; font-weight:800; margin-bottom:1rem; }
+        .cta p { font-size:1.1rem; opacity:.9; margin-bottom:2rem; max-width:550px; margin-left:auto; margin-right:auto; }
+        .btn--white { background:#fff; color:var(--green-dark); }
+        .btn--white:hover { background:#f0f0f0; transform:translateY(-2px); }
+
+        /* ---- FOOTER ---- */
+        .footer { background:#111; color:#aaa; text-align:center; padding:2rem; font-size:.85rem; }
+
+        /* ---- Responsive ---- */
+        @media(max-width:768px){
+            .hero__grid, .about__grid, .features__grid, .testimonials__grid { grid-template-columns:1fr; }
+            .hero h1 { font-size:2rem; }
+            .nav__links { display:none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back to Portfolio -->
+    <div class="back-banner">
+        ⬅ Esta é uma amostra de projeto. <a href="../index.html#portfolio">Voltar ao portfólio</a>
+    </div>
+
+    <!-- Nav -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav__logo">🥗 Dra. Mariana Silva</a>
+                <div class="nav__links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#depoimentos">Depoimentos</a>
+                    <a href="#contato" class="nav-cta">Agendar Consulta</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__grid">
+                <div>
+                    <span class="hero__tag">Nutricionista Clínica e Esportiva</span>
+                    <h1>Transforme sua <span>saúde</span> com uma alimentação <span>personalizada</span></h1>
+                    <p>Consultas presenciais e online com planos alimentares individualizados para você alcançar seus objetivos de forma saudável e sustentável.</p>
+                    <div class="hero__btns">
+                        <a href="#" class="btn btn--whatsapp">📱 Agendar pelo WhatsApp</a>
+                        <a href="#servicos" class="btn btn--green">Conhecer Serviços</a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&h=400&fit=crop" alt="Alimentação saudável">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="servicos">
+        <div class="container">
+            <h2 class="section-title">Como posso te ajudar</h2>
+            <p class="section-sub">Atendimento humanizado e baseado em evidências científicas</p>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">🎯</div>
+                    <h3>Emagrecimento Saudável</h3>
+                    <p>Planos personalizados para perder peso sem dietas restritivas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">💪</div>
+                    <h3>Nutrição Esportiva</h3>
+                    <p>Otimize sua performance com alimentação estratégica.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">🩺</div>
+                    <h3>Nutrição Clínica</h3>
+                    <p>Tratamento nutricional para diabetes, hipertensão e mais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__image">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&h=400&fit=crop" alt="Dra. Mariana">
+                </div>
+                <div>
+                    <h2>Sobre a Dra. Mariana</h2>
+                    <p>Com mais de 8 anos de experiência, a Dra. Mariana é especialista em nutrição clínica e esportiva, com pós-graduação em Nutrição Funcional.</p>
+                    <p>Seu foco é ajudar pacientes a conquistar uma relação saudável com a alimentação, sem dietas da moda ou restrições extremas.</p>
+                    <ul>
+                        <li>CRN-2 12345</li>
+                        <li>+1.500 pacientes atendidos</li>
+                        <li>Atendimento presencial e online</li>
+                        <li>Pós-graduada em Nutrição Funcional</li>
+                    </ul>
+                    <a href="#" class="btn btn--green">Agendar Consulta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <h2 class="section-title">O que dizem meus pacientes</h2>
+            <p class="section-sub">Resultados reais de pessoas reais</p>
+            <div class="testimonials__grid">
+                <div class="testimonial-card">
+                    <p>"Perdi 12kg em 4 meses sem passar fome! A Dra. Mariana mudou minha relação com a comida."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">A</div>
+                        <div>
+                            <div class="testimonial-card__name">Ana Paula</div>
+                            <div class="testimonial-card__role">Paciente há 6 meses</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Minha performance no treino melhorou demais depois que comecei o acompanhamento nutricional."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">R</div>
+                        <div>
+                            <div class="testimonial-card__name">Ricardo Souza</div>
+                            <div class="testimonial-card__role">Atleta amador</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Finalmente consegui controlar minha glicemia com alimentação adequada. Vida nova!"</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">M</div>
+                        <div>
+                            <div class="testimonial-card__name">Maria Clara</div>
+                            <div class="testimonial-card__role">Paciente há 1 ano</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contato">
+        <div class="container">
+            <h2>Pronta para transformar sua saúde?</h2>
+            <p>Agende sua consulta agora mesmo e dê o primeiro passo rumo a uma vida mais saudável.</p>
+            <a href="#" class="btn btn--white">📱 Agendar pelo WhatsApp</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Amostra desenvolvida por <strong>Nykolas Volkmann</strong> — <a href="../index.html" style="color:#6dab7a">Voltar ao portfólio</a></p>
+    </footer>
+
+</body>
+</html>

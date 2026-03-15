@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nykolas Volkmann Cardoso — Desenvolvedor Web Freelancer. Criação de sites, landing pages e páginas de vendas profissionais.">
+    <title>Nykolas Volkmann — Desenvolvedor Web Freelancer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!--            HEADER / NAV        -->
+    <!-- ============================== -->
+    <header id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <span class="logo-bracket">&lt;</span>Nykolas<span class="logo-dot">.</span>dev<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav__list" id="nav-list">
+                <li><a href="#sobre" class="nav__link">Sobre</a></li>
+                <li><a href="#servicos" class="nav__link">Serviços</a></li>
+                <li><a href="#portfolio" class="nav__link">Portfólio</a></li>
+                <li><a href="#tecnologias" class="nav__link">Tecnologias</a></li>
+                <li><a href="#diferenciais" class="nav__link">Diferenciais</a></li>
+                <li><a href="#contato" class="nav__link nav__link--cta">Contato</a></li>
+            </ul>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menu">
+                <i class="ph ph-list"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ============================== -->
+    <!--          HERO SECTION          -->
+    <!-- ============================== -->
+    <section id="hero" class="hero">
+        <div class="hero__bg-shapes">
+            <div class="shape shape--1"></div>
+            <div class="shape shape--2"></div>
+            <div class="shape shape--3"></div>
+        </div>
+        <div class="container hero__container">
+            <div class="hero__content" data-reveal>
+                <span class="hero__badge">
+                    <i class="ph ph-code"></i> Desenvolvedor Web Freelancer
+                </span>
+                <h1 class="hero__title">
+                    Olá, eu sou <span class="text-gradient">Nykolas Volkmann</span>
+                </h1>
+                <p class="hero__subtitle">
+                    Desenvolvo sites e landing pages profissionais que ajudam empresas a <strong>atrair mais clientes</strong> e aumentar suas vendas online.
+                </p>
+                <div class="hero__actions">
+                    <a href="#portfolio" class="btn btn--primary">
+                        <i class="ph ph-folder-open"></i> Ver Projetos
+                    </a>
+                    <a href="#contato" class="btn btn--outline">
+                        <i class="ph ph-chat-circle-dots"></i> Entrar em Contato
+                    </a>
+                </div>
+                <div class="hero__stats">
+                    <div class="stat">
+                        <span class="stat__number">50+</span>
+                        <span class="stat__label">Projetos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">40+</span>
+                        <span class="stat__label">Clientes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__visual" data-reveal data-reveal-delay="200">
+                <div class="hero__code-window">
+                    <div class="code-window__header">
+                        <span class="dot dot--red"></span>
+                        <span class="dot dot--yellow"></span>
+                        <span class="dot dot--green"></span>
+                        <span class="code-window__title">portfolio.js</span>
+                    </div>
+                    <div class="code-window__body">
+                        <pre><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-prop">nome</span>: <span class="code-string">"Nykolas Volkmann"</span>,
+  <span class="code-prop">foco</span>: <span class="code-string">"Web Design &amp; Dev"</span>,
+  <span class="code-prop">paixão</span>: <span class="code-string">"Criar experiências"</span>,
+  <span class="code-prop">café</span>: <span class="code-boolean">true</span>,
+};
+
+<span class="code-keyword">function</span> <span class="code-func">criarProjeto</span>(<span class="code-param">cliente</span>) {
+  <span class="code-keyword">return</span> {
+    <span class="code-prop">design</span>: <span class="code-string">"moderno"</span>,
+    <span class="code-prop">responsivo</span>: <span class="code-boolean">true</span>,
+    <span class="code-prop">resultado</span>: <span class="code-string">"✨ incrível"</span>,
+  };
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <a href="#sobre" aria-label="Rolar para baixo">
+                <i class="ph ph-caret-double-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--          SOBRE SECTION         -->
+    <!-- ============================== -->
+    <section id="sobre" class="sobre section">
+        <div class="container">
+            <div class="section__header" data-reveal>
+                <span class="section__tag"><i class="ph ph-user-circle"></i> Sobre mim</span>
+                <h2 class="section__title">Conheça quem está por trás dos projetos</h2>
+            </div>
+            <div class="sobre__grid">
+                <div class="sobre__text" data-reveal>
+                    <p>
+                        Sou <strong>Nykolas Volkmann Cardoso</strong>, desenvolvedor web freelancer especializado em criar soluções digitais que geram resultados reais para meus clientes.
+                    </p>
+                    <p>
+                        Minha especialidade é a criação de <strong>landing pages</strong>, <strong>sites institucionais</strong>, <strong>páginas de vendas</strong> e <strong>blogs profissionais</strong> — tudo pensado para converter visitantes em clientes.
+                    </p>
+                    <p>
+                        Cada projeto é desenvolvido com foco em <strong>performance</strong>, <strong>design moderno</strong> e total <strong>responsividade</strong>, garantindo uma experiência impecável em qualquer dispositivo.
+                    </p>
+                </div>
+                <div class="sobre__cards" data-reveal data-reveal-delay="200">
+                    <div class="sobre__card">
+                        <i class="ph-fill ph-rocket-launch"></i>
+                        <h3>Performance</h3>
+                        <p>Sites rápidos e otimizados para carregar em segundos.</p>
+                    </div>
+                    <div class="sobre__card">
+                        <i class="ph-fill ph-paint-brush-broad"></i>
+                        <h3>Design Moderno</h3>
+                        <p>Layouts atuais que impressionam e transmitem profissionalismo.</p>
+                    </div>
+                    <div class="sobre__card">
+                        <i class="ph-fill ph-devices"></i>
+                        <h3>Responsivo</h3>
+                        <p>Perfeito em desktop, tablet e celular.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--        PORTFÓLIO SECTION       -->
+    <!-- ============================== -->
+    <section id="portfolio" class="portfolio section section--dark">
+        <div class="container">
+            <div class="section__header" data-reveal>
+                <span class="section__tag"><i class="ph ph-folder-simple-star"></i> Portfólio</span>
+                <h2 class="section__title">Projetos que geram resultados</h2>
+                <p class="section__description">Confira alguns dos meus trabalhos mais recentes e veja a qualidade que entrego em cada projeto.</p>
+            </div>
+
+            <div class="portfolio__grid">
+                <!-- Projeto 1 — Landing Page -->
+                <article class="projeto-card" data-reveal>
+                    <div class="projeto-card__image">
+                        <img src="img/projeto-nutricionista.png" alt="Landing page profissional" loading="lazy">
+                        <div class="projeto-card__overlay">
+                            <a href="amostras/nutri-premium-organica.html" target="_blank" class="btn btn--small btn--light">
+                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                            </a>
+                        </div>
+                    </div>
+                    <div class="projeto-card__info">
+                        <span class="projeto-card__tag">Landing Page</span>
+                        <h3 class="projeto-card__title">Landing Page</h3>
+                        <p class="projeto-card__desc">Página focada em captação de clientes e agendamento via WhatsApp, com design clean e profissional.</p>
+                    </div>
+                </article>
+
+                <!-- Projeto 2 — Página de Vendas -->
+                <article class="projeto-card" data-reveal data-reveal-delay="100">
+                    <div class="projeto-card__image">
+                        <img src="img/projeto-produto-digital.png" alt="Página de vendas de curso" loading="lazy">
+                        <div class="projeto-card__overlay">
+                            <a href="amostras/pagina-vendas.html" target="_blank" class="btn btn--small btn--light">
+                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                            </a>
+                        </div>
+                    </div>
+                    <div class="projeto-card__info">
+                        <span class="projeto-card__tag">Página de Vendas</span>
+                        <h3 class="projeto-card__title">Página de Vendas de Curso</h3>
+                        <p class="projeto-card__desc">Página de alta conversão para venda de cursos e produtos digitais, com prova social, contagem regressiva e CTA estratégicos.</p>
+                    </div>
+                </article>
+
+                <!-- Projeto 3 — Site Institucional -->
+                <article class="projeto-card" data-reveal data-reveal-delay="200">
+                    <div class="projeto-card__image">
+                        <img src="img/projeto-institucional.png" alt="Site institucional" loading="lazy">
+                        <div class="projeto-card__overlay">
+                            <a href="amostras/site-institucional.html" target="_blank" class="btn btn--small btn--light">
+                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                            </a>
+                        </div>
+                    </div>
+                    <div class="projeto-card__info">
+                        <span class="projeto-card__tag">Site Institucional</span>
+                        <h3 class="projeto-card__title">Site Institucional</h3>
+                        <p class="projeto-card__desc">Site institucional completo com apresentação de serviços, portfólio de trabalhos e formulário de orçamento.</p>
+                    </div>
+                </article>
+
+                <!-- Projeto 4 — Profissional Autônomo -->
+                <article class="projeto-card" data-reveal>
+                    <div class="projeto-card__image">
+                        <img src="img/projeto-profissional.png" alt="Site para profissionais autônomos" loading="lazy">
+                        <div class="projeto-card__overlay">
+                            <a href="amostras/profissional-autonomo.html" target="_blank" class="btn btn--small btn--light">
+                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                            </a>
+                        </div>
+                    </div>
+                    <div class="projeto-card__info">
+                        <span class="projeto-card__tag">Profissional Autônomo</span>
+                        <h3 class="projeto-card__title">Site para Profissionais Autônomos</h3>
+                        <p class="projeto-card__desc">Site profissional com agendamento online, galeria de resultados e depoimentos de clientes para atrair novos negócios.</p>
+                    </div>
+                </article>
+
+                <!-- Projeto 5 — Blog -->
+                <article class="projeto-card" data-reveal data-reveal-delay="100">
+                    <div class="projeto-card__image">
+                        <img src="img/projeto-blog.png" alt="Blog profissional" loading="lazy">
+                        <div class="projeto-card__overlay">
+                            <a href="amostras/blog-profissional.html" target="_blank" class="btn btn--small btn--light">
+                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                            </a>
+                        </div>
+                    </div>
+                    <div class="projeto-card__info">
+                        <span class="projeto-card__tag">Blog</span>
+                        <h3 class="projeto-card__title">Blog Profissional</h3>
+                        <p class="projeto-card__desc">Blog com design moderno, sistema de categorias, captura de e-mail e estrutura otimizada para SEO e conteúdo.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--        SERVIÇOS SECTION        -->
+    <!-- ============================== -->
+    <section id="servicos" class="servicos section">
+        <div class="container">
+            <div class="section__header" data-reveal>
+                <span class="section__tag"><i class="ph ph-briefcase"></i> Serviços</span>
+                <h2 class="section__title">Soluções sob medida para o seu negócio</h2>
+                <p class="section__description">Ofereço serviços completos de desenvolvimento web, do planejamento à entrega final.</p>
+            </div>
+            <div class="servicos__grid">
+                <div class="servico-card" data-reveal>
+                    <div class="servico-card__icon">
+                        <i class="ph-fill ph-target"></i>
+                    </div>
+                    <h3 class="servico-card__title">Landing Pages</h3>
+                    <p class="servico-card__text">Páginas focadas em conversão, com design persuasivo e chamadas para ação estratégicas.</p>
+                </div>
+                <div class="servico-card" data-reveal data-reveal-delay="100">
+                    <div class="servico-card__icon">
+                        <i class="ph-fill ph-buildings"></i>
+                    </div>
+                    <h3 class="servico-card__title">Sites Institucionais</h3>
+                    <p class="servico-card__text">Sites completos e profissionais que fortalecem a presença digital da sua empresa.</p>
+                </div>
+                <div class="servico-card" data-reveal data-reveal-delay="200">
+                    <div class="servico-card__icon">
+                        <i class="ph-fill ph-shopping-cart"></i>
+                    </div>
+                    <h3 class="servico-card__title">Páginas de Vendas</h3>
+                    <p class="servico-card__text">Estrutura otimizada para vender produtos digitais e cursos online.</p>
+                </div>
+                <div class="servico-card" data-reveal data-reveal-delay="100">
+                    <div class="servico-card__icon">
+                        <i class="ph-fill ph-article"></i>
+                    </div>
+                    <h3 class="servico-card__title">Blogs Profissionais</h3>
+                    <p class="servico-card__text">Plataformas de conteúdo com design elegante e estrutura otimizada para SEO.</p>
+                </div>
+                <div class="servico-card" data-reveal data-reveal-delay="200">
+                    <div class="servico-card__icon">
+                        <i class="ph-fill ph-device-mobile"></i>
+                    </div>
+                    <h3 class="servico-card__title">Otimização Mobile</h3>
+                    <p class="servico-card__text">Sites 100% responsivos que funcionam perfeitamente em qualquer dispositivo.</p>
+                </div>
+                <div class="servico-card" data-reveal data-reveal-delay="300">
+                    <div class="servico-card__icon">
+                        <i class="ph-fill ph-whatsapp-logo"></i>
+                    </div>
+                    <h3 class="servico-card__title">Integrações</h3>
+                    <p class="servico-card__text">WhatsApp, formulários de contato, analytics e ferramentas de marketing digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--       TECNOLOGIAS SECTION      -->
+    <!-- ============================== -->
+    <section id="tecnologias" class="tecnologias section section--dark">
+        <div class="container">
+            <div class="section__header" data-reveal>
+                <span class="section__tag"><i class="ph ph-cpu"></i> Tecnologias</span>
+                <h2 class="section__title">Ferramentas que utilizo</h2>
+                <p class="section__description">Trabalho com as melhores tecnologias para entregar sites rápidos, modernos e otimizados.</p>
+            </div>
+            <div class="tecnologias__grid">
+                <div class="tech-card" data-reveal>
+                    <i class="ph-fill ph-file-html"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-card" data-reveal data-reveal-delay="80">
+                    <i class="ph-fill ph-file-css"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-card" data-reveal data-reveal-delay="160">
+                    <i class="ph-fill ph-file-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-card" data-reveal data-reveal-delay="240">
+                    <i class="ph-fill ph-magic-wand"></i>
+                    <span>Animações</span>
+                </div>
+                <div class="tech-card" data-reveal data-reveal-delay="320">
+                    <i class="ph-fill ph-devices"></i>
+                    <span>Responsivo</span>
+                </div>
+                <div class="tech-card" data-reveal data-reveal-delay="400">
+                    <i class="ph-fill ph-magnifying-glass"></i>
+                    <span>SEO</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--       DIFERENCIAIS SECTION     -->
+    <!-- ============================== -->
+    <section id="diferenciais" class="diferenciais section">
+        <div class="container">
+            <div class="section__header" data-reveal>
+                <span class="section__tag"><i class="ph ph-star-four"></i> Diferenciais</span>
+                <h2 class="section__title">Por que me escolher?</h2>
+            </div>
+            <div class="diferenciais__grid">
+                <div class="diferencial-card" data-reveal>
+                    <div class="diferencial-card__number">01</div>
+                    <h3>Design Moderno</h3>
+                    <p>Layouts atuais, elegantes e alinhados com as tendências de mercado.</p>
+                </div>
+                <div class="diferencial-card" data-reveal data-reveal-delay="100">
+                    <div class="diferencial-card__number">02</div>
+                    <h3>Sites Rápidos</h3>
+                    <p>Código otimizado para carregamento ultrarrápido e boa experiência do usuário.</p>
+                </div>
+                <div class="diferencial-card" data-reveal data-reveal-delay="200">
+                    <div class="diferencial-card__number">03</div>
+                    <h3>Foco em Conversão</h3>
+                    <p>Estrutura pensada para transformar visitantes em clientes ou leads qualificados.</p>
+                </div>
+                <div class="diferencial-card" data-reveal data-reveal-delay="100">
+                    <div class="diferencial-card__number">04</div>
+                    <h3>Fácil Manutenção</h3>
+                    <p>Código limpo e documentado para que qualquer atualização futura seja simples.</p>
+                </div>
+                <div class="diferencial-card" data-reveal data-reveal-delay="200">
+                    <div class="diferencial-card__number">05</div>
+                    <h3>Código Organizado</h3>
+                    <p>Boas práticas de desenvolvimento, semântica e acessibilidade em cada projeto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--         CONTATO SECTION        -->
+    <!-- ============================== -->
+    <section id="contato" class="contato section section--dark">
+        <div class="container">
+            <div class="section__header" data-reveal>
+                <span class="section__tag"><i class="ph ph-envelope-simple"></i> Contato</span>
+                <h2 class="section__title">Vamos conversar sobre seu projeto?</h2>
+                <p class="section__description">Preencha o formulário ou entre em contato diretamente pelo WhatsApp ou e-mail.</p>
+            </div>
+            <div class="contato__grid">
+                <form action="https://formspree.io/f/xvzwbkzn" method="POST" class="contato__form" id="contact-form" data-reveal>
+                    <div class="form-group">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu projeto..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">
+                        <i class="ph ph-paper-plane-tilt"></i> Enviar Mensagem
+                    </button>
+                </form>
+                <div class="contato__info" data-reveal data-reveal-delay="200">
+                    <div class="contato__card">
+                        <a href="https://wa.me/5547996806367?text=Olá%20Nykolas!%20Gostaria%20de%20um%20orçamento%20para%20meu%20projeto." target="_blank" class="contato__link contato__link--whatsapp">
+                            <i class="ph-fill ph-whatsapp-logo"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>(47) 99680-6367</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="contato__card">
+                        <a href="mailto:nykolasvolkmannc@gmail.com" class="contato__link contato__link--email">
+                            <i class="ph-fill ph-envelope-simple"></i>
+                            <div>
+                                <strong>E-mail</strong>
+                                <span>nykolasvolkmannc@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="contato__social-proof">
+                        <p>⚡ Respondo em até <strong>24 horas</strong></p>
+                        <p>📋 Orçamento <strong>sem compromisso</strong></p>
+                        <p>🤝 Atendimento <strong>personalizado</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--            FOOTER              -->
+    <!-- ============================== -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <a href="#" class="footer__logo">
+                <span class="logo-bracket">&lt;</span>Nykolas<span class="logo-dot">.</span>dev<span class="logo-bracket">/&gt;</span>
+            </a>
+            <p class="footer__copy">&copy; 2026 Nykolas Volkmann Cardoso. Todos os direitos reservados.</p>
+            <div class="footer__links">
+                <a href="https://wa.me/5547996806367" target="_blank" aria-label="WhatsApp"><i class="ph-fill ph-whatsapp-logo"></i></a>
+                <a href="mailto:nykolasvolkmannc@gmail.com" aria-label="E-mail"><i class="ph-fill ph-envelope-simple"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5547996806367?text=Olá%20Nykolas!%20Gostaria%20de%20um%20orçamento." target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Back to Top -->
+    <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <i class="ph-bold ph-caret-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

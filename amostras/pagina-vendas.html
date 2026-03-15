@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Expert Digital — Página de Vendas | Amostra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',sans-serif; color:#f0f0f5; background:#0d0d14; line-height:1.7; overflow-x:hidden; }
+        a { text-decoration:none; color:inherit; }
+        img { max-width:100%; display:block; }
+        .container { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+
+        .back-banner { background:#111; color:#fff; text-align:center; padding:.6rem; font-size:.85rem; position:sticky; top:0; z-index:9999; }
+        .back-banner a { color:#a78bfa; font-weight:600; text-decoration:underline; }
+
+        :root {
+            --purple: #7c3aed;
+            --purple-light: #a78bfa;
+            --orange: #f97316;
+            --orange-dark: #ea580c;
+            --bg: #0d0d14;
+            --card: #16161f;
+            --border: rgba(255,255,255,.08);
+        }
+
+        /* ---- HERO ---- */
+        .hero { padding:6rem 0 5rem; text-align:center; position:relative; overflow:hidden; }
+        .hero::before { content:''; position:absolute; top:-50%; left:-30%; width:80%; height:200%; background:radial-gradient(circle, rgba(124,58,237,.15), transparent 60%); pointer-events:none; }
+        .hero::after { content:''; position:absolute; top:-50%; right:-30%; width:80%; height:200%; background:radial-gradient(circle, rgba(249,115,22,.1), transparent 60%); pointer-events:none; }
+        .hero__tag { display:inline-block; background:linear-gradient(135deg,var(--purple),var(--orange)); color:#fff; font-size:.75rem; font-weight:700; padding:.4rem 1.2rem; border-radius:20px; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem; }
+        .hero h1 { font-size:3.25rem; font-weight:900; line-height:1.1; margin-bottom:1.25rem; letter-spacing:-0.02em; }
+        .hero h1 span { background:linear-gradient(135deg,var(--purple-light),var(--orange)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .hero p { font-size:1.2rem; color:#a0a0b5; max-width:650px; margin:0 auto 2rem; }
+        .hero__price { margin-bottom:2rem; }
+        .hero__price .old-price { font-size:1.1rem; color:#666; text-decoration:line-through; }
+        .hero__price .new-price { font-size:2.5rem; font-weight:900; background:linear-gradient(135deg,var(--orange),#fbbf24); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .hero__price .installments { font-size:.95rem; color:#a0a0b5; }
+        .btn { display:inline-flex; align-items:center; gap:.5rem; padding:1rem 2.5rem; border-radius:10px; font-weight:700; font-size:1.1rem; transition:all .3s; cursor:pointer; border:none; }
+        .btn--cta { background:linear-gradient(135deg,var(--orange),var(--orange-dark)); color:#fff; box-shadow:0 0 30px rgba(249,115,22,.3); font-size:1.15rem; }
+        .btn--cta:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 0 50px rgba(249,115,22,.4); }
+        .hero__guarantee { margin-top:1.5rem; font-size:.85rem; color:#888; }
+
+        /* ---- COUNTDOWN ---- */
+        .countdown { padding:2rem 0; background:var(--card); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+        .countdown__inner { display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; }
+        .countdown__label { font-size:1rem; font-weight:600; color:var(--orange); }
+        .countdown__timer { display:flex; gap:.75rem; }
+        .countdown__block { background:rgba(249,115,22,.1); border:1px solid rgba(249,115,22,.2); border-radius:10px; padding:.75rem 1rem; text-align:center; min-width:65px; }
+        .countdown__number { font-size:1.75rem; font-weight:800; color:#fff; display:block; }
+        .countdown__unit { font-size:.7rem; color:#999; text-transform:uppercase; letter-spacing:1px; }
+
+        /* ---- MODULES ---- */
+        .modules { padding:5rem 0; }
+        .section-title { text-align:center; font-size:2.25rem; font-weight:800; margin-bottom:.5rem; }
+        .section-sub { text-align:center; color:#888; margin-bottom:3rem; }
+        .modules__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .module-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:all .3s; position:relative; overflow:hidden; }
+        .module-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--purple),var(--orange)); }
+        .module-card:hover { transform:translateY(-4px); border-color:rgba(124,58,237,.3); box-shadow:0 8px 30px rgba(0,0,0,.3); }
+        .module-card__number { font-size:2.5rem; font-weight:900; background:linear-gradient(135deg,var(--purple-light),var(--orange)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; opacity:.4; line-height:1; margin-bottom:.5rem; }
+        .module-card h3 { font-size:1.1rem; font-weight:700; margin-bottom:.4rem; }
+        .module-card p { font-size:.9rem; color:#888; }
+
+        /* ---- TESTIMONIALS ---- */
+        .testimonials { padding:5rem 0; background:var(--card); }
+        .testimonials__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .test-card { background:var(--bg); border:1px solid var(--border); border-radius:16px; padding:2rem; }
+        .test-card .stars { color:#fbbf24; font-size:1rem; margin-bottom:.75rem; }
+        .test-card p { font-size:.95rem; color:#aaa; font-style:italic; margin-bottom:1rem; }
+        .test-card__author { font-weight:600; font-size:.9rem; }
+        .test-card__info { font-size:.8rem; color:#666; }
+
+        /* ---- BONUS ---- */
+        .bonus { padding:5rem 0; }
+        .bonus__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+        .bonus-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; text-align:center; transition:all .3s; }
+        .bonus-card:hover { border-color:rgba(249,115,22,.3); transform:translateY(-4px); }
+        .bonus-card__badge { display:inline-block; background:linear-gradient(135deg,var(--orange),#fbbf24); color:#000; font-size:.7rem; font-weight:700; padding:.25rem .75rem; border-radius:12px; margin-bottom:1rem; text-transform:uppercase; }
+        .bonus-card h3 { font-size:1.05rem; margin-bottom:.4rem; }
+        .bonus-card p { font-size:.85rem; color:#888; }
+        .bonus-card__value { margin-top:.75rem; font-size:.85rem; color:#666; }
+        .bonus-card__value span { text-decoration:line-through; }
+
+        /* ---- FINAL CTA ---- */
+        .final-cta { padding:5rem 0; text-align:center; background:linear-gradient(180deg, var(--bg), #1a1028); }
+        .final-cta h2 { font-size:2.5rem; font-weight:900; margin-bottom:1rem; }
+        .final-cta h2 span { background:linear-gradient(135deg,var(--purple-light),var(--orange)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .final-cta p { color:#888; max-width:550px; margin:0 auto 2rem; font-size:1.1rem; }
+
+        .footer { background:#080810; text-align:center; padding:2rem; font-size:.8rem; color:#555; border-top:1px solid var(--border); }
+
+        @media(max-width:768px){
+            .hero h1 { font-size:2rem; }
+            .modules__grid, .testimonials__grid, .bonus__grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-banner">
+        ⬅ Esta é uma amostra de projeto. <a href="../index.html#portfolio">Voltar ao portfólio</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero__tag">🔥 Vagas Limitadas — Turma 12</span>
+            <h1>Domine o Mercado Digital e <span>Viva da Internet</span></h1>
+            <p>O método comprovado que já ajudou mais de 5.000 alunos a criarem negócios digitais lucrativos do zero, mesmo sem experiência.</p>
+            <div class="hero__price">
+                <div class="old-price">De R$ 997,00</div>
+                <div class="new-price">R$ 497,00</div>
+                <div class="installments">ou 12x de R$ 49,70 no cartão</div>
+            </div>
+            <a href="#" class="btn btn--cta">🚀 QUERO MINHA VAGA AGORA</a>
+            <div class="hero__guarantee">🔒 7 dias de garantia incondicional</div>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="countdown">
+        <div class="container">
+            <div class="countdown__inner">
+                <span class="countdown__label">⏰ Oferta expira em:</span>
+                <div class="countdown__timer">
+                    <div class="countdown__block"><span class="countdown__number" id="hours">23</span><span class="countdown__unit">Horas</span></div>
+                    <div class="countdown__block"><span class="countdown__number" id="minutes">59</span><span class="countdown__unit">Min</span></div>
+                    <div class="countdown__block"><span class="countdown__number" id="seconds">59</span><span class="countdown__unit">Seg</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules -->
+    <section class="modules">
+        <div class="container">
+            <h2 class="section-title">O que você vai aprender</h2>
+            <p class="section-sub">Conteúdo estruturado em módulos práticos e direto ao ponto</p>
+            <div class="modules__grid">
+                <div class="module-card">
+                    <div class="module-card__number">01</div>
+                    <h3>Fundamentos do Digital</h3>
+                    <p>Entenda o ecossistema digital e escolha seu nicho lucrativo.</p>
+                </div>
+                <div class="module-card">
+                    <div class="module-card__number">02</div>
+                    <h3>Criando sua Oferta</h3>
+                    <p>Monte uma oferta irresistível que vende todos os dias.</p>
+                </div>
+                <div class="module-card">
+                    <div class="module-card__number">03</div>
+                    <h3>Tráfego e Audiência</h3>
+                    <p>Aprenda a atrair clientes com tráfego orgânico e pago.</p>
+                </div>
+                <div class="module-card">
+                    <div class="module-card__number">04</div>
+                    <h3>Página de Vendas</h3>
+                    <p>Crie páginas que convertem visitantes em compradores.</p>
+                </div>
+                <div class="module-card">
+                    <div class="module-card__number">05</div>
+                    <h3>Automação e Escala</h3>
+                    <p>Automatize suas vendas e escale seu negócio.</p>
+                </div>
+                <div class="module-card">
+                    <div class="module-card__number">06</div>
+                    <h3>Mentalidade de Sucesso</h3>
+                    <p>Desenvolva o mindset certo para crescer com consistência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Depoimentos de Alunos</h2>
+            <p class="section-sub">Veja o que nossos alunos estão dizendo</p>
+            <div class="testimonials__grid">
+                <div class="test-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Em 3 meses já estava faturando R$ 5.000/mês. O método é simples e funciona de verdade!"</p>
+                    <div class="test-card__author">Lucas Mendes</div>
+                    <div class="test-card__info">Aluno Turma 8</div>
+                </div>
+                <div class="test-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Saí do zero e hoje tenho um negócio digital que me dá liberdade. Melhor investimento da minha vida."</p>
+                    <div class="test-card__author">Camila Ferreira</div>
+                    <div class="test-card__info">Aluna Turma 10</div>
+                </div>
+                <div class="test-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"O suporte é incrível. Sempre que tenho dúvida, a equipe responde rápido e me ajuda a evoluir."</p>
+                    <div class="test-card__author">Pedro Almeida</div>
+                    <div class="test-card__info">Aluno Turma 11</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus -->
+    <section class="bonus">
+        <div class="container">
+            <h2 class="section-title">Bônus Exclusivos</h2>
+            <p class="section-sub">Quem comprar hoje leva todos esses bônus gratuitamente</p>
+            <div class="bonus__grid">
+                <div class="bonus-card">
+                    <span class="bonus-card__badge">Bônus #1</span>
+                    <h3>Comunidade VIP</h3>
+                    <p>Acesso à comunidade exclusiva de alunos no Telegram.</p>
+                    <div class="bonus-card__value"><span>R$ 297</span> GRÁTIS</div>
+                </div>
+                <div class="bonus-card">
+                    <span class="bonus-card__badge">Bônus #2</span>
+                    <h3>Pack de Templates</h3>
+                    <p>Modelos prontos de páginas, e-mails e anúncios.</p>
+                    <div class="bonus-card__value"><span>R$ 197</span> GRÁTIS</div>
+                </div>
+                <div class="bonus-card">
+                    <span class="bonus-card__badge">Bônus #3</span>
+                    <h3>Mentoria em Grupo</h3>
+                    <p>3 sessões ao vivo de mentoria com o criador do método.</p>
+                    <div class="bonus-card__value"><span>R$ 497</span> GRÁTIS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Não perca essa <span>oportunidade</span></h2>
+            <p>Garanta sua vaga agora com desconto especial e comece sua jornada rumo à liberdade financeira.</p>
+            <a href="#" class="btn btn--cta">🚀 QUERO COMEÇAR AGORA — R$ 497</a>
+            <div class="hero__guarantee" style="margin-top:1.5rem;">🔒 Pagamento seguro • Satisfação garantida ou seu dinheiro de volta</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Amostra desenvolvida por <strong style="color:#a78bfa">Nykolas Volkmann</strong> — <a href="../index.html" style="color:#a78bfa">Voltar ao portfólio</a></p>
+    </footer>
+
+    <script>
+        // Simple countdown timer
+        function startCountdown() {
+            let h = 23, m = 59, s = 59;
+            setInterval(() => {
+                s--;
+                if(s < 0) { s = 59; m--; }
+                if(m < 0) { m = 59; h--; }
+                if(h < 0) { h = 23; m = 59; s = 59; }
+                document.getElementById('hours').textContent = String(h).padStart(2,'0');
+                document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+                document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+            }, 1000);
+        }
+        startCountdown();
+    </script>
+</body>
+</html>
