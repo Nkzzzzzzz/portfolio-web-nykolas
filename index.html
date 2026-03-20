@@ -3,30 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nykolas Volkmann Cardoso — Desenvolvedor Web Freelancer. Criação de sites, landing pages e páginas de vendas profissionais.">
-    <title>Nykolas Volkmann — Desenvolvedor Web Freelancer</title>
 
-    <!-- Google Fonts -->
+    <!-- SEO -->
+    <title>Nykolas Volkmann — Landing Pages Profissionais para Saúde e Bem-Estar</title>
+    <meta name="description" content="Desenvolvedor web especializado em landing pages de alta conversão para nutricionistas, personal trainers, médicos e infoprodutores. Design moderno, performance e foco em resultados.">
+    <meta name="keywords" content="landing page, desenvolvedor web, nutricionista, personal trainer, médico, infoprodutor, criação de sites, páginas de conversão, freelancer">
+    <meta name="author" content="Nykolas Volkmann Cardoso">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nykolas Volkmann — Landing Pages Profissionais para Saúde e Bem-Estar">
+    <meta property="og:description" content="Landing pages que transformam visitantes em clientes. Especialista em profissionais da saúde.">
+    <meta property="og:url" content="https://nykolasvolkmann.com">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Phosphor Icons -->
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
-
-    <!-- Stylesheet -->
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ============================== -->
-    <!--            HEADER / NAV        -->
-    <!-- ============================== -->
+    <!-- ========================================
+         HEADER / NAVIGATION
+    ======================================== -->
     <header id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">
+        <nav class="nav container" id="nav">
+            <a href="#" class="nav__logo" aria-label="Nykolas.dev">
                 <span class="logo-bracket">&lt;</span>Nykolas<span class="logo-dot">.</span>dev<span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav__list" id="nav-list">
@@ -38,429 +45,524 @@
                 <li><a href="#contato" class="nav__link nav__link--cta">Contato</a></li>
             </ul>
             <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menu">
-                <i class="ph ph-list"></i>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </nav>
     </header>
 
-    <!-- ============================== -->
-    <!--          HERO SECTION          -->
-    <!-- ============================== -->
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
     <section id="hero" class="hero">
-        <div class="hero__bg-shapes">
-            <div class="shape shape--1"></div>
-            <div class="shape shape--2"></div>
-            <div class="shape shape--3"></div>
-        </div>
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+        <div class="hero__grid-lines"></div>
+
         <div class="container hero__container">
             <div class="hero__content" data-reveal>
-                <span class="hero__badge">
-                    <i class="ph ph-code"></i> Desenvolvedor Web Freelancer
-                </span>
+                <div class="hero__badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    Especialista em Landing Pages
+                </div>
                 <h1 class="hero__title">
-                    Olá, eu sou <span class="text-gradient">Nykolas Volkmann</span>
+                    Landing Pages que <span class="text-gradient">transformam visitantes</span> em clientes
                 </h1>
                 <p class="hero__subtitle">
-                    Desenvolvo sites e landing pages profissionais que ajudam empresas a <strong>atrair mais clientes</strong> e aumentar suas vendas online.
+                    Crio páginas de alta conversão para <strong>nutricionistas</strong>, <strong>personal trainers</strong>, <strong>médicos</strong> e <strong>infoprodutores</strong> que querem mais resultados online.
                 </p>
                 <div class="hero__actions">
-                    <a href="#portfolio" class="btn btn--primary">
-                        <i class="ph ph-folder-open"></i> Ver Projetos
+                    <a href="#portfolio" class="btn btn--primary" id="hero-cta-projetos">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+                        Ver Portfólio
                     </a>
-                    <a href="#contato" class="btn btn--outline">
-                        <i class="ph ph-chat-circle-dots"></i> Entrar em Contato
+                    <a href="#contato" class="btn btn--ghost" id="hero-cta-contato">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        Falar Comigo
                     </a>
                 </div>
-                <div class="hero__stats">
-                    <div class="stat">
-                        <span class="stat__number">50+</span>
-                        <span class="stat__label">Projetos</span>
+                <div class="hero__metrics">
+                    <div class="hero__metric">
+                        <span class="hero__metric-value" data-count="50">0</span><span class="hero__metric-plus">+</span>
+                        <span class="hero__metric-label">Projetos entregues</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat__number">40+</span>
-                        <span class="stat__label">Clientes</span>
+                    <div class="hero__metric-divider"></div>
+                    <div class="hero__metric">
+                        <span class="hero__metric-value" data-count="40">0</span><span class="hero__metric-plus">+</span>
+                        <span class="hero__metric-label">Clientes satisfeitos</span>
+                    </div>
+                    <div class="hero__metric-divider"></div>
+                    <div class="hero__metric">
+                        <span class="hero__metric-value" data-count="3">0</span><span class="hero__metric-plus">s</span>
+                        <span class="hero__metric-label">Carregamento médio</span>
                     </div>
                 </div>
             </div>
-            <div class="hero__visual" data-reveal data-reveal-delay="200">
-                <div class="hero__code-window">
-                    <div class="code-window__header">
-                        <span class="dot dot--red"></span>
-                        <span class="dot dot--yellow"></span>
-                        <span class="dot dot--green"></span>
-                        <span class="code-window__title">portfolio.js</span>
-                    </div>
-                    <div class="code-window__body">
-                        <pre><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
-  <span class="code-prop">nome</span>: <span class="code-string">"Nykolas Volkmann"</span>,
-  <span class="code-prop">foco</span>: <span class="code-string">"Web Design &amp; Dev"</span>,
-  <span class="code-prop">paixão</span>: <span class="code-string">"Criar experiências"</span>,
-  <span class="code-prop">café</span>: <span class="code-boolean">true</span>,
-};
 
-<span class="code-keyword">function</span> <span class="code-func">criarProjeto</span>(<span class="code-param">cliente</span>) {
-  <span class="code-keyword">return</span> {
-    <span class="code-prop">design</span>: <span class="code-string">"moderno"</span>,
-    <span class="code-prop">responsivo</span>: <span class="code-boolean">true</span>,
-    <span class="code-prop">resultado</span>: <span class="code-string">"✨ incrível"</span>,
-  };
-}</code></pre>
+            <div class="hero__visual" data-reveal data-reveal-delay="200">
+                <div class="hero__mockup">
+                    <div class="mockup__browser">
+                        <div class="mockup__dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="mockup__url">nykolasvolkmann.com</span>
+                    </div>
+                    <div class="mockup__screen">
+                        <div class="mockup__content">
+                            <div class="mockup__block mockup__block--header"></div>
+                            <div class="mockup__block mockup__block--hero"></div>
+                            <div class="mockup__row">
+                                <div class="mockup__block mockup__block--card"></div>
+                                <div class="mockup__block mockup__block--card"></div>
+                                <div class="mockup__block mockup__block--card"></div>
+                            </div>
+                            <div class="mockup__block mockup__block--cta"></div>
+                        </div>
+                    </div>
+                    <!-- Floating badges -->
+                    <div class="mockup__float mockup__float--conversion">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                        <div>
+                            <span class="float__value">+147%</span>
+                            <span class="float__label">Conversao</span>
+                        </div>
+                    </div>
+                    <div class="mockup__float mockup__float--speed">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <div>
+                            <span class="float__value">0.8s</span>
+                            <span class="float__label">Load Time</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero__scroll-indicator">
+
+        <div class="hero__scroll">
             <a href="#sobre" aria-label="Rolar para baixo">
-                <i class="ph ph-caret-double-down"></i>
+                <div class="scroll-indicator">
+                    <div class="scroll-indicator__dot"></div>
+                </div>
             </a>
         </div>
     </section>
 
-    <!-- ============================== -->
-    <!--          SOBRE SECTION         -->
-    <!-- ============================== -->
-    <section id="sobre" class="sobre section">
+    <!-- ========================================
+         PORTFÓLIO SECTION
+    ======================================== -->
+    <section id="portfolio" class="projetos section">
         <div class="container">
             <div class="section__header" data-reveal>
-                <span class="section__tag"><i class="ph ph-user-circle"></i> Sobre mim</span>
-                <h2 class="section__title">Conheça quem está por trás dos projetos</h2>
-            </div>
-            <div class="sobre__grid">
-                <div class="sobre__text" data-reveal>
-                    <p>
-                        Sou <strong>Nykolas Volkmann Cardoso</strong>, desenvolvedor web freelancer especializado em criar soluções digitais que geram resultados reais para meus clientes.
-                    </p>
-                    <p>
-                        Minha especialidade é a criação de <strong>landing pages</strong>, <strong>sites institucionais</strong>, <strong>páginas de vendas</strong> e <strong>blogs profissionais</strong> — tudo pensado para converter visitantes em clientes.
-                    </p>
-                    <p>
-                        Cada projeto é desenvolvido com foco em <strong>performance</strong>, <strong>design moderno</strong> e total <strong>responsividade</strong>, garantindo uma experiência impecável em qualquer dispositivo.
-                    </p>
-                </div>
-                <div class="sobre__cards" data-reveal data-reveal-delay="200">
-                    <div class="sobre__card">
-                        <i class="ph-fill ph-rocket-launch"></i>
-                        <h3>Performance</h3>
-                        <p>Sites rápidos e otimizados para carregar em segundos.</p>
-                    </div>
-                    <div class="sobre__card">
-                        <i class="ph-fill ph-paint-brush-broad"></i>
-                        <h3>Design Moderno</h3>
-                        <p>Layouts atuais que impressionam e transmitem profissionalismo.</p>
-                    </div>
-                    <div class="sobre__card">
-                        <i class="ph-fill ph-devices"></i>
-                        <h3>Responsivo</h3>
-                        <p>Perfeito em desktop, tablet e celular.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <span class="section__eyebrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    Portfólio
+                </span>
+                <h2 class="section__title">Projetos que <span class="text-gradient">geram resultados</span></h2>
+                <p class="section__description">Confira landing pages reais criadas para profissionais da saúde e infoprodutores.</p>
 
-    <!-- ============================== -->
-    <!--        PORTFÓLIO SECTION       -->
-    <!-- ============================== -->
-    <section id="portfolio" class="portfolio section section--dark">
-        <div class="container">
-            <div class="section__header" data-reveal>
-                <span class="section__tag"><i class="ph ph-folder-simple-star"></i> Portfólio</span>
-                <h2 class="section__title">Projetos que geram resultados</h2>
-                <p class="section__description">Confira alguns dos meus trabalhos mais recentes e veja a qualidade que entrego em cada projeto.</p>
-                
-                <div style="margin-top: 1.5rem; display: inline-flex; align-items: flex-start; gap: 0.75rem; padding: 1rem 1.5rem; background: hsla(30, 90%, 65%, 0.08); border: 1px solid hsla(30, 90%, 65%, 0.2); border-radius: var(--radius-md); max-width: 600px; text-align: left;">
-                    <i class="ph-fill ph-info" style="color: hsl(30, 90%, 65%); font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem;"></i>
-                    <p style="color: var(--text-secondary); font-size: var(--fs-sm); margin: 0; line-height: 1.6;">
-                        <strong style="color: hsl(30, 90%, 75%); display: block; margin-bottom: 0.2rem;">Nota sobre as Amostras</strong>
-                        Os sites exibidos abaixo são projetos-modelo desenvolvidos exclusivamente como peças de portfólio. As marcas, profissionais e pessoas neles representados são ilustrativos para demonstração prática visual.
-                    </p>
+                <div class="projetos__disclaimer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <p><strong>Nota sobre as Amostras:</strong> Os sites exibidos são projetos-modelo criados como demonstração técnica. As marcas e profissionais representados são ilustrativos.</p>
                 </div>
             </div>
 
-            <div class="portfolio__grid">
-                <!-- Projeto 1 — Landing Page -->
-                <article class="projeto-card" data-reveal>
-                    <div class="projeto-card__image">
-                        <img src="img/projeto-nutricionista.png" alt="Landing page profissional" loading="lazy">
-                        <div class="projeto-card__overlay">
-                            <a href="amostras/nutri-premium-organica.html" target="_blank" class="btn btn--small btn--light">
-                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+            <div class="projetos__grid">
+                <!-- Projeto 1 — Nutricionista Premium -->
+                <article class="projeto" data-reveal>
+                    <div class="projeto__image-wrap">
+                        <img src="img/projeto-nutricionista.png" alt="Landing page para nutricionista" loading="lazy" width="600" height="400">
+                        <div class="projeto__overlay">
+                            <a href="amostras/nutri-premium-organica.html" target="_blank" class="btn btn--small" id="projeto-1-cta">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                Ver Projeto
                             </a>
                         </div>
                     </div>
-                    <div class="projeto-card__info">
-                        <span class="projeto-card__tag">Landing Page</span>
-                        <h3 class="projeto-card__title">Landing Page</h3>
-                        <p class="projeto-card__desc">Página focada em captação de clientes e agendamento via WhatsApp, com design clean e profissional.</p>
+                    <div class="projeto__info">
+                        <span class="projeto__tag">Landing Page</span>
+                        <h3 class="projeto__title">Landing Page</h3>
+                        <p class="projeto__desc">Página premium com design orgânico, focada em captação de pacientes e agendamento via WhatsApp.</p>
                     </div>
                 </article>
 
-                <!-- Projeto 2 — Página de Vendas -->
-                <article class="projeto-card" data-reveal data-reveal-delay="100">
-                    <div class="projeto-card__image">
-                        <img src="img/projeto-produto-digital.png" alt="Página de vendas de curso" loading="lazy">
-                        <div class="projeto-card__overlay">
-                            <a href="amostras/pagina-vendas.html" target="_blank" class="btn btn--small btn--light">
-                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                <!-- Projeto 2 — Site Institucional -->
+                <article class="projeto" data-reveal data-reveal-delay="100">
+                    <div class="projeto__image-wrap">
+                        <img src="img/projeto-institucional.png" alt="Site institucional para empresas" loading="lazy" width="600" height="400">
+                        <div class="projeto__overlay">
+                            <a href="amostras/site-institucional.html" target="_blank" class="btn btn--small" id="projeto-institucional-cta">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                Ver Projeto
                             </a>
                         </div>
                     </div>
-                    <div class="projeto-card__info">
-                        <span class="projeto-card__tag">Página de Vendas</span>
-                        <h3 class="projeto-card__title">Página de Vendas de Curso</h3>
-                        <p class="projeto-card__desc">Página de alta conversão para venda de cursos e produtos digitais, com prova social, contagem regressiva e CTA estratégicos.</p>
+                    <div class="projeto__info">
+                        <span class="projeto__tag">Empresas</span>
+                        <h3 class="projeto__title">Site Institucional Corporativo</h3>
+                        <p class="projeto__desc">Site corporativo moderno e elegante, destacando os diferenciais da empresa com foco em serviços B2B de alta qualidade e infraestrutura avançada.</p>
                     </div>
                 </article>
 
-                <!-- Projeto 3 — Site Institucional -->
-                <article class="projeto-card" data-reveal data-reveal-delay="200">
-                    <div class="projeto-card__image">
-                        <img src="img/projeto-institucional.png" alt="Site institucional" loading="lazy">
-                        <div class="projeto-card__overlay">
-                            <a href="amostras/site-institucional.html" target="_blank" class="btn btn--small btn--light">
-                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                <!-- Projeto 3 — Landing Page Nutricionista -->
+                <article class="projeto" data-reveal data-reveal-delay="200">
+                    <div class="projeto__image-wrap">
+                        <img src="img/projeto-profissional.png" alt="Landing page para personal trainer" loading="lazy" width="600" height="400">
+                        <div class="projeto__overlay">
+                            <a href="amostras/profissional-autonomo.html" target="_blank" class="btn btn--small" id="projeto-2-cta">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                Ver Projeto
                             </a>
                         </div>
                     </div>
-                    <div class="projeto-card__info">
-                        <span class="projeto-card__tag">Site Institucional</span>
-                        <h3 class="projeto-card__title">Site Institucional</h3>
-                        <p class="projeto-card__desc">Site institucional completo com apresentação de serviços, portfólio de trabalhos e formulário de orçamento.</p>
+                    <div class="projeto__info">
+                        <span class="projeto__tag">Profissional Autônomo</span>
+                        <h3 class="projeto__title">Site para Profissionais Autônomos</h3>
+                        <p class="projeto__desc">Página profissional com planos, galeria de resultados e agendamento de aula experimental.</p>
                     </div>
                 </article>
 
-                <!-- Projeto 4 — Profissional Autônomo -->
-                <article class="projeto-card" data-reveal>
-                    <div class="projeto-card__image">
-                        <img src="img/projeto-profissional.png" alt="Site para profissionais autônomos" loading="lazy">
-                        <div class="projeto-card__overlay">
-                            <a href="amostras/profissional-autonomo.html" target="_blank" class="btn btn--small btn--light">
-                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                <!-- Projeto 4 — Página de Vendas -->
+                <article class="projeto" data-reveal data-reveal-delay="300">
+                    <div class="projeto__image-wrap">
+                        <img src="img/projeto-produto-digital.png" alt="Pagina de vendas para infoproduto" loading="lazy" width="600" height="400">
+                        <div class="projeto__overlay">
+                            <a href="amostras/pagina-vendas.html" target="_blank" class="btn btn--small" id="projeto-3-cta">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                Ver Projeto
                             </a>
                         </div>
                     </div>
-                    <div class="projeto-card__info">
-                        <span class="projeto-card__tag">Profissional Autônomo</span>
-                        <h3 class="projeto-card__title">Site para Profissionais Autônomos</h3>
-                        <p class="projeto-card__desc">Site profissional com agendamento online, galeria de resultados e depoimentos de clientes para atrair novos negócios.</p>
+                    <div class="projeto__info">
+                        <span class="projeto__tag">Infoprodutor</span>
+                        <h3 class="projeto__title">Página de Vendas — Curso Digital</h3>
+                        <p class="projeto__desc">Página de alta conversão com contagem regressiva, prova social e CTAs estratégicos para infoprodutos.</p>
                     </div>
                 </article>
 
-                <!-- Projeto 5 — Blog -->
-                <article class="projeto-card" data-reveal data-reveal-delay="100">
-                    <div class="projeto-card__image">
-                        <img src="img/projeto-blog.png" alt="Blog profissional" loading="lazy">
-                        <div class="projeto-card__overlay">
-                            <a href="amostras/blog-profissional.html" target="_blank" class="btn btn--small btn--light">
-                                <i class="ph ph-arrow-square-out"></i> Ver Projeto
+                <!-- Projeto 5 — Landing Page simples -->
+                <article class="projeto" data-reveal data-reveal-delay="400">
+                    <div class="projeto__image-wrap">
+                        <img src="img/projeto-blog.png" alt="Landing page para profissional da saude" loading="lazy" width="600" height="400">
+                        <div class="projeto__overlay">
+                            <a href="amostras/blog-profissional.html" target="_blank" class="btn btn--small" id="projeto-4-cta">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                Ver Projeto
                             </a>
                         </div>
                     </div>
-                    <div class="projeto-card__info">
-                        <span class="projeto-card__tag">Blog</span>
-                        <h3 class="projeto-card__title">Blog Profissional</h3>
-                        <p class="projeto-card__desc">Blog com design moderno, sistema de categorias, captura de e-mail e estrutura otimizada para SEO e conteúdo.</p>
+                    <div class="projeto__info">
+                        <span class="projeto__tag">Blog</span>
+                        <h3 class="projeto__title">Blog Profissional</h3>
+                        <p class="projeto__desc">Página limpa e direta para captação de pacientes com formulário de contato e depoimentos.</p>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ============================== -->
-    <!--        SERVIÇOS SECTION        -->
-    <!-- ============================== -->
-    <section id="servicos" class="servicos section">
+    <!-- ========================================
+         SOBRE / BENEFICIOS SECTION
+    ======================================== -->
+    <section id="sobre" class="beneficios section">
         <div class="container">
             <div class="section__header" data-reveal>
-                <span class="section__tag"><i class="ph ph-briefcase"></i> Serviços</span>
-                <h2 class="section__title">Soluções sob medida para o seu negócio</h2>
-                <p class="section__description">Ofereço serviços completos de desenvolvimento web, do planejamento à entrega final.</p>
+                <span class="section__eyebrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Sobre
+                </span>
+                <h2 class="section__title">Por que ter um visual <span class="text-gradient">profissional</span>?</h2>
+                <p class="section__description">Investir em uma página bem feita é o caminho mais rápido para escalar seus resultados.</p>
             </div>
-            <div class="servicos__grid">
-                <div class="servico-card" data-reveal>
-                    <div class="servico-card__icon">
-                        <i class="ph-fill ph-target"></i>
+
+            <div class="beneficios__grid">
+                <div class="beneficio" data-reveal>
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                            <polyline points="16 7 22 7 22 13"/>
+                        </svg>
                     </div>
-                    <h3 class="servico-card__title">Landing Pages</h3>
-                    <p class="servico-card__text">Páginas focadas em conversão, com design persuasivo e chamadas para ação estratégicas.</p>
+                    <h3 class="beneficio__title">Mais Conversão</h3>
+                    <p class="beneficio__text">Estrutura persuasiva e CTAs posicionados estrategicamente para transformar visitantes em clientes reais.</p>
                 </div>
-                <div class="servico-card" data-reveal data-reveal-delay="100">
-                    <div class="servico-card__icon">
-                        <i class="ph-fill ph-buildings"></i>
+
+                <div class="beneficio" data-reveal data-reveal-delay="100">
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                            <path d="M2 2l7.586 7.586"/>
+                            <circle cx="11" cy="11" r="2"/>
+                        </svg>
                     </div>
-                    <h3 class="servico-card__title">Sites Institucionais</h3>
-                    <p class="servico-card__text">Sites completos e profissionais que fortalecem a presença digital da sua empresa.</p>
+                    <h3 class="beneficio__title">Design Moderno</h3>
+                    <p class="beneficio__text">Cada elemento visual é pensado para guiar o visitante até a ação desejada, com alta usabilidade.</p>
                 </div>
-                <div class="servico-card" data-reveal data-reveal-delay="200">
-                    <div class="servico-card__icon">
-                        <i class="ph-fill ph-shopping-cart"></i>
+
+                <div class="beneficio" data-reveal data-reveal-delay="200">
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
                     </div>
-                    <h3 class="servico-card__title">Páginas de Vendas</h3>
-                    <p class="servico-card__text">Estrutura otimizada para vender produtos digitais e cursos online.</p>
+                    <h3 class="beneficio__title">Performance e Velocidade</h3>
+                    <p class="beneficio__text">Páginas otimizadas que carregam em menos de 3 segundos, evitando perda de visitantes por lentidão.</p>
                 </div>
-                <div class="servico-card" data-reveal data-reveal-delay="100">
-                    <div class="servico-card__icon">
-                        <i class="ph-fill ph-article"></i>
+
+                <div class="beneficio" data-reveal data-reveal-delay="300">
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
                     </div>
-                    <h3 class="servico-card__title">Blogs Profissionais</h3>
-                    <p class="servico-card__text">Plataformas de conteúdo com design elegante e estrutura otimizada para SEO.</p>
-                </div>
-                <div class="servico-card" data-reveal data-reveal-delay="200">
-                    <div class="servico-card__icon">
-                        <i class="ph-fill ph-device-mobile"></i>
-                    </div>
-                    <h3 class="servico-card__title">Otimização Mobile</h3>
-                    <p class="servico-card__text">Sites 100% responsivos que funcionam perfeitamente em qualquer dispositivo.</p>
-                </div>
-                <div class="servico-card" data-reveal data-reveal-delay="300">
-                    <div class="servico-card__icon">
-                        <i class="ph-fill ph-whatsapp-logo"></i>
-                    </div>
-                    <h3 class="servico-card__title">Integrações</h3>
-                    <p class="servico-card__text">WhatsApp, formulários de contato, analytics e ferramentas de marketing digital.</p>
+                    <h3 class="beneficio__title">Otimizado para Mobile</h3>
+                    <p class="beneficio__text">100% responsivo e adaptado para smartphones, onde mais de 60% do seu tráfego acontece.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================== -->
-    <!--       TECNOLOGIAS SECTION      -->
-    <!-- ============================== -->
-    <section id="tecnologias" class="tecnologias section section--dark">
+    <!-- ========================================
+         SERVIÇOS / PROCESSO SECTION
+    ======================================== -->
+    <section id="servicos" class="processo section section--alt">
         <div class="container">
             <div class="section__header" data-reveal>
-                <span class="section__tag"><i class="ph ph-cpu"></i> Tecnologias</span>
-                <h2 class="section__title">Ferramentas que utilizo</h2>
-                <p class="section__description">Trabalho com as melhores tecnologias para entregar sites rápidos, modernos e otimizados.</p>
+                <span class="section__eyebrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Serviços
+                </span>
+                <h2 class="section__title">Como construo os seus <span class="text-gradient">resultados</span></h2>
+                <p class="section__description">Um processo claro e eficiente de serviços web para entregar páginas que convertem.</p>
             </div>
-            <div class="tecnologias__grid">
-                <div class="tech-card" data-reveal>
-                    <i class="ph-fill ph-file-html"></i>
-                    <span>HTML5</span>
+
+            <div class="processo__grid">
+                <div class="processo__step" data-reveal>
+                    <div class="step__number">01</div>
+                    <div class="step__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="step__title">Estratégia</h3>
+                    <p class="step__text">Analiso seu público, seus objetivos e a concorrência para criar a estrutura ideal da página.</p>
                 </div>
-                <div class="tech-card" data-reveal data-reveal-delay="80">
-                    <i class="ph-fill ph-file-css"></i>
-                    <span>CSS3</span>
+
+                <div class="processo__connector" data-reveal>
+                    <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/></svg>
                 </div>
-                <div class="tech-card" data-reveal data-reveal-delay="160">
-                    <i class="ph-fill ph-file-js"></i>
-                    <span>JavaScript</span>
+
+                <div class="processo__step" data-reveal data-reveal-delay="100">
+                    <div class="step__number">02</div>
+                    <div class="step__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                            <path d="M2 2l7.586 7.586"/>
+                            <circle cx="11" cy="11" r="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="step__title">Web Design</h3>
+                    <p class="step__text">Crio um layout moderno e focado em conversão, alinhado com a identidade visual do seu negócio.</p>
                 </div>
-                <div class="tech-card" data-reveal data-reveal-delay="240">
-                    <i class="ph-fill ph-magic-wand"></i>
-                    <span>Animações</span>
+
+                <div class="processo__connector" data-reveal>
+                    <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/></svg>
                 </div>
-                <div class="tech-card" data-reveal data-reveal-delay="320">
-                    <i class="ph-fill ph-devices"></i>
-                    <span>Responsivo</span>
+
+                <div class="processo__step" data-reveal data-reveal-delay="200">
+                    <div class="step__number">03</div>
+                    <div class="step__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <h3 class="step__title">Desenvolvimento</h3>
+                    <p class="step__text">Código limpo, responsivo e otimizado para performance técnica. Seu site carrega em menos de 3 segundos.</p>
                 </div>
-                <div class="tech-card" data-reveal data-reveal-delay="400">
-                    <i class="ph-fill ph-magnifying-glass"></i>
-                    <span>SEO</span>
+
+                <div class="processo__connector" data-reveal>
+                    <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/></svg>
+                </div>
+
+                <div class="processo__step" data-reveal data-reveal-delay="300">
+                    <div class="step__number">04</div>
+                    <div class="step__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                            <polyline points="16 7 22 7 22 13"/>
+                        </svg>
+                    </div>
+                    <h3 class="step__title">Otimização CRO</h3>
+                    <p class="step__text">Testes de interface, SEO técnico e ajustes finos para maximizar sua taxa final de conversão.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================== -->
-    <!--       DIFERENCIAIS SECTION     -->
-    <!-- ============================== -->
-    <section id="diferenciais" class="diferenciais section">
+    <!-- ========================================
+         TECNOLOGIAS SECTION
+    ======================================== -->
+    <section id="tecnologias" class="diferenciais section section--alt">
         <div class="container">
             <div class="section__header" data-reveal>
-                <span class="section__tag"><i class="ph ph-star-four"></i> Diferenciais</span>
-                <h2 class="section__title">Por que me escolher?</h2>
+                <span class="section__eyebrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                    Tecnologias
+                </span>
+                <h2 class="section__title">Stacks de <span class="text-gradient">Alta Flexibilidade</span></h2>
+                <p class="section__description">Utilizo as tecnologias mais modernas e sólidas do mercado para garantir estabilidade máxima no seu site.</p>
             </div>
+
             <div class="diferenciais__grid">
-                <div class="diferencial-card" data-reveal>
-                    <div class="diferencial-card__number">01</div>
-                    <h3>Design Moderno</h3>
-                    <p>Layouts atuais, elegantes e alinhados com as tendências de mercado.</p>
+                <div class="diferencial" data-reveal>
+                    <div class="diferencial__number">01</div>
+                    <div class="diferencial__content">
+                        <h3>HTML Semântico Acessível</h3>
+                        <p>O pilar estrutural. Desenvolvo usando a marcação mais otimizada para SEO e indexação avançada no Google.</p>
+                    </div>
                 </div>
-                <div class="diferencial-card" data-reveal data-reveal-delay="100">
-                    <div class="diferencial-card__number">02</div>
-                    <h3>Sites Rápidos</h3>
-                    <p>Código otimizado para carregamento ultrarrápido e boa experiência do usuário.</p>
+
+                <div class="diferencial" data-reveal data-reveal-delay="80">
+                    <div class="diferencial__number">02</div>
+                    <div class="diferencial__content">
+                        <h3>Arquitetura CSS Responsiva</h3>
+                        <p>Totalmente livre de código quebrado. Aplico design system e estilos que funcionam perfeitamente do celular a super resoluções.</p>
+                    </div>
                 </div>
-                <div class="diferencial-card" data-reveal data-reveal-delay="200">
-                    <div class="diferencial-card__number">03</div>
-                    <h3>Foco em Conversão</h3>
-                    <p>Estrutura pensada para transformar visitantes em clientes ou leads qualificados.</p>
+
+                <div class="diferencial" data-reveal data-reveal-delay="160">
+                    <div class="diferencial__number">03</div>
+                    <div class="diferencial__content">
+                        <h3>JavaScript Performance-first</h3>
+                        <p>Animações modernas, integrações e efeitos de rolagem através do DOM, mantendo extrema velocidade para UX.</p>
+                    </div>
                 </div>
-                <div class="diferencial-card" data-reveal data-reveal-delay="100">
-                    <div class="diferencial-card__number">04</div>
-                    <h3>Fácil Manutenção</h3>
-                    <p>Código limpo e documentado para que qualquer atualização futura seja simples.</p>
-                </div>
-                <div class="diferencial-card" data-reveal data-reveal-delay="200">
-                    <div class="diferencial-card__number">05</div>
-                    <h3>Código Organizado</h3>
-                    <p>Boas práticas de desenvolvimento, semântica e acessibilidade em cada projeto.</p>
+
+                <div class="diferencial" data-reveal data-reveal-delay="240">
+                    <div class="diferencial__number">04</div>
+                    <div class="diferencial__content">
+                        <h3>Deploy e CDN Globais</h3>
+                        <p>Servidores e rede de distribuição rápidas, blindando seu formulário e o código contra sobrecargas repentinas.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================== -->
-    <!--         CONTATO SECTION        -->
-    <!-- ============================== -->
-    <section id="contato" class="contato section section--dark">
+    <!-- ========================================
+         DIFERENCIAIS SECTION
+    ======================================== -->
+    <section id="diferenciais" class="beneficios section">
         <div class="container">
             <div class="section__header" data-reveal>
-                <span class="section__tag"><i class="ph ph-envelope-simple"></i> Contato</span>
-                <h2 class="section__title">Vamos conversar sobre seu projeto?</h2>
-                <p class="section__description">Preencha o formulário ou entre em contato diretamente pelo WhatsApp ou e-mail.</p>
+                <span class="section__eyebrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Diferenciais exclusívos
+                </span>
+                <h2 class="section__title">O que me torna <span class="text-gradient">diferente</span></h2>
             </div>
-            <div class="contato__grid">
-                <form action="https://formspree.io/f/xvzwbkzn" method="POST" class="contato__form" id="contact-form" data-reveal>
-                    <div class="form-group">
-                        <label for="nome">Nome completo</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+            <div class="beneficios__grid">
+                <div class="beneficio" data-reveal>
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/>
+                        </svg>
                     </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    <h3 class="beneficio__title">Foco Total em Conversão</h3>
+                    <p class="beneficio__text">Cada decisão de design é baseada em dados reais e técnicas de neuro-design para os seus resultados.</p>
+                </div>
+
+                <div class="beneficio" data-reveal data-reveal-delay="80">
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
                     </div>
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu projeto..." required></textarea>
+                    <h3 class="beneficio__title">Performance de Elite</h3>
+                    <p class="beneficio__text">Coração técnico limpo e otimizado ao seu dispor. O seu cliente sente a leveza instantaneamente.</p>
+                </div>
+
+                <div class="beneficio" data-reveal data-reveal-delay="160">
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12h4l3-9 5 18 3-9h5"/>
+                        </svg>
                     </div>
-                    <button type="submit" class="btn btn--primary btn--full">
-                        <i class="ph ph-paper-plane-tilt"></i> Enviar Mensagem
-                    </button>
-                </form>
-                <div class="contato__info" data-reveal data-reveal-delay="200">
-                    <div class="contato__card">
-                        <a href="https://wa.me/5547996806367?text=Olá%20Nykolas!%20Gostaria%20de%20um%20orçamento%20para%20meu%20projeto." target="_blank" class="contato__link contato__link--whatsapp">
-                            <i class="ph-fill ph-whatsapp-logo"></i>
-                            <div>
-                                <strong>WhatsApp</strong>
-                                <span>(47) 99680-6367</span>
-                            </div>
+                    <h3 class="beneficio__title">Design Moderno</h3>
+                    <p class="beneficio__text">Layouts visualmente deslumbrantes alinhados sempre com os limites e inspirações de UX mundiais.</p>
+                </div>
+
+                <div class="beneficio" data-reveal data-reveal-delay="240">
+                    <div class="beneficio__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <h3 class="beneficio__title">Código Refinado</h3>
+                    <p class="beneficio__text">Muito além das telas prontas, sua página tem manutenção nativa e fácil expansividade futura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA FINAL / CONTATO
+    ======================================== -->
+    <section id="contato" class="contato section">
+        <div class="container">
+            <div class="contato__wrapper" data-reveal>
+                <div class="contato__glow"></div>
+                <div class="contato__content">
+                    <span class="section__eyebrow section__eyebrow--light">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Vamos Começar
+                    </span>
+                    <h2 class="contato__title">Pronto para ter uma landing page que <span class="text-gradient">realmente converte</span>?</h2>
+                    <p class="contato__text">Entre em contato e receba um orçamento personalizado para o seu projeto. Sem compromisso.</p>
+
+                    <div class="contato__actions">
+                        <a href="https://wa.me/5547996806367?text=Ol%C3%A1%20Nykolas!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20minha%20landing%20page." target="_blank" class="btn btn--whatsapp" id="contato-whatsapp">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Chamar no WhatsApp
+                        </a>
+                        <a href="mailto:nykolasvolkmannc@gmail.com" class="btn btn--ghost-light" id="contato-email">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            Enviar E-mail
                         </a>
                     </div>
-                    <div class="contato__card">
-                        <a href="mailto:nykolasvolkmannc@gmail.com" class="contato__link contato__link--email">
-                            <i class="ph-fill ph-envelope-simple"></i>
-                            <div>
-                                <strong>E-mail</strong>
-                                <span>nykolasvolkmannc@gmail.com</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="contato__social-proof">
-                        <p>⚡ Respondo em até <strong>24 horas</strong></p>
-                        <p>📋 Orçamento <strong>sem compromisso</strong></p>
-                        <p>🤝 Atendimento <strong>personalizado</strong></p>
+
+                    <div class="contato__trust">
+                        <div class="trust__item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            <span>Respondo em até <strong>24 horas</strong></span>
+                        </div>
+                        <div class="trust__item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <span>Orçamento <strong>sem compromisso</strong></span>
+                        </div>
+                        <div class="trust__item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <span>Atendimento <strong>personalizado</strong></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================== -->
-    <!--            FOOTER              -->
-    <!-- ============================== -->
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
     <footer class="footer">
         <div class="container footer__container">
             <a href="#" class="footer__logo">
@@ -468,20 +570,24 @@
             </a>
             <p class="footer__copy">&copy; 2026 Nykolas Volkmann Cardoso. Todos os direitos reservados.</p>
             <div class="footer__links">
-                <a href="https://wa.me/5547996806367" target="_blank" aria-label="WhatsApp"><i class="ph-fill ph-whatsapp-logo"></i></a>
-                <a href="mailto:nykolasvolkmannc@gmail.com" aria-label="E-mail"><i class="ph-fill ph-envelope-simple"></i></a>
+                <a href="https://wa.me/5547996806367" target="_blank" aria-label="WhatsApp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href="mailto:nykolasvolkmannc@gmail.com" aria-label="E-mail">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5547996806367?text=Olá%20Nykolas!%20Gostaria%20de%20um%20orçamento." target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp">
-        <i class="ph-fill ph-whatsapp-logo"></i>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5547996806367?text=Ol%C3%A1%20Nykolas!%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="whatsapp-float" aria-label="Contato via WhatsApp" id="whatsapp-float">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
     <!-- Back to Top -->
     <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
-        <i class="ph-bold ph-caret-up"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
     </a>
 
     <script src="script.js"></script>

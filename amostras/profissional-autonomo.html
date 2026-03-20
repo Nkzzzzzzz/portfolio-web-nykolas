@@ -3,158 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafael Costa — Personal Trainer | Amostra</title>
+    <title>Rafael Costa — Personal Trainer | Amostra Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:'Inter',sans-serif; color:#333; line-height:1.7; overflow-x:hidden; background:#faf9f6; }
-        a { text-decoration:none; color:inherit; }
-        ul { list-style:none; }
-        img { max-width:100%; display:block; }
-        .container { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
-
-        .back-banner { background:#111; color:#fff; text-align:center; padding:.6rem; font-size:.85rem; position:sticky; top:0; z-index:9999; }
-        .back-banner a { color:#f59e0b; font-weight:600; text-decoration:underline; }
-
         :root {
-            --warm: #b45309;
-            --warm-light: #f59e0b;
-            --warm-bg: #fef3c7;
-            --dark: #1c1917;
-            --sand: #faf9f6;
+            --bg-main: #0a0a0a;
+            --surface: #141414;
+            --surface-alt: #111111;
+            --text-dark: #fcfcfc;
+            --text-muted: #d6d3d1;
+            --text-light: #78716c;
+            --accent: #d97706;      /* Bronze/Amber premium */
+            --accent-hover: #f59e0b;
+            --accent-light: rgba(217, 119, 6, 0.15);
+            --nav-height: 80px;
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
         }
 
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            /* Gradiente escuro com toque sutil de laranja */
+            background-color: var(--bg-main);
+            background-image: radial-gradient(circle at top center, rgba(217, 119, 6, 0.05) 0%, transparent 60%), linear-gradient(145deg, #0a0a0a 0%, #15110d 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; border-radius: 8px; }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+        }
+
+        /* BANNER AVISO */
+        .back-banner { background: #111; color: #fff; text-align: center; padding: 0.8rem 1rem; font-size: 0.9rem; position: sticky; top: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; border-bottom: 2px solid var(--accent); }
+        .back-banner a { color: var(--accent); font-weight: 600; text-decoration: underline; font-size: 0.95rem; }
+        .back-banner a:hover { color: var(--accent-hover); }
+
         /* NAV */
-        .nav-bar { background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.05); }
-        .nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
-        .nav__logo { font-size:1.25rem; font-weight:800; color:var(--dark); }
-        .nav__logo span { color:var(--warm-light); }
-        .nav__links { display:flex; gap:1.5rem; align-items:center; }
-        .nav__links a { font-size:.9rem; font-weight:500; color:#555; transition:color .2s; }
-        .nav__links a:hover { color:var(--warm); }
-        .nav-cta { background:var(--warm-light); color:#fff !important; padding:.6rem 1.4rem; border-radius:8px; font-weight:600; }
-        .nav-cta:hover { background:var(--warm); }
+        .nav-bar { 
+            background: rgba(10, 10, 10, 0.85); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            position: sticky; 
+            top: 45px; /* abaixo do aviso */
+            z-index: 1000;
+        }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: var(--nav-height); }
+        .nav__logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 0.5rem;}
+        .nav__logo span { color: var(--accent); }
+        .nav__links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav__links a { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); transition: color 0.3s var(--ease); }
+        .nav__links a:hover { color: var(--text-dark); }
+        
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 0.75rem; 
+            padding: 0.875rem 2rem; 
+            border-radius: 100px; 
+            font-weight: 500; 
+            font-size: 0.9rem; 
+            transition: all 0.4s var(--ease); 
+            cursor: pointer; 
+            border: 1px solid transparent; 
+        }
+        .btn svg { width: 18px; height: 18px; }
+        .btn--primary { background: var(--text-dark); color: #0a0a0a; font-weight: 700; }
+        .btn--primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(255,255,255,0.2); }
+        .btn--accent { background: var(--accent); color: #fff; }
+        .btn--accent:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(217,119,6,0.5); }
+        .btn--outline { border-color: rgba(255,255,255,0.15); color: var(--text-dark); background: transparent; }
+        .btn--outline:hover { border-color: var(--text-dark); background: var(--text-dark); color: #0a0a0a; }
+
+        .nav-cta { padding: 0.6rem 1.4rem; font-size: 0.85rem; }
+
+        /* ORGANIC SHAPES BG */
+        .bg-shape { position: absolute; z-index: -1; filter: blur(60px); opacity: 0.4; border-radius: 50%; pointer-events: none;}
+        .shape-1 { width: 400px; height: 400px; background: var(--accent-light); top: -10%; right: -5%; }
+        .shape-2 { width: 300px; height: 300px; background: #e7e5e4; bottom: 10%; left: -5%; }
 
         /* HERO */
-        .hero { background:linear-gradient(135deg, var(--dark) 0%, #292524 100%); color:#fff; padding:6rem 0 5rem; }
-        .hero__grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-        .hero__tag { display:inline-block; background:rgba(245,158,11,.15); border:1px solid rgba(245,158,11,.25); color:var(--warm-light); font-size:.75rem; font-weight:600; padding:.35rem 1rem; border-radius:20px; margin-bottom:1.25rem; text-transform:uppercase; letter-spacing:.5px; }
-        .hero h1 { font-size:2.75rem; font-weight:900; line-height:1.1; margin-bottom:1.25rem; }
-        .hero h1 span { color:var(--warm-light); }
-        .hero p { font-size:1.1rem; color:rgba(255,255,255,.7); margin-bottom:2rem; max-width:480px; }
-        .hero__btns { display:flex; gap:1rem; flex-wrap:wrap; }
-        .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.75rem; border-radius:8px; font-weight:600; font-size:.95rem; transition:all .3s; cursor:pointer; border:none; }
-        .btn--warm { background:var(--warm-light); color:#fff; }
-        .btn--warm:hover { background:var(--warm); transform:translateY(-2px); }
-        .btn--whatsapp { background:#25d366; color:#fff; }
-        .btn--whatsapp:hover { background:#1da851; transform:translateY(-2px); }
-        .hero__image { border-radius:16px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.4); }
-        .hero__image img { width:100%; height:420px; object-fit:cover; }
+        .hero { position: relative; padding: 8rem 0 6rem; overflow: hidden; }
+        .hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero__tag { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--surface); border: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.75rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 100px; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .hero h1 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-style: italic; font-size: 4.5rem; font-weight: 900; line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero h1 span { color: var(--accent); display: block; }
+        .hero p { font-size: 1.125rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 480px; line-height: 1.7; font-weight: 400; }
+        .hero__btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .hero__image-wrapper { position: relative; border-radius: 20px; overflow: hidden; padding-bottom: 120%; }
+        .hero__image-wrapper img { position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; }
+        
+        .blob-mask { clip-path: url(#blob); }
+
+        /* SECTION HEADERS */
+        .section-header { text-align: center; margin-bottom: 5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .section-header h2 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-style: italic; font-size: 3rem; font-weight: 900; letter-spacing: 0px; margin-bottom: 1rem; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; }
 
         /* SPECIALTIES */
-        .specialties { padding:5rem 0; background:#fff; }
-        .section-title { text-align:center; font-size:2.25rem; font-weight:800; margin-bottom:.5rem; color:var(--dark); }
-        .section-sub { text-align:center; color:#888; margin-bottom:3rem; }
-        .specialties__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-        .spec-card { background:var(--sand); border-radius:16px; padding:2rem; text-align:center; transition:all .3s; border:2px solid transparent; }
-        .spec-card:hover { transform:translateY(-4px); border-color:var(--warm-light); box-shadow:0 8px 30px rgba(180,83,9,.1); }
-        .spec-card__icon { font-size:2.5rem; margin-bottom:1rem; }
-        .spec-card h3 { font-size:1.1rem; margin-bottom:.4rem; color:var(--dark); }
-        .spec-card p { font-size:.9rem; color:#666; }
+        .specialties { padding: 8rem 0; background: var(--surface); position: relative; border-top: 1px solid rgba(255,255,255,0.02); }
+        .specialties__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .spec-card { background: var(--bg-main); border-radius: 16px; padding: 3rem 2rem; transition: all 0.4s var(--ease); border: 1px solid rgba(255,255,255,0.03); }
+        .spec-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5); border-color: rgba(217,119,6,0.3); }
+        .spec-card__icon { width: 50px; height: 50px; border-radius: 12px; background: var(--surface); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--accent); }
+        .spec-card__icon svg { width: 24px; height: 24px; }
+        .spec-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.5px; }
+        .spec-card p { font-size: 0.95rem; color: var(--text-muted); }
 
         /* RESULTS */
-        .results { padding:5rem 0; background:var(--sand); }
-        .results__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-        .result-card { border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 4px 20px rgba(0,0,0,.05); transition:all .3s; }
-        .result-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,.1); }
-        .result-card img { width:100%; height:250px; object-fit:cover; }
-        .result-card__info { padding:1.25rem; text-align:center; }
-        .result-card__info h3 { font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:.2rem; }
-        .result-card__info p { font-size:.85rem; color:var(--warm); font-weight:600; }
+        .results { padding: 8rem 0; background: var(--surface-alt); border-top: 1px solid rgba(255,255,255,0.02); }
+        .results__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .result-card { border-radius: 16px; overflow: hidden; background: var(--surface); transition: all 0.4s var(--ease); border: 1px solid rgba(255,255,255,0.02); }
+        .result-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5); border-color: rgba(217,119,6,0.2); }
+        .result-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 0; filter: grayscale(20%); transition: filter 0.4s; }
+        .result-card:hover img { filter: grayscale(0%); }
+        .result-card__info { padding: 1.5rem; text-align: center; }
+        .result-card__info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .result-card__info p { font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* PLANS */
-        .plans { padding:5rem 0; background:#fff; }
-        .plans__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-        .plan-card { border-radius:16px; border:2px solid #eee; padding:2.5rem 2rem; text-align:center; transition:all .3s; position:relative; }
-        .plan-card--featured { border-color:var(--warm-light); background:linear-gradient(180deg, rgba(245,158,11,.05), transparent); }
-        .plan-card--featured::before { content:'Mais Popular'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--warm-light); color:#fff; font-size:.7rem; font-weight:700; padding:.3rem 1rem; border-radius:12px; text-transform:uppercase; }
-        .plan-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,.08); }
-        .plan-card__name { font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:.5rem; }
-        .plan-card__price { font-size:2.25rem; font-weight:900; color:var(--warm); margin-bottom:.25rem; }
-        .plan-card__period { font-size:.85rem; color:#999; margin-bottom:1.5rem; }
-        .plan-card ul { text-align:left; margin-bottom:2rem; }
-        .plan-card li { padding:.35rem 0; font-size:.9rem; color:#555; display:flex; align-items:center; gap:.5rem; }
-        .plan-card li::before { content:'✓'; color:var(--warm-light); font-weight:700; }
-        .btn--full { width:100%; justify-content:center; }
+        .plans { padding: 8rem 0; background: var(--surface); border-top: 1px solid rgba(255,255,255,0.02); }
+        .plans__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: center; }
+        .plan-card { border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); padding: 3rem 2.5rem; text-align: left; transition: all 0.4s var(--ease); background: var(--bg-main); position: relative; }
+        .plan-card--featured { border-color: var(--accent); background: var(--surface); box-shadow: 0 20px 40px -15px rgba(217,119,6,0.1); transform: scale(1.05); }
+        .plan-card--featured::before { content: 'Recomendado'; position: absolute; top: -14px; left: 2.5rem; background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.4rem 1.2rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 1px; }
+        .plan-card__name { font-size: 1.25rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .plan-card__price { font-size: 3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; letter-spacing: -1px; display: flex; align-items: baseline; gap: 0.25rem; }
+        .plan-card__price span { font-size: 1rem; color: var(--text-light); font-weight: 500; }
+        .plan-card__desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        .plan-card ul { margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+        .plan-card li { font-size: 0.95rem; color: var(--text-dark); display: flex; align-items: flex-start; gap: 0.75rem; }
+        .plan-card li svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+        
+        .btn--full { width: 100%; }
 
         /* TESTIMONIALS */
-        .testimonials { padding:5rem 0; background:var(--sand); }
-        .testimonials__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-        .test-card { background:#fff; border-radius:16px; padding:2rem; box-shadow:0 2px 10px rgba(0,0,0,.04); }
-        .test-card .stars { color:var(--warm-light); font-size:.9rem; margin-bottom:.5rem; }
-        .test-card p { font-size:.95rem; color:#555; font-style:italic; margin-bottom:1rem; }
-        .test-card__name { font-weight:600; font-size:.9rem; color:var(--dark); }
-        .test-card__info { font-size:.8rem; color:#999; }
+        .testimonials { padding: 8rem 0; background: var(--surface-alt); border-top: 1px solid rgba(255,255,255,0.02); }
+        .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .test-card { background: var(--surface); border-radius: 16px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.03); }
+        .test-card .stars { color: var(--accent); display: flex; gap: 0.25rem; margin-bottom: 1.5rem; }
+        .test-card .stars svg { width: 16px; height: 16px; fill: currentColor; }
+        .test-card p { font-size: 1rem; color: var(--text-dark); margin-bottom: 2rem; line-height: 1.7; }
+        .test-author { display: flex; align-items: center; gap: 1rem; }
+        .test-author__avatar { width: 48px; height: 48px; border-radius: 50%; background: #262626; display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text-muted); }
+        .test-author__info h4 { font-weight: 600; font-size: 0.95rem; }
+        .test-author__info span { font-size: 0.8rem; color: var(--text-light); }
 
         /* CTA */
-        .cta { padding:5rem 0; background:linear-gradient(135deg, var(--dark), #292524); color:#fff; text-align:center; }
-        .cta h2 { font-size:2.25rem; font-weight:800; margin-bottom:1rem; }
-        .cta p { font-size:1.1rem; color:rgba(255,255,255,.7); max-width:550px; margin:0 auto 2rem; }
-        .btn--white { background:#fff; color:var(--dark); }
-        .btn--white:hover { background:#f5f5f5; transform:translateY(-2px); }
+        .cta { padding: 8rem 0; position: relative; overflow: hidden; background: #000; color: #fff; text-align: center; border-top: 1px solid rgba(255,255,255,0.02); }
+        .cta .bg-shape { background: rgba(217,119,6,0.15); width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%); filter: blur(80px); }
+        .cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+        .cta h2 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-style: italic; font-size: 3.5rem; font-weight: 900; margin-bottom: 1.5rem; letter-spacing: 0px; }
+        .cta p { font-size: 1.15rem; color: #a8a29e; margin-bottom: 3rem; }
+        .btn--white { background: var(--accent); color: #fff; }
+        .btn--white:hover { background: var(--accent-hover); color: #fff; box-shadow: 0 10px 20px -10px rgba(217,119,6,0.5); }
 
-        .footer { background:var(--dark); color:#777; text-align:center; padding:2rem; font-size:.85rem; }
+        .footer { background: #000; color: #78716c; text-align: center; padding: 2.5rem; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer a:hover { color: #fff; }
 
-        @media(max-width:768px){
-            .hero__grid { grid-template-columns:1fr; }
-            .specialties__grid, .results__grid, .plans__grid, .testimonials__grid { grid-template-columns:1fr; }
-            .hero h1 { font-size:2rem; }
-            .nav__links { display:none; }
+        /* ANIMATIONS (JS triggered) */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        @media(max-width: 992px){
+            .hero__grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero__tag { margin: 0 auto 2rem; }
+            .hero p { margin: 0 auto 2.5rem; }
+            .hero__btns { justify-content: center; }
+            .hero__image-wrapper { padding-bottom: 80%; max-width: 600px; margin: 0 auto; }
+            .plans__grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; gap: 3rem; }
+            .plan-card--featured { transform: none; }
+        }
+
+        @media(max-width: 768px){
+            .nav__links { display: none; }
+            .specialties__grid, .results__grid, .testimonials__grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+            .section-header h2 { font-size: 2.5rem; }
+            .hero { padding: 5rem 0 4rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="back-banner" style="background: #111; color: #fff; text-align: center; padding: 0.8rem 1rem; font-size: 0.9rem; position: sticky; top: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; border-bottom: 2px solid #fb923c; font-family: sans-serif;">
-        <span style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; font-weight: 400; line-height: 1.4;">
-            <span><strong style="color: #fb923c;">Aviso de Portfólio:</strong> Este site não pertence a uma pessoa/empresa real. É um projeto ilustrativo criado como demonstração técnica de desenvolvimento.</span>
-        </span>
-        <a href="../index.html#portfolio" style="color: #fb923c; font-weight: 600; text-decoration: underline; font-size: 0.95rem;">Retornar ao Portfólio Principal ↩</a>
+    <div class="back-banner">
+        <span><strong style="color: var(--accent);">Aviso de Portfólio:</strong> Este site não pertence a uma pessoa/empresa real. É um projeto ilustrativo criado como demonstração técnica.</span>
+        <a href="../index.html#portfolio">Retornar ao Portfólio Principal ↩</a>
     </div>
 
     <!-- Nav -->
-    <div class="nav-bar">
+    <header class="nav-bar">
         <div class="container">
             <nav class="nav">
-                <a href="#" class="nav__logo">Rafael<span>Fit</span></a>
+                <a href="#" class="nav__logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--accent);"><path d="M6 12h12"/><rect x="2" y="8" width="4" height="8" rx="1"/><rect x="18" y="8" width="4" height="8" rx="1"/></svg>
+                    Rafael<span>Fit</span>
+                </a>
                 <div class="nav__links">
-                    <a href="#especialidades">Especialidades</a>
+                    <a href="#especialidades">Metodologia</a>
                     <a href="#resultados">Resultados</a>
-                    <a href="#planos">Planos</a>
-                    <a href="#contato" class="nav-cta">Agendar Aula</a>
+                    <a href="#planos">Programas</a>
+                    <a href="#contato" class="btn btn--primary nav-cta">Inicie sua jornada</a>
                 </div>
             </nav>
         </div>
-    </div>
+    </header>
 
     <!-- Hero -->
     <section class="hero">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
         <div class="container">
             <div class="hero__grid">
-                <div>
-                    <span class="hero__tag">💪 Personal Trainer Certificado</span>
-                    <h1>Transforme seu <span>corpo</span> e sua <span>saúde</span> com treino personalizado</h1>
-                    <p>Treinos 100% adaptados ao seu objetivo, nível de condicionamento e rotina. Resultados reais em semanas.</p>
+                <div class="fade-up">
+                    <div class="hero__tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Especialista Certificado
+                    </div>
+                    <h1>Sua melhor forma visual e <span>física</span> alcançada.</h1>
+                    <p>Metodologia premium de treinamento focada em resultados estéticos duradouros e saúde de excelência. Projetada exclusivamente para o seu biotipo.</p>
                     <div class="hero__btns">
-                        <a href="#" class="btn btn--whatsapp">📱 Agendar Aula Experimental</a>
-                        <a href="#planos" class="btn btn--warm">Ver Planos</a>
+                        <a href="#contato" class="btn btn--primary">
+                            Consultoria Gratuita
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                        <a href="#planos" class="btn btn--outline">Conheça os Programas</a>
                     </div>
                 </div>
-                <div class="hero__image">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=420&fit=crop" alt="Personal Trainer">
+                <div class="hero__image-wrapper fade-up delay-2">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1000&auto=format&fit=crop" alt="Rafael treinando aluno em academia de alto padrão">
                 </div>
             </div>
         </div>
@@ -163,38 +257,52 @@
     <!-- Specialties -->
     <section class="specialties" id="especialidades">
         <div class="container">
-            <h2 class="section-title">Especialidades</h2>
-            <p class="section-sub">Atendimento personalizado para cada objetivo</p>
+            <div class="section-header fade-up">
+                <h2>Como construímos resultados</h2>
+                <p>Abordagens científicas adaptadas ao seu corpo e estilo de vida</p>
+            </div>
             <div class="specialties__grid">
-                <div class="spec-card">
-                    <div class="spec-card__icon">🏋️</div>
-                    <h3>Musculação</h3>
-                    <p>Ganho de massa muscular com técnicas avançadas e periodização.</p>
+                <div class="spec-card fade-up">
+                    <div class="spec-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h12"/><rect x="2" y="8" width="4" height="8" rx="1"/><rect x="18" y="8" width="4" height="8" rx="1"/></svg>
+                    </div>
+                    <h3>Hipertrofia Muscular</h3>
+                    <p>Periodização estruturada para ganho limpo de massa magra, utilizando sobrecarga progressiva e biomecânica avançada.</p>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-card__icon">🔥</div>
-                    <h3>Emagrecimento</h3>
-                    <p>Perda de gordura com treino eficiente e acompanhamento nutricional.</p>
+                <div class="spec-card fade-up delay-1">
+                    <div class="spec-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+                    </div>
+                    <h3>Queima Acelerada</h3>
+                    <p>Protocolos metabólicos de alta eficiência para redução de percentual de gordura sem perda de massa estrutural.</p>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-card__icon">🧘</div>
-                    <h3>Qualidade de Vida</h3>
-                    <p>Exercícios para saúde, postura e bem-estar no dia a dia.</p>
+                <div class="spec-card fade-up delay-2">
+                    <div class="spec-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                    </div>
+                    <h3>Saúde e Longevidade</h3>
+                    <p>Correção postural, fortalecimento do core e mobilidade. Qualidade de vida muito além da estética.</p>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-card__icon">🏃</div>
+                <div class="spec-card fade-up">
+                    <div class="spec-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
                     <h3>Condicionamento</h3>
-                    <p>Melhore seu fôlego e performance em atividades físicas.</p>
+                    <p>Preparo cardiorrespiratório e adaptação anatômica para elevar seus limites físicos com segurança absoluta.</p>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-card__icon">🤸</div>
-                    <h3>Funcional</h3>
-                    <p>Treinos dinâmicos para mobilidade, força e flexibilidade.</p>
+                <div class="spec-card fade-up delay-1">
+                    <div class="spec-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <h3>Treinamento Funcional</h3>
+                    <p>Ativação inteligente de cadeias musculares para um corpo mais ágil, potente e resistente ao estresse do dia a dia.</p>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-card__icon">👴</div>
-                    <h3>Terceira Idade</h3>
-                    <p>Treinos seguros e adaptados para idosos com supervisão.</p>
+                <div class="spec-card fade-up delay-2">
+                    <div class="spec-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                    </div>
+                    <h3>Prevenção de Lesões</h3>
+                    <p>Análise biomecânica refinada focada em mitigar riscos e reabilitar a função plena de articulações e tendões.</p>
                 </div>
             </div>
         </div>
@@ -203,28 +311,30 @@
     <!-- Results -->
     <section class="results" id="resultados">
         <div class="container">
-            <h2 class="section-title">Resultados dos Alunos</h2>
-            <p class="section-sub">Transformações reais com dedicação e treino correto</p>
+            <div class="section-header fade-up">
+                <h2>O impacto do acompanhamento premium</h2>
+                <p>Mudanças estéticas reais construídas sobre pilares metodológicos sólidos</p>
+            </div>
             <div class="results__grid">
-                <div class="result-card">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop" alt="Resultado">
+                <div class="result-card fade-up">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="Aluno Marcos">
                     <div class="result-card__info">
-                        <h3>Marcos — 3 meses</h3>
-                        <p>-15kg | Ganho de massa</p>
+                        <h3>Marcos S.</h3>
+                        <p>12 Semanas · Hipertrofia</p>
                     </div>
                 </div>
-                <div class="result-card">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=250&fit=crop" alt="Resultado">
+                <div class="result-card fade-up delay-1">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Aluna Juliana">
                     <div class="result-card__info">
-                        <h3>Juliana — 4 meses</h3>
-                        <p>-8kg | Definição corporal</p>
+                        <h3>Juliana M.</h3>
+                        <p>16 Semanas · Definição</p>
                     </div>
                 </div>
-                <div class="result-card">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=250&fit=crop" alt="Resultado">
+                <div class="result-card fade-up delay-2">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=600&auto=format&fit=crop" alt="Aluno Ricardo">
                     <div class="result-card__info">
-                        <h3>Roberto — 6 meses</h3>
-                        <p>Qualidade de vida | +60 anos</p>
+                        <h3>Ricardo A.</h3>
+                        <p>24 Semanas · Recondicionamento</p>
                     </div>
                 </div>
             </div>
@@ -234,46 +344,49 @@
     <!-- Plans -->
     <section class="plans" id="planos">
         <div class="container">
-            <h2 class="section-title">Planos</h2>
-            <p class="section-sub">Escolha o plano ideal para você</p>
+            <div class="section-header fade-up">
+                <h2>Seu investimento em saúde</h2>
+                <p>Experiência desenhada para extrair sua melhor versão</p>
+            </div>
             <div class="plans__grid">
-                <div class="plan-card">
-                    <div class="plan-card__name">Básico</div>
-                    <div class="plan-card__price">R$ 250</div>
-                    <div class="plan-card__period">/mês</div>
+                <div class="plan-card fade-up">
+                    <div class="plan-card__name">Foundation</div>
+                    <div class="plan-card__price">R$ 380<span>/mês</span></div>
+                    <div class="plan-card__desc">Para quem busca consistência técnica.</div>
                     <ul>
-                        <li>2x por semana</li>
-                        <li>Avaliação física mensal</li>
-                        <li>Planilha de treino</li>
-                        <li>Suporte por WhatsApp</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2 sessões semanais guiadas</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Análise biomecânica básica</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Planilha evolutiva no app</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suporte em horário comercial</li>
                     </ul>
-                    <a href="#contato" class="btn btn--warm btn--full">Começar Agora</a>
+                    <a href="#contato" class="btn btn--outline btn--full">Selecionar Plano</a>
                 </div>
-                <div class="plan-card plan-card--featured">
-                    <div class="plan-card__name">Premium</div>
-                    <div class="plan-card__price">R$ 400</div>
-                    <div class="plan-card__period">/mês</div>
+                
+                <div class="plan-card plan-card--featured fade-up delay-1">
+                    <div class="plan-card__name" style="color:var(--text-dark);">Elite Performance</div>
+                    <div class="plan-card__price">R$ 650<span>/mês</span></div>
+                    <div class="plan-card__desc">Acompanhamento profundo e intensivo.</div>
                     <ul>
-                        <li>4x por semana</li>
-                        <li>Avaliação quinzenal</li>
-                        <li>Planilha personalizada</li>
-                        <li>Orientação nutricional</li>
-                        <li>Suporte prioritário</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 4 sessões semanais exclusivas</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Avaliação antropométrica quinzenal</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Integração com nutricionista parceiro</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ajuste fino de periodização de carga</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Acesso direto via WhatsApp 24/7</li>
                     </ul>
-                    <a href="#contato" class="btn btn--warm btn--full">Começar Agora</a>
+                    <a href="#contato" class="btn btn--accent btn--full">Selecionar Elite</a>
                 </div>
-                <div class="plan-card">
-                    <div class="plan-card__name">VIP</div>
-                    <div class="plan-card__price">R$ 600</div>
-                    <div class="plan-card__period">/mês</div>
+                
+                <div class="plan-card fade-up delay-2">
+                    <div class="plan-card__name">Online Consulting</div>
+                    <div class="plan-card__price">R$ 190<span>/mês</span></div>
+                    <div class="plan-card__desc">Autonomia com direcionamento profissional.</div>
                     <ul>
-                        <li>Todos os dias</li>
-                        <li>Acompanhamento total</li>
-                        <li>Planilha + dieta</li>
-                        <li>Nutricionista parceiro</li>
-                        <li>Suporte 24h</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Treino 100% digital via App</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Vídeos de execução corretiva</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ajuste mensal de hipertrofia</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reunião de feedback online (30m)</li>
                     </ul>
-                    <a href="#contato" class="btn btn--warm btn--full">Começar Agora</a>
+                    <a href="#contato" class="btn btn--outline btn--full">Selecionar Online</a>
                 </div>
             </div>
         </div>
@@ -282,26 +395,61 @@
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">O que dizem os alunos</h2>
-            <p class="section-sub">Depoimentos reais de quem já treina comigo</p>
+            <div class="section-header fade-up">
+                <h2>Experiências Exclusivas</h2>
+                <p>O que relatam as pessoas que confiam na metodologia</p>
+            </div>
             <div class="testimonials__grid">
-                <div class="test-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Em 3 meses perdi 15kg e ganhei disposição. O Rafael é muito profissional e dedicado!"</p>
-                    <div class="test-card__name">Marcos Oliveira</div>
-                    <div class="test-card__info">Aluno há 6 meses</div>
+                <div class="test-card fade-up">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p>"Uma mudança drástica na minha rotina. O nível técnico é absurdo. Treino sem dor lombar pela primeira vez na vida e ganhei 4kg de massa muscular pura."</p>
+                    <div class="test-author">
+                        <div class="test-author__avatar">EH</div>
+                        <div class="test-author__info">
+                            <h4>Eduardo Hartmann</h4>
+                            <span>C-Level Executive</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="test-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Melhor investimento que fiz na minha saúde. Treinos perfeitos para meu nível!"</p>
-                    <div class="test-card__name">Juliana Santos</div>
-                    <div class="test-card__info">Aluna há 4 meses</div>
+                <div class="test-card fade-up delay-1">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p>"A atenção aos detalhes biomecânicos faz toda a diferença. Meu percentual de gordura caiu significativamente em poucos meses, algo que não conseguia sozinha."</p>
+                    <div class="test-author">
+                        <div class="test-author__avatar">CL</div>
+                        <div class="test-author__info">
+                            <h4>Camila Lins</h4>
+                            <span>Arquiteta</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="test-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Com 65 anos, nunca me senti tão bem. O cuidado e atenção do Rafael são incríveis."</p>
-                    <div class="test-card__name">Roberto Lima</div>
-                    <div class="test-card__info">Aluno há 1 ano</div>
+                <div class="test-card fade-up delay-2">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p>"Serviço extremamente profissional. Chegava exausto do trabalho, hoje tenho mais energia. A estruturação do treino se adaptou perfeitamente à minha rotina instável."</p>
+                    <div class="test-author">
+                        <div class="test-author__avatar">MD</div>
+                        <div class="test-author__info">
+                            <h4>Marcelo Dias</h4>
+                            <span>Médico Cirurgião</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -309,16 +457,42 @@
 
     <!-- CTA -->
     <section class="cta" id="contato">
-        <div class="container">
-            <h2>Pronto para a sua transformação?</h2>
-            <p>Agende uma aula experimental gratuita e descubra o treino ideal para você.</p>
-            <a href="#" class="btn btn--white">📱 Agendar Aula Grátis</a>
+        <div class="bg-shape"></div>
+        <div class="container cta__content fade-up">
+            <h2>Pronto para redefinir seus padrões?</h2>
+            <p>Deixe seus dados e passarei para agendar uma entrevista inicial de análise de perfil e viabilidade. Sem compromissos.</p>
+            <a href="#" class="btn btn--white">
+                Solicitar Contato
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </a>
         </div>
     </section>
 
     <footer class="footer">
-        <p>Amostra desenvolvida por <strong style="color:#f59e0b">Nykolas Volkmann</strong> — <a href="../index.html" style="color:#f59e0b">Voltar ao portfólio</a></p>
+        <p>Amostra visual premium desenvolvida por <strong style="color:var(--accent)">Nykolas Volkmann</strong> — <a href="../index.html" style="color:var(--text-light); text-decoration:underline;">Voltar ao portfólio ↩</a></p>
     </footer>
 
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+            fadeUpElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>

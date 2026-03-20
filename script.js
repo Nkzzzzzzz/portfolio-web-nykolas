@@ -1,175 +1,210 @@
-/* ============================================
-   NYKOLAS VOLKMANN — PORTFOLIO
-   script.js — Interactivity & Animations
-   ============================================ */
+/* =============================================
+   PORTFOLIO — Script Principal
+   Nykolas Volkmann — 2026
+   ============================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
+(function() {
+    'use strict';
 
-    // ---- ELEMENTS ----
+    // ─── DOM Elements ───
     const header = document.getElementById('header');
     const navToggle = document.getElementById('nav-toggle');
     const navList = document.getElementById('nav-list');
-    const navLinks = document.querySelectorAll('.nav__link');
     const backToTop = document.getElementById('back-to-top');
-    const contactForm = document.getElementById('contact-form');
+    const whatsappFloat = document.querySelector('.whatsapp-float');
 
-    // ---- NAV OVERLAY (mobile) ----
-    const overlay = document.createElement('div');
-    overlay.classList.add('nav-overlay');
-    document.body.appendChild(overlay);
-
-    // ---- MOBILE MENU TOGGLE ----
-    function toggleMenu() {
-        navList.classList.toggle('active');
-        overlay.classList.toggle('active');
-        const isOpen = navList.classList.contains('active');
-        navToggle.innerHTML = isOpen
-            ? '<i class="ph ph-x"></i>'
-            : '<i class="ph ph-list"></i>';
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    }
-
-    navToggle.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', toggleMenu);
-
-    // Close menu on nav link click
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navList.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    });
-
-    // ---- HEADER SCROLL EFFECT ----
-    function handleScroll() {
-        // Sticky header
-        if (window.scrollY > 50) {
+    // ─── Header Scroll Effect ───
+    function handleHeaderScroll() {
+        if (window.scrollY > 80) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
+    }
 
-        // Back to top visibility
-        if (window.scrollY > 500) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
+    // ─── Mobile Nav Toggle ───
+    function toggleMobileNav() {
+        navToggle.classList.toggle('active');
+        navList.classList.toggle('active');
+        document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : '';
+    }
+
+    navToggle.addEventListener('click', toggleMobileNav);
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav__link').forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (navList.classList.contains('active')) {
+                toggleMobileNav();
+            }
+        });
+    });
+
+    // ─── Back to Top & WhatsApp Float ───
+    function handleScrollButtons() {
+        var scrolled = window.scrollY > 400;
+
+        if (backToTop) {
+            if (scrolled) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        if (whatsappFloat) {
+            if (scrolled) {
+                whatsappFloat.classList.add('visible');
+            } else {
+                whatsappFloat.classList.remove('visible');
+            }
         }
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // run once on load
+    // ─── Scroll Reveal Animation ───
+    function initRevealAnimations() {
+        var reveals = document.querySelectorAll('[data-reveal]');
+        if (!reveals.length) return;
 
-    // ---- SCROLL REVEAL (IntersectionObserver) ----
-    const revealElements = document.querySelectorAll('[data-reveal]');
-
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = entry.target.dataset.revealDelay || 0;
-                setTimeout(() => {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
-                }, parseInt(delay));
-                revealObserver.unobserve(entry.target);
-            }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
 
-    revealElements.forEach(el => revealObserver.observe(el));
+        reveals.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
 
-    // ---- ACTIVE NAV LINK ON SCROLL ----
-    const sections = document.querySelectorAll('section[id]');
+    // ─── Counter Animation ───
+    function animateCounters() {
+        var counters = document.querySelectorAll('[data-count]');
+        if (!counters.length) return;
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var target = parseInt(entry.target.getAttribute('data-count'));
+                    var start = 0;
+                    var duration = 1800;
+                    var startTime = null;
+
+                    function easeOutCubic(t) {
+                        return 1 - Math.pow(1 - t, 3);
+                    }
+
+                    function step(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        var progress = Math.min((timestamp - startTime) / duration, 1);
+                        var easedProgress = easeOutCubic(progress);
+                        entry.target.textContent = Math.floor(easedProgress * target);
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            entry.target.textContent = target;
+                        }
+                    }
+
+                    requestAnimationFrame(step);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(function(counter) {
+            observer.observe(counter);
+        });
+    }
+
+    // ─── Smooth Scroll for Anchor Links ───
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                var targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    var headerHeight = header.offsetHeight;
+                    var targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    // ─── Active Nav Link on Scroll ───
+    function handleActiveNavLink() {
+        const sections = document.querySelectorAll('section[id]');
+        var navLinks = document.querySelectorAll('.nav__link:not(.nav__link--cta)');
+
+        var scrollY = window.scrollY + 200;
+
+        sections.forEach(function(section) {
+            var sectionTop = section.offsetTop;
+            var sectionHeight = section.offsetHeight;
+            var sectionId = section.getAttribute('id');
+
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                navLinks.forEach(function(link) {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
+                    if (link.getAttribute('href') === '#' + sectionId) {
                         link.classList.add('active');
                     }
                 });
             }
         });
-    }, {
-        threshold: 0.3,
-        rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72}px 0px -30% 0px`
-    });
-
-    sections.forEach(section => sectionObserver.observe(section));
-
-    // ---- CONTACT FORM (Formspree AJAX) ----
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Verifica se o link do Formspree foi colocado
-            if (contactForm.action.includes('COLE_O_SEU_LINK_DO_FORMSPREE_AQUI')) {
-                alert('O link do Formspree ainda não foi configurado no HTML!');
-                return;
-            }
-
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const originalHTML = btn.innerHTML;
-            
-            // Estado de carregamento
-            btn.innerHTML = 'Enviando...';
-            btn.disabled = true;
-
-            const formData = new FormData(contactForm);
-
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Sucesso
-                    btn.innerHTML = '<i class="ph ph-check-circle"></i> Mensagem Enviada!';
-                    btn.style.background = 'linear-gradient(135deg, hsl(170, 80%, 50%), hsl(150, 80%, 40%))';
-                    contactForm.reset();
-                } else {
-                    // Erro do servidor
-                    btn.innerHTML = '<i class="ph ph-warning-circle"></i> Erro ao enviar';
-                    btn.style.background = '#e74c3c';
-                }
-            }).catch(error => {
-                // Erro de rede
-                btn.innerHTML = '<i class="ph ph-warning-circle"></i> Erro na conexão';
-                btn.style.background = '#e74c3c';
-            }).finally(() => {
-                // Volta ao estado normal depois de 3 segundos
-                setTimeout(() => {
-                    btn.innerHTML = originalHTML;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
-            });
-        });
     }
 
-    // ---- SMOOTH SCROLL FOR ANCHOR LINKS ----
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const target = document.querySelector(targetId);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+    // ─── Throttle Utility ───
+    function throttle(func, wait) {
+        var timeout = null;
+        var lastArgs = null;
+        return function() {
+            lastArgs = arguments;
+            if (!timeout) {
+                timeout = setTimeout(function() {
+                    func.apply(null, lastArgs);
+                    timeout = null;
+                }, wait);
             }
-        });
-    });
+        };
+    }
 
-});
+    // ─── Event Listeners ───
+    var throttledScroll = throttle(function() {
+        handleHeaderScroll();
+        handleScrollButtons();
+        handleActiveNavLink();
+    }, 16);
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+
+    // ─── Initialize ───
+    function init() {
+        handleHeaderScroll();
+        handleScrollButtons();
+        initRevealAnimations();
+        animateCounters();
+        initSmoothScroll();
+    }
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();
